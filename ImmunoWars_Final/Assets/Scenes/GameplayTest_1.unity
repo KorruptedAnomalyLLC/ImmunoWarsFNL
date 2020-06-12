@@ -121,6 +121,95 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &200247168
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: 87f3712b16a41455f82446064ed4868b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.267459
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 87f3712b16a41455f82446064ed4868b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.3425894
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 87f3712b16a41455f82446064ed4868b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.458487
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 87f3712b16a41455f82446064ed4868b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 87f3712b16a41455f82446064ed4868b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 87f3712b16a41455f82446064ed4868b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 87f3712b16a41455f82446064ed4868b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 87f3712b16a41455f82446064ed4868b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 87f3712b16a41455f82446064ed4868b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 87f3712b16a41455f82446064ed4868b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 87f3712b16a41455f82446064ed4868b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2658242376473430033, guid: 87f3712b16a41455f82446064ed4868b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a5fe6931b64e0de469d6a1b5b2a23513, type: 2}
+    - target: {fileID: -2320188019726482607, guid: 87f3712b16a41455f82446064ed4868b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a5fe6931b64e0de469d6a1b5b2a23513, type: 2}
+    - target: {fileID: -927199367670048503, guid: 87f3712b16a41455f82446064ed4868b,
+        type: 3}
+      propertyPath: m_Name
+      value: LabDeskE
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230921003036699880, guid: 87f3712b16a41455f82446064ed4868b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a5fe6931b64e0de469d6a1b5b2a23513, type: 2}
+    - target: {fileID: 5774850198937055061, guid: 87f3712b16a41455f82446064ed4868b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a5fe6931b64e0de469d6a1b5b2a23513, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 87f3712b16a41455f82446064ed4868b, type: 3}
 --- !u!1 &606140406
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,5 +383,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
