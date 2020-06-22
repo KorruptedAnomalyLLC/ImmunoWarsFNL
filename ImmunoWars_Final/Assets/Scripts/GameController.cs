@@ -28,32 +28,37 @@ public class GameController : MonoBehaviour
     {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == _touchPhase)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-            RaycastHit hit;
+            Touch currentTouch = Input.GetTouch(0);
 
-            if (Physics.Raycast(ray, out hit, 1000, rayCastMask))
+            if(currentTouch.phase == _touchPhase)
             {
-                GameObject hitObj = hit.transform.gameObject;
+                Ray ray = Camera.main.ScreenPointToRay(currentTouch.position);
+                RaycastHit hit;
 
-                if (!unitSelected)
+                if (Physics.Raycast(ray, out hit, 1000, rayCastMask))
                 {
-                    selectedUnit = hitObj.GetComponentInParent<UnitBase>();
+                    GameObject hitObj = hit.transform.gameObject;
 
-                    if (selectedUnit != null)
+                    if (!unitSelected)
                     {
-                        selectedUnit.Selected();
-                        //pause da game
-                        unitSelected = true;
+                        selectedUnit = hitObj.GetComponentInParent<UnitBase>();
+
+                        if (selectedUnit != null)
+                        {
+                            selectedUnit.Selected();
+                            //pause da game
+                            unitSelected = true;
+                        }
+                    }
+                    else
+                    {
+                        selectedUnit.MoveTo(hit.point);
+                        selectedUnit.Drop();
+                        selectedUnit = null;
+                        unitSelected = false;
                     }
                 }
-                else
-                {
-                    selectedUnit.MoveTo(hit.point);
-                    selectedUnit.Drop();
-                    selectedUnit = null;
-                    unitSelected = false;
-                }
-            }
+            }         
         }
     }
 
