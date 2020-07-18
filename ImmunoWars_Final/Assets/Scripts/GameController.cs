@@ -16,7 +16,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private bool unitSelected = false;
     [SerializeField]
-    private UnitBase selectedUnit;
+    private UnitRoot selectedUnit;
+    [SerializeField]
+    private UnitRoot prevUnit;
 
     void Update()
     {
@@ -41,19 +43,24 @@ public class GameController : MonoBehaviour
 
                     if (!unitSelected)
                     {
-                        selectedUnit = hitObj.GetComponentInParent<UnitBase>();
+                        if (prevUnit != null)
+                            prevUnit._localBlackboard._behaviorState = BehaviorState.Patrol;
 
+                        selectedUnit = hitObj.GetComponentInParent<UnitRoot>();
                         if (selectedUnit != null)
                         {
                             selectedUnit.Selected();
                             //pause da game
-                            unitSelected = true;
+                            unitSelected = true;                            
+                            selectedUnit.moveRoot.StopMoving();
                         }
                     }
                     else
                     {
-                        selectedUnit.MoveTo(hit.point);
+                        selectedUnit._localBlackboard._behaviorState = BehaviorState.PlayerControlled;
+                        selectedUnit.moveRoot.MoveTo(hit.point);
                         selectedUnit.Drop();
+                        prevUnit = selectedUnit;
                         selectedUnit = null;
                         unitSelected = false;
                     }
@@ -75,19 +82,25 @@ public class GameController : MonoBehaviour
 
                 if (!unitSelected)
                 {
-                    selectedUnit = hitObj.GetComponentInParent<UnitBase>();
+                    if(prevUnit != null)
+                        prevUnit._localBlackboard._behaviorState = BehaviorState.Patrol;
+
+                    selectedUnit = hitObj.GetComponentInParent<UnitRoot>();
 
                     if (selectedUnit != null)
-                    {
+                    {  
                         selectedUnit.Selected();
                         //pause da game
                         unitSelected = true;
+                        selectedUnit.moveRoot.StopMoving();
                     }
                 }
                 else
                 {
-                    selectedUnit.MoveTo(hit.point);
+                    selectedUnit._localBlackboard._behaviorState = BehaviorState.PlayerControlled;
+                    selectedUnit.moveRoot.MoveTo(hit.point);
                     selectedUnit.Drop();
+                    prevUnit = selectedUnit;
                     selectedUnit = null;
                     unitSelected = false;
                 }
