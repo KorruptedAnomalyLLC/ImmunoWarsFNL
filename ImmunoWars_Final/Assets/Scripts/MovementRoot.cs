@@ -25,6 +25,7 @@ public class MovementRoot : MonoBehaviour
         if (TryGetComponent(out RandomPointGenerator temp))
         {
             randMovePoint = temp;
+            randMovePoint.Setup();
         }
     }
 

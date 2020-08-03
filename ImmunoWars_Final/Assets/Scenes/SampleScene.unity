@@ -238,6 +238,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _behaviorState: 0
   currentTarget: {fileID: 0}
+  playfieldHeight: 0
+  playField: {fileID: 0}
 --- !u!1001 &61174556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2523,8 +2525,8 @@ GameObject:
   - component: {fileID: 1701222157}
   - component: {fileID: 1701222156}
   m_Layer: 0
-  m_Name: Plane
-  m_TagString: Untagged
+  m_Name: NavMeshGround
+  m_TagString: PlayField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
