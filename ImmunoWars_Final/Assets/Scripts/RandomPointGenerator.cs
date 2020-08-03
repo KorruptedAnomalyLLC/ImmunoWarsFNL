@@ -22,7 +22,7 @@ public class RandomPointGenerator : MonoBehaviour
         valueToPass.x = Random.Range(rangeX.y, rangeX.x);
         valueToPass.y = Random.Range(rangeY.y, rangeY.x);
 
-        return new Vector3(valueToPass.x, valueToPass.y, 0);
+        return new Vector3(valueToPass.x, 0, valueToPass.y);
     }
 
     /// <summary>
@@ -34,7 +34,7 @@ public class RandomPointGenerator : MonoBehaviour
         rangeX.x = rangeBox.position.x + rangeBox.localScale.x / 2;
         rangeX.y = rangeBox.position.x - rangeBox.localScale.x / 2;
 
-        rangeY.x = rangeBox.position.y + rangeBox.localScale.y / 2;
-        rangeY.y = rangeBox.position.y - rangeBox.localScale.y / 2;
+        rangeY.x = rangeBox.position.z + rangeBox.localScale.z / 2;
+        rangeY.y = rangeBox.position.z - rangeBox.localScale.z / 2;
     }
 }
