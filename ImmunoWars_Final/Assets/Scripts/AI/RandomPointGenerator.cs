@@ -33,7 +33,7 @@ public class RandomPointGenerator : MonoBehaviour
         valueToPass.x = Random.Range(rangeX.y, rangeX.x);
         valueToPass.y = Random.Range(rangeY.y, rangeY.x);
 
-        return new Vector3(valueToPass.x, _localBlackboard.playfieldHeight, valueToPass.y);
+        return new Vector3(valueToPass.x, GlobalBlackboard.Instance.playfieldHeight, valueToPass.y);
     }
 
     /// <summary>
