@@ -1,6 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Video;
 
 public class MovementRoot : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class MovementRoot : MonoBehaviour
         if (TryGetComponent(out RandomPointGenerator temp))
         {
             randMovePoint = temp;
+            randMovePoint.Setup();
         }
     }
 
@@ -38,8 +40,16 @@ public class MovementRoot : MonoBehaviour
                 PatrolBranch();
                 break;
 
+            case BehaviorState.Combat:
+                CombatBranch();
+                break;
+
+            case BehaviorState.PlayerControlled:
+                PlayerMoveBranch();
+                break;
+         
             default:
-                Debug.LogError("U Fuck up big time! Very Very Stupid");
+                
                 break;
         }
 
@@ -53,6 +63,15 @@ public class MovementRoot : MonoBehaviour
             RandomMovement();
     }
 
+    private void CombatBranch()
+    {
+        CombatMovement();
+    }
+
+    private void PlayerMoveBranch()
+    {
+        return;
+    }
 
     //ToDo:
     //Turn into seperate behavior script, combine with RandPointGenerator,
@@ -88,14 +107,35 @@ public class MovementRoot : MonoBehaviour
         }
     }
 
-    private void Combat()
+    //maintain optimum attack distance based on the current attack
+    //ToDo
+    //Distance should be calculated outside of the movement branch, best to make a sight branch for choosing targets, etc?
+    //this only accounts for this unit's attack goals, doesn't have anything in place for changing targets or fleeing.... flight or fight will involve a decision of attack or flee, which can mean combat movement or flee movement
+    //will have to change the way states are read in the movement script, likely unitRoot will have to control this?
+    private void CombatMovement()
     {
-        //move to optimum attack distance
+        //move to optimum attack distance, if already there don't move
+        Vector3 moveTarget = ProcessTargetOffset(_localBlackboard.optimumAttackDistance);
+        MoveTo(moveTarget);
     }
 
+    public Vector3 ProcessTargetOffset(float offset)
+    {
+        Vector3 moveTarget = transform.position - _localBlackboard.currentTarget.position; //direction
+        moveTarget = moveTarget * (moveTarget.sqrMagnitude - offset); //adjusted distance + direction
+
+        if ((transform.position - moveTarget).sqrMagnitude > _localBlackboard.movementSlopAllowance) //if distance between adjusted MoveTarget is greater than your slop allowance then move
+        {
+            return moveTarget;
+        }
+        else
+            return transform.position;
+    }
 
     public void MoveTo(Vector3 targetPos)
     {
+
+        targetPos = new Vector3(targetPos.x, GlobalBlackboard.Instance.playfieldHeight, targetPos.z);
         navAI.SetDestination(targetPos);
     }
 

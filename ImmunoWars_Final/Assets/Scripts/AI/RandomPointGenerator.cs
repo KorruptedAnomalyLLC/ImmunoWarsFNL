@@ -9,8 +9,19 @@ public class RandomPointGenerator : MonoBehaviour
     [SerializeField]
     private Transform rangeBox;
 
+    private LocalBlackboard _localBlackboard;
+
     private Vector2 rangeX, rangeY, valueToPass;
 
+
+    public void Setup()
+    {
+        _localBlackboard = GetComponent<LocalBlackboard>();
+
+        if(_localBlackboard == null)
+            Debug.LogError("No LocalBlackboard script attached, please attach one to ", this.gameObject);
+
+    }
 
     /// <summary>
     /// Returns a Vector3 within the defined rangeBox
@@ -22,7 +33,7 @@ public class RandomPointGenerator : MonoBehaviour
         valueToPass.x = Random.Range(rangeX.y, rangeX.x);
         valueToPass.y = Random.Range(rangeY.y, rangeY.x);
 
-        return new Vector3(valueToPass.x, 0, valueToPass.y);
+        return new Vector3(valueToPass.x, GlobalBlackboard.Instance.playfieldHeight, valueToPass.y);
     }
 
     /// <summary>
