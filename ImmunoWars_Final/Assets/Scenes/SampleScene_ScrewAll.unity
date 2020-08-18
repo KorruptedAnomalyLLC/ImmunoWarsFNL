@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44693977, g: 0.49682915, b: 0.5750268, a: 1}
+  m_IndirectSpecularColor: {r: 0.44634587, g: 0.49615264, b: 0.57467693, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1913,7 +1913,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -2568,6 +2568,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Compound-Microscope
       objectReference: {fileID: 0}
+    - target: {fileID: 1064038985640478924, guid: fb2ceb0b7fc7d4c05962991b5d2c6cb6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19bd0679e42b140d3a25bf092fb1e379, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2ceb0b7fc7d4c05962991b5d2c6cb6, type: 3}
 --- !u!1001 &1230278125
@@ -4022,7 +4027,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1aadf34ed5c4544b7ba125ac83af9559, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3744fb11a657d42afbe5b1f225186bb2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.83
   m_Pitch: 1
