@@ -1320,7 +1320,7 @@ PrefabInstance:
     - target: {fileID: 5426790585553172957, guid: 2aa1777f6c40da3469c0b5723752cb7e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5426790585553172957, guid: 2aa1777f6c40da3469c0b5723752cb7e,
         type: 3}
@@ -1742,7 +1742,7 @@ PrefabInstance:
     - target: {fileID: 5426790585553172957, guid: 2aa1777f6c40da3469c0b5723752cb7e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5426790585553172957, guid: 2aa1777f6c40da3469c0b5723752cb7e,
         type: 3}
@@ -1857,13 +1857,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.42371428, y: -0.050650872, z: -0.086718276, w: 0.90021145}
+  m_LocalRotation: {x: 0.43773565, y: -0.052000362, z: -0.08591584, w: 0.8934774}
   m_LocalPosition: {x: -50.124344, y: 14.827652, z: -63.042328}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1936394747}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 48.945004, y: -14.521001, z: -17.642}
+  m_LocalEulerAnglesHint: {x: 50.649002, y: -15.377001, z: -18.296001}
 --- !u!1 &790549575
 GameObject:
   m_ObjectHideFlags: 0
@@ -2239,13 +2239,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b17343ed1ab4e4f34a7f85d1dab1af05, type: 3}
---- !u!43 &1099353033
+--- !u!43 &1148636974
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18452
+  m_Name: pb_Mesh19576
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3002,7 +3002,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1099353033}
+  m_Mesh: {fileID: 1148636974}
 --- !u!114 &1398136924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3264,7 +3264,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398136921}
-  m_Mesh: {fileID: 1099353033}
+  m_Mesh: {fileID: 1148636974}
 --- !u!1 &1406105999
 GameObject:
   m_ObjectHideFlags: 0
@@ -3687,7 +3687,7 @@ PrefabInstance:
     - target: {fileID: 5426790585553172957, guid: 2aa1777f6c40da3469c0b5723752cb7e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5426790585553172957, guid: 2aa1777f6c40da3469c0b5723752cb7e,
         type: 3}
@@ -4355,11 +4355,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 597460810}
     m_Modifications:
-    - target: {fileID: 1992620781177194667, guid: 61922cf71a5509148a5c662c667775c9,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 963194227}
     - target: {fileID: 1992620782835770540, guid: 61922cf71a5509148a5c662c667775c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4477,7 +4472,7 @@ PrefabInstance:
     - target: {fileID: 4652606713219463654, guid: 0a48f0b00dbf81748bd65c6f98fcda7c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4652606713219463654, guid: 0a48f0b00dbf81748bd65c6f98fcda7c,
         type: 3}
@@ -4557,7 +4552,7 @@ PrefabInstance:
     - target: {fileID: 5426790585553172957, guid: 2aa1777f6c40da3469c0b5723752cb7e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5426790585553172957, guid: 2aa1777f6c40da3469c0b5723752cb7e,
         type: 3}
@@ -4591,7 +4586,7 @@ PrefabInstance:
     - target: {fileID: 7960119405312992352, guid: 8b05675c0f4c49d438cdf3f28189b1a5,
         type: 3}
       propertyPath: m_Name
-      value: Worm Hero
+      value: Bomber Hero
       objectReference: {fileID: 0}
     - target: {fileID: 7960119405312992353, guid: 8b05675c0f4c49d438cdf3f28189b1a5,
         type: 3}
@@ -4631,7 +4626,7 @@ PrefabInstance:
     - target: {fileID: 7960119405312992353, guid: 8b05675c0f4c49d438cdf3f28189b1a5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7960119405312992353, guid: 8b05675c0f4c49d438cdf3f28189b1a5,
         type: 3}
