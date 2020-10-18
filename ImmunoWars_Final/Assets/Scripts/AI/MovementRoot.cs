@@ -30,6 +30,19 @@ public class MovementRoot : MonoBehaviour
         }
     }
 
+
+    public void Selected()
+    {
+        navAI.speed = _localBlackboard.pSpeed;
+        navAI.acceleration = _localBlackboard.pAcceleration;
+    }
+
+    public void Dropped()
+    {
+        navAI.speed = _localBlackboard.sSpeed;
+        navAI.acceleration = _localBlackboard.sAcceleration;
+    }
+
     public void TargetDropped()
     {
         navAI.updateRotation = true;

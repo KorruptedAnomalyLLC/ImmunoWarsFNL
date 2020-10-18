@@ -43,6 +43,7 @@ public class UnitRoot : MonoBehaviour
     {
         _localBlackboard._behaviorState = BehaviorState.PlayerControlled;
         _localBlackboard.selectionGlow.SetActive(true);
+        moveRoot.Selected();
         moveRoot.StopMoving();
     }
 
@@ -50,6 +51,7 @@ public class UnitRoot : MonoBehaviour
     {
         _localBlackboard._behaviorState = BehaviorState.Patrol;
         _localBlackboard.selectionGlow.SetActive(false);
+        moveRoot.Dropped();
     }
 
 

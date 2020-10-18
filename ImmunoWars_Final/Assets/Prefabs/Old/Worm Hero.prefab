@@ -165,6 +165,12 @@ MonoBehaviour:
   personalSpace: 6.5
   originalPriority: 11
   lookAtThreshold: 2
+  pSpeed: 8
+  pAcceleration: 30
+  pAutoBraking: 1
+  sSpeed: 6
+  sAcceleration: 30
+  sAutoBraking: 1
 --- !u!114 &7960119405312992364
 MonoBehaviour:
   m_ObjectHideFlags: 0

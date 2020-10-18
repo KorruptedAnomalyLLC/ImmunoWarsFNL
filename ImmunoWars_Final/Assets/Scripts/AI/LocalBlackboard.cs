@@ -35,6 +35,15 @@ public class LocalBlackboard : MonoBehaviour
     public int originalPriority = 10;
     public float lookAtThreshold = 2f;
 
+    [Space(20)]
+    //Stats when Player Controlled
+    public float pSpeed = 1f;
+    public float pAcceleration = 1f;
+
+    [Space(10)]
+    //Stats when System Controlled
+    public float sSpeed = 1f;
+    public float sAcceleration = 1f;
 
     private void Awake()
     {

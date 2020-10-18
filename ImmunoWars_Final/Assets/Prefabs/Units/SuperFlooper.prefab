@@ -291,10 +291,16 @@ MonoBehaviour:
   hasTarget: 0
   optimumAttackDistance: 5
   targetMovementOffset: 5
-  movementSlopAllowance: 0.5
+  movementSlopAllowance: 0.25
   personalSpace: 4
   originalPriority: 10
   lookAtThreshold: 2
+  pSpeed: 5
+  pAcceleration: 30
+  pAutoBraking: 1
+  sSpeed: 3.5
+  sAcceleration: 8
+  sAutoBraking: 0
 --- !u!195 &1992620782835770541
 NavMeshAgent:
   m_ObjectHideFlags: 0
