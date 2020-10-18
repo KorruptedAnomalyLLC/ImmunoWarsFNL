@@ -53,10 +53,19 @@ public class UnitRoot : MonoBehaviour
     }
 
 
-    public void UpdateTarget(Transform newTarget)
+    public void UpdateTarget(Transform newTarget, bool enemy)
     {
         _localBlackboard.currentTarget = newTarget;
-        
+        _localBlackboard.hasTarget = true;
+
+        if (enemy) //if enemy is target, follow at optimumm attack distance(this will be changing so it needs to update somehow...???)
+        {
+            _localBlackboard.targetMovementOffset = _localBlackboard.optimumAttackDistance;
+        }
+        else //if friendly unit is the target, follow at personal space distance
+        {
+            _localBlackboard.targetMovementOffset = _localBlackboard.personalSpace;
+        }
         //use an attack
     }
 
@@ -68,6 +77,8 @@ public class UnitRoot : MonoBehaviour
     public void MoveToTouchPos(Vector3 target)
     {
         //Vector3 target = new Vector3(target2D.x, GlobalBlackboard.Instance.playfieldHeight, target2D.y);
+        _localBlackboard.hasTarget = false;
+        moveRoot.TargetDropped();
         moveRoot.MoveTo(target);
     }
 

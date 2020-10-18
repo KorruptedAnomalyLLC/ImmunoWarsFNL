@@ -217,10 +217,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1992620782835770540}
   - component: {fileID: 1992620782835770538}
+  - component: {fileID: 4564600713386928345}
   - component: {fileID: 1992620782835770541}
   - component: {fileID: 4282905178951950301}
   - component: {fileID: 5287406829497171886}
-  - component: {fileID: 4564600713386928345}
   m_Layer: 0
   m_Name: SuperFlooper
   m_TagString: Untagged
@@ -258,10 +258,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47f9c7a84e2e6c4ebd73ccf8ed7bfd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tickTime: 0.5
+  tickTime: 0.1
   moveRoot: {fileID: 0}
   combatRoot: {fileID: 0}
   _localBlackboard: {fileID: 0}
+--- !u!114 &4564600713386928345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992620782835770543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed99bfc372436d342b2723bd07885b69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroUnit: 1
+  _behaviorState: 0
+  currentTarget: {fileID: 0}
+  selectionGlow: {fileID: 665496516868817843}
+  attack1UI: {fileID: -3812313026242782472, guid: ba059fe4391a1429187b81bab2cff48c,
+    type: 3}
+  attack2UI: {fileID: -8707525291475557081, guid: ba059fe4391a1429187b81bab2cff48c,
+    type: 3}
+  attack3UI: {fileID: -4665612578199594218, guid: ba059fe4391a1429187b81bab2cff48c,
+    type: 3}
+  dropUnitUI: {fileID: 1651727608106413546, guid: ba059fe4391a1429187b81bab2cff48c,
+    type: 3}
+  nameOfChar: SuperFluper
+  charInfo: A type of Flu
+  hasTarget: 0
+  optimumAttackDistance: 5
+  targetMovementOffset: 5
+  movementSlopAllowance: 0.5
+  personalSpace: 4
+  originalPriority: 10
+  lookAtThreshold: 2
 --- !u!195 &1992620782835770541
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -312,36 +345,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeBox: {fileID: 0}
---- !u!114 &4564600713386928345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1992620782835770543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed99bfc372436d342b2723bd07885b69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heroUnit: 1
-  _behaviorState: 0
-  currentTarget: {fileID: 0}
-  optimumAttackDistance: 1
-  movementSlopAllowance: 0.5
-  personalSpace: 2
-  originalPriority: 10
-  selectionGlow: {fileID: 665496516868817843}
-  attack1UI: {fileID: -3812313026242782472, guid: ba059fe4391a1429187b81bab2cff48c,
-    type: 3}
-  attack2UI: {fileID: -8707525291475557081, guid: ba059fe4391a1429187b81bab2cff48c,
-    type: 3}
-  attack3UI: {fileID: -4665612578199594218, guid: ba059fe4391a1429187b81bab2cff48c,
-    type: 3}
-  dropUnitUI: {fileID: 1651727608106413546, guid: ba059fe4391a1429187b81bab2cff48c,
-    type: 3}
-  nameOfChar: SuperFluper
-  charInfo: A type of Flu
 --- !u!1001 &1992620782719884928
 PrefabInstance:
   m_ObjectHideFlags: 0
