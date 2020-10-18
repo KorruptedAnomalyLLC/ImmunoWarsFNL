@@ -56,7 +56,7 @@ public class LocalBlackboard : MonoBehaviour
     //Debug
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.green;
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, personalSpace);
     }
 }
