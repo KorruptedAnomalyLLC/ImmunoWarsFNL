@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &6784937892418342310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638271100148067760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9474a0c63dac2a64e970cc4c20b0387a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &690780112794716061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,5 +79,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 93938928426482719, guid: 1b75b96f149064c459e697cfdb74d686,
+        type: 3}
+      propertyPath: _healthManager
+      value: 
+      objectReference: {fileID: 6784937892418342310}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b75b96f149064c459e697cfdb74d686, type: 3}
+--- !u!1 &638271100148067760 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 93938929236027949, guid: 1b75b96f149064c459e697cfdb74d686,
+    type: 3}
+  m_PrefabInstance: {fileID: 690780112794716061}
+  m_PrefabAsset: {fileID: 0}

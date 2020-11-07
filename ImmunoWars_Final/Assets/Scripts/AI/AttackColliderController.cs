@@ -1,16 +1,18 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AttackColliderController : MonoBehaviour
 {
     private int damageAmount = 2;
     private HealthManager healthScript;
     private Collider myCollider;
+    private LocalBlackboard _localBlackboard;
 
     private void Start()
     {
-        myCollider = GetComponentInParent<Collider>();
+        _localBlackboard = GetComponentInParent<LocalBlackboard>();
+        myCollider = _localBlackboard._healthManager.GetComponent<Collider>();
     }
+
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -18,14 +20,11 @@ public class AttackColliderController : MonoBehaviour
             return;
 
 
-
-        healthScript = collider.gameObject.GetComponentInParent<HealthManager>();
-
-        Debug.Log("Made it into Trigger " + healthScript);
+        healthScript = collider.gameObject.GetComponent<HealthManager>();
 
         if (healthScript != null)
         {
-            healthScript.TakeDamage(damageAmount);
+            healthScript.TakeDamage(damageAmount, transform.parent.transform);
         }
     }
 }

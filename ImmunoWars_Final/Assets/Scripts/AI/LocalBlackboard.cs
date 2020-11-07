@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public enum BehaviorState
 {
@@ -8,7 +6,8 @@ public enum BehaviorState
     Combat,
     FlightOrFight,
     Dead,
-    PlayerControlled
+    PlayerControlled,
+    FollowFriendlyUnit
 }
 
 public enum Attack 
@@ -59,6 +58,7 @@ public class LocalBlackboard : MonoBehaviour
     public bool inRange = false;
     public int damageAmount = 1;
 
+    public HealthManager _healthManager;
     public int energyLevel = 5;
 
 
