@@ -173,6 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1992620781897127720}
   - component: {fileID: 1992620781897127721}
+  - component: {fileID: 9068517825591942417}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -207,6 +208,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9068517825591942417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992620781897127723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9474a0c63dac2a64e970cc4c20b0387a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1992620782835770543
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +235,6 @@ GameObject:
   - component: {fileID: 4282905178951950301}
   - component: {fileID: 5287406829497171886}
   - component: {fileID: 6800954787576286427}
-  - component: {fileID: 190986785126533344}
   m_Layer: 0
   m_Name: SuperFlooper
   m_TagString: Untagged
@@ -293,7 +305,7 @@ MonoBehaviour:
   nameOfChar: SuperFluper
   charInfo: A type of Flu
   hasTarget: 0
-  optimumAttackDistance: 5
+  optimumAttackDistance: 2
   targetMovementOffset: 5
   movementSlopAllowance: 0.25
   personalSpace: 4
@@ -305,6 +317,7 @@ MonoBehaviour:
   sAcceleration: 8
   inRange: 0
   damageAmount: 1
+  _healthManager: {fileID: 9068517825591942417}
   energyLevel: 5
 --- !u!195 &1992620782835770541
 NavMeshAgent:
@@ -368,21 +381,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a55886cff17702e42adecc8ca8653b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRechargeTime: 0.5
+  attackReady: 1
   basicHitbox: {fileID: 8978555302308610830}
-  hitTime: 0.6
-  attackSlopDistance: 2
---- !u!114 &190986785126533344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1992620782835770543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9474a0c63dac2a64e970cc4c20b0387a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  hitTime: 0.1
+  attackSlopDistance: 3
 --- !u!1 &8075093074590749605
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,6 +475,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5673897294996961887}
   - component: {fileID: 1550197887696854798}
+  - component: {fileID: 5205900288618753050}
+  - component: {fileID: 4983240366355005299}
   m_Layer: 0
   m_Name: AttackDamageBox
   m_TagString: Untagged
@@ -488,7 +493,7 @@ Transform:
   m_GameObject: {fileID: 8978555302308610830}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 6, y: 5, z: 6}
   m_Children:
   - {fileID: 2047932995210304605}
   m_Father: {fileID: 1992620782835770540}
@@ -507,6 +512,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5205900288618753050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8978555302308610830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 635b90b3ac0c73440934538da61c420d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &4983240366355005299
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8978555302308610830}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1992620782719884928
 PrefabInstance:
   m_ObjectHideFlags: 0

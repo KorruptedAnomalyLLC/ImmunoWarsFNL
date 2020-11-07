@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CombatRoot : MonoBehaviour
@@ -25,7 +24,7 @@ public class CombatRoot : MonoBehaviour
     public void _update()
     {
         CheckRange();
-
+        CheckTarget();
         switch (_localBlackboard._attack)
         {
             case Attack.Slot1:
@@ -94,6 +93,17 @@ public class CombatRoot : MonoBehaviour
         else
         {
             _localBlackboard.inRange = false;
+        }
+    }
+
+
+    private float sightRange = 10f;
+    private void CheckTarget()
+    {
+        if (!_localBlackboard.hasTarget)
+        {
+            //find a target
+            //Physics.SphereCast(transform.position, sightRange)
         }
     }
 }

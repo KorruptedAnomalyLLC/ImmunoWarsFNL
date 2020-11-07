@@ -1,20 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
     LocalBlackboard _localBlackboard;
+    UnitRoot _unitRoot;
 
     public void Start()
     {
-        _localBlackboard = GetComponent<LocalBlackboard>();
+        _unitRoot = GetComponentInParent<UnitRoot>();
+        _localBlackboard = GetComponentInParent<LocalBlackboard>();
     }
 
 
-    public void TakeDamage(int damageTaken)
+    public void TakeDamage(int damageTaken, Transform attacker)
     {
         _localBlackboard.energyLevel -= damageTaken;
+
+        if (!_localBlackboard.hasTarget)
+        {
+            _unitRoot.UpdateTarget(attacker, true);
+        }
 
         if(_localBlackboard.energyLevel <= 0)
         {
@@ -24,6 +30,6 @@ public class HealthManager : MonoBehaviour
 
     public void Die()
     {
-        Destroy(this.gameObject);
+        Destroy(this.transform.parent.gameObject);
     }
 }
