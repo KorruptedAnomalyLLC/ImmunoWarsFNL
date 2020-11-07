@@ -175,6 +175,7 @@ MonoBehaviour:
   sAcceleration: 30
   inRange: 0
   damageAmount: 1
+  _healthManager: {fileID: 0}
   energyLevel: 5
 --- !u!114 &93938928426482718
 MonoBehaviour:
@@ -487,8 +488,8 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5142765457108223745}
   serializedVersion: 6
-  lengthInSec: 64.2
-  simulationSpeed: 1
+  lengthInSec: 6.13
+  simulationSpeed: 0.29
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -562,7 +563,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.9
+      scalar: 4.4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -615,7 +616,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 3.8
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -669,7 +670,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -731,7 +732,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.24
+      scalar: 2.39
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1312,7 +1313,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 11.42
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4326,7 +4327,7 @@ ParticleSystem:
   TrailModule:
     enabled: 1
     mode: 0
-    ratio: 1
+    ratio: 0.61
     lifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -4396,7 +4397,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.754717, g: 0.74939793, b: 0.74403703, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4458,7 +4459,7 @@ ParticleSystem:
     widthOverTrail:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.7
       minScalar: 1
       maxCurve:
         serializedVersion: 2

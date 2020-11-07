@@ -84,6 +84,16 @@ PrefabInstance:
       propertyPath: _healthManager
       value: 
       objectReference: {fileID: 6784937892418342310}
+    - target: {fileID: 9000562902630657841, guid: 1b75b96f149064c459e697cfdb74d686,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 9000562902630657841, guid: 1b75b96f149064c459e697cfdb74d686,
+        type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 6.78
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b75b96f149064c459e697cfdb74d686, type: 3}
 --- !u!1 &638271100148067760 stripped
