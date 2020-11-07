@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47f9c7a84e2e6c4ebd73ccf8ed7bfd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tickTime: 0.5
+  tickTime: 0.1
   moveRoot: {fileID: 0}
   combatRoot: {fileID: 0}
   _localBlackboard: {fileID: 7960119405312992365}
@@ -151,10 +151,6 @@ MonoBehaviour:
   heroUnit: 1
   _behaviorState: 0
   currentTarget: {fileID: 0}
-  optimumAttackDistance: 1
-  movementSlopAllowance: 0.5
-  personalSpace: 2
-  originalPriority: 11
   selectionGlow: {fileID: 7960119406149208406}
   attack1UI: {fileID: 21300000, guid: 13e7a5e6839ce4f778555e2352b77333, type: 3}
   attack2UI: {fileID: 21300000, guid: 13e7a5e6839ce4f778555e2352b77333, type: 3}
@@ -162,6 +158,19 @@ MonoBehaviour:
   dropUnitUI: {fileID: 21300000, guid: 4540206065a20481392aba1344dc8082, type: 3}
   nameOfChar: Shiggy
   charInfo: Worm thing
+  hasTarget: 0
+  optimumAttackDistance: 6
+  targetMovementOffset: 6
+  movementSlopAllowance: 0.5
+  personalSpace: 6.5
+  originalPriority: 11
+  lookAtThreshold: 2
+  pSpeed: 8
+  pAcceleration: 30
+  pAutoBraking: 1
+  sSpeed: 6
+  sAcceleration: 30
+  sAutoBraking: 1
 --- !u!114 &7960119405312992364
 MonoBehaviour:
   m_ObjectHideFlags: 0
