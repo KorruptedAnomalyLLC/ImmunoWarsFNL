@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
@@ -30,6 +29,9 @@ public class HealthManager : MonoBehaviour
 
     public void Die()
     {
+        if(GlobalBlackboard.Instance.selectedUnit == _unitRoot)
+            UIManager.Instance.ButtonClicked(ButtonType.DropUnit);
+
         Destroy(this.transform.parent.gameObject);
     }
 }
