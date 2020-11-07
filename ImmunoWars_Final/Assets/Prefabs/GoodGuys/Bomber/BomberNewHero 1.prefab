@@ -472,12 +472,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5142765457108223745}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.0117, z: -0.0032}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.0008, y: 0.0144, z: -0.0032}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 5593900641102415805}
-  m_RootOrder: 15
+  m_Father: {fileID: 2785997130006705441}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!198 &2090019268164789658
 ParticleSystem:
@@ -487,7 +487,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5142765457108223745}
   serializedVersion: 6
-  lengthInSec: 5
+  lengthInSec: 64.2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -552,7 +552,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -562,7 +562,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 3.9
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -731,7 +731,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.24
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1193,7 +1193,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.18
       mode: 0
       spread: 0
       speed:
@@ -4324,13 +4324,13 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 0
+    enabled: 1
     mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5157,7 +5157,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: e7cd916d4403e5449a3d9a7c8e626477, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5453,6 +5453,12 @@ GameObject:
 --- !u!4 &5593900641102415805 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: ed966125df71f48beba6c40b95e0b51d,
+    type: 3}
+  m_PrefabInstance: {fileID: 638158955220364455}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2785997130006705441 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5876375557047166586, guid: ed966125df71f48beba6c40b95e0b51d,
     type: 3}
   m_PrefabInstance: {fileID: 638158955220364455}
   m_PrefabAsset: {fileID: 0}
