@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.ComponentModel;
+using UnityEngine;
 using UnityEngine.UI;
 
 public enum BehaviorState
@@ -10,12 +11,20 @@ public enum BehaviorState
     PlayerControlled
 }
 
+public enum Attack 
+{ 
+    Slot1,
+    Slot2,
+    Slot3
+}
+
 
 public class LocalBlackboard : MonoBehaviour
 {
     public bool heroUnit = false;
     public BehaviorState _behaviorState = BehaviorState.Patrol;
-    [HideInInspector]
+    public Attack _attack = Attack.Slot1;
+
     public Transform currentTarget;
 
 
@@ -44,6 +53,15 @@ public class LocalBlackboard : MonoBehaviour
     //Stats when System Controlled
     public float sSpeed = 1f;
     public float sAcceleration = 1f;
+
+    [Space(20)]
+    //Attack Crap
+    public bool inRange = false;
+    public int damageAmount = 1;
+
+    public int energyLevel = 5;
+
+
 
     private void Awake()
     {

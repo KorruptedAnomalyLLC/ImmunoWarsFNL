@@ -34,7 +34,7 @@ public class UnitRoot : MonoBehaviour
         if(TryGetComponent(out CombatRoot temp2))
         {
             combatRoot = temp2;
-            //combatRoot.Setup();
+            combatRoot.Setup();
         }
     }
 
@@ -92,6 +92,9 @@ public class UnitRoot : MonoBehaviour
         {
             if(moveRoot != null)
                 moveRoot._update();
+
+            if (combatRoot != null && _localBlackboard._behaviorState == BehaviorState.Combat)
+                combatRoot._update();
 
             currentTick = 0;
         }
