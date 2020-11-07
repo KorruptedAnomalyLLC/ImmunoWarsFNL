@@ -1,26 +1,26 @@
-﻿using System.Runtime.InteropServices;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Video;
 
 public class MovementRoot : MonoBehaviour
 {
-    private NavMeshAgent navAI; //req
 
+    //AI Tree Branch References
+    private RandomPointGenerator randMovePoint; //not req
 
-    private RandomPointGenerator randMovePoint;
-
-    //private UnitBase unitRoot; //req
     private LocalBlackboard _localBlackboard; //req
 
+    //Script variables
     [SerializeField]
     private Vector2 priorityRange = new Vector2(50, 60);
+
+    private NavMeshAgent navAI; //req
+
+    private bool rotating = false;
 
     public void Setup()
     {
         navAI = GetComponent<NavMeshAgent>();
         navAI.avoidancePriority = (int)Random.Range(priorityRange.x, priorityRange.y);
-        //unitRoot = GetComponent<UnitBase>();
         _localBlackboard = GetComponent<LocalBlackboard>();
 
         if (TryGetComponent(out RandomPointGenerator temp))
@@ -31,6 +31,24 @@ public class MovementRoot : MonoBehaviour
     }
 
 
+    public void Selected()
+    {
+        navAI.speed = _localBlackboard.pSpeed;
+        navAI.acceleration = _localBlackboard.pAcceleration;
+    }
+
+    public void Dropped()
+    {
+        navAI.speed = _localBlackboard.sSpeed;
+        navAI.acceleration = _localBlackboard.sAcceleration;
+    }
+
+    public void TargetDropped()
+    {
+        navAI.updateRotation = true;
+        rotating = false;
+    }
+
     public void _update()
     {
 
@@ -39,21 +57,21 @@ public class MovementRoot : MonoBehaviour
             case BehaviorState.Patrol:
                 PatrolBranch();
                 break;
-
-            case BehaviorState.Combat:
-                CombatBranch();
-                break;
-
-            case BehaviorState.PlayerControlled:
-                PlayerMoveBranch();
-                break;
          
             default:
-                
+                if (_localBlackboard.hasTarget)
+                    TargetObtainedBranch();
                 break;
         }
 
         _randMoveUpdate(); //to be moved, likely behavior state will be a called function not checked every tick
+    }
+
+    //used for movement stuff/things that have to go every frame to keep game looking smooth
+    public void Update()
+    {
+        if(rotating)
+            RotateTo(_localBlackboard.currentTarget.position);
     }
 
 
@@ -63,16 +81,13 @@ public class MovementRoot : MonoBehaviour
             RandomMovement();
     }
 
-    private void CombatBranch()
+    private void TargetObtainedBranch()
     {
-        CombatMovement();
+        MoveWithTarget();
     }
 
-    private void PlayerMoveBranch()
-    {
-        return;
-    }
 
+    #region RandomMovement
     //ToDo:
     //Turn into seperate behavior script, combine with RandPointGenerator,
     //make enter and exit events work
@@ -106,31 +121,58 @@ public class MovementRoot : MonoBehaviour
             moving = false;
         }
     }
+    #endregion
 
+
+    #region Move To Target
+    //Using a fuck ton of inefficient math functions, clean this shit up!
     //maintain optimum attack distance based on the current attack
     //ToDo
     //Distance should be calculated outside of the movement branch, best to make a sight branch for choosing targets, etc?
     //this only accounts for this unit's attack goals, doesn't have anything in place for changing targets or fleeing.... flight or fight will involve a decision of attack or flee, which can mean combat movement or flee movement
     //will have to change the way states are read in the movement script, likely unitRoot will have to control this?
-    private void CombatMovement()
+    private void MoveWithTarget()
     {
-        //move to optimum attack distance, if already there don't move
-        Vector3 moveTarget = ProcessTargetOffset(_localBlackboard.optimumAttackDistance);
+        //move to optimum distance, if already there don't move
+        Vector3 moveTarget = ProcessTargetOffset(_localBlackboard.targetMovementOffset);
         MoveTo(moveTarget);
+        //look at target
+        if ((transform.position - moveTarget).magnitude < _localBlackboard.lookAtThreshold)
+        {
+            navAI.updateRotation = false;
+            rotating = true;
+            //RotateTo(_localBlackboard.currentTarget.position);
+        }
+        else
+        {
+            navAI.updateRotation = true;
+            rotating = false;
+        }
+
     }
 
+    //rotates towards the passed in position
+    private void RotateTo(Vector3 targetPos)
+    {
+        Vector3 direction = (targetPos - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));    // flattens the vector3
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * (navAI.angularSpeed/200));
+    }
+
+    //Move this shit out of the movement branch you lazy fucker!!!
     public Vector3 ProcessTargetOffset(float offset)
     {
-        Vector3 moveTarget = transform.position - _localBlackboard.currentTarget.position; //direction
-        moveTarget = moveTarget * (moveTarget.sqrMagnitude - offset); //adjusted distance + direction
+        Vector3 moveTarget = _localBlackboard.currentTarget.position - transform.position; //direction
+        moveTarget = moveTarget.normalized * (moveTarget.magnitude - offset) + transform.position; //adjusted distance + direction gives us the Vector pointing at our moveTarget, adding it to our position gives us the moveTarget's world position       
 
-        if ((transform.position - moveTarget).sqrMagnitude > _localBlackboard.movementSlopAllowance) //if distance between adjusted MoveTarget is greater than your slop allowance then move
-        {
+        //this should probably return a move at all bool, don't wanna calc movement when it's not needed
+        if ((transform.position - moveTarget).magnitude > _localBlackboard.movementSlopAllowance) //if distance between adjusted MoveTarget is greater than your slop allowance then move
             return moveTarget;
-        }
         else
             return transform.position;
     }
+    #endregion
+
 
     public void MoveTo(Vector3 targetPos)
     {

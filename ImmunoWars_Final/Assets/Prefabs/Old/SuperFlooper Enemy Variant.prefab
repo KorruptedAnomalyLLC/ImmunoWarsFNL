@@ -90,13 +90,18 @@ PrefabInstance:
     - target: {fileID: 1992620782835770543, guid: 61922cf71a5509148a5c662c667775c9,
         type: 3}
       propertyPath: m_Name
-      value: SuperFlooper Enemy
+      value: SuperFlooper Enemy Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4564600713386928345, guid: 61922cf71a5509148a5c662c667775c9,
         type: 3}
       propertyPath: heroUnit
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5251046857097815555, guid: 61922cf71a5509148a5c662c667775c9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4003d28ba233a684cb866a21723771d0, type: 2}
     - target: {fileID: 5287406829497171886, guid: 61922cf71a5509148a5c662c667775c9,
         type: 3}
       propertyPath: rangeBox

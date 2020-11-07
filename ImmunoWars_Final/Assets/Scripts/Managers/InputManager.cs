@@ -77,7 +77,7 @@ public class InputManager : GenericSingletonClass<InputManager>
                 {
                     GameObject hitObj = hit.transform.gameObject;
                     touchedPos = hit.point;
-                    Debug.LogError(touchedPos);
+                    //Debug.LogError(touchedPos);
                     touchedUnit = hitObj.GetComponentInParent<UnitRoot>();
 
                     if (GlobalBlackboard.Instance.unitSelected)
@@ -116,14 +116,14 @@ public class InputManager : GenericSingletonClass<InputManager>
             {
                 Debug.Log("Move to Hero Unit");
                 //move to touched unit's position
-                GlobalBlackboard.Instance.selectedUnit.UpdateTarget(touchedUnit.transform);
+                GlobalBlackboard.Instance.selectedUnit.UpdateTarget(touchedUnit.transform, false);
             }
         }
         else //if you touched an enemy unit
         {
             Debug.Log("Moveto enemy");
             //target enemy, change to combat mode, use attack on enemy
-            GlobalBlackboard.Instance.selectedUnit.UpdateTarget(touchedUnit.transform);
+            GlobalBlackboard.Instance.selectedUnit.UpdateTarget(touchedUnit.transform, true);
             GlobalBlackboard.Instance.selectedUnit.EnterCombat();
         }
     }

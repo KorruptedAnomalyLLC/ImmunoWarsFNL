@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 7960119405312992352, guid: 8b05675c0f4c49d438cdf3f28189b1a5,
         type: 3}
       propertyPath: m_Name
-      value: Bomber Hero
+      value: Bomber Hero Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7960119405312992353, guid: 8b05675c0f4c49d438cdf3f28189b1a5,
         type: 3}
