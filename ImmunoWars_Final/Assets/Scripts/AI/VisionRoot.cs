@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetingRoot : MonoBehaviour
+public class VisionRoot : MonoBehaviour
 {
     private LocalBlackboard _localBlackboard; //req
 

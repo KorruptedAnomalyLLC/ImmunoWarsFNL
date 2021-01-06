@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class HealthManager : MonoBehaviour
+public class StatusManager : MonoBehaviour
 {
     LocalBlackboard _localBlackboard;
     UnitRoot _unitRoot;

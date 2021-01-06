@@ -107,7 +107,7 @@ public class InputManager : GenericSingletonClass<InputManager>
             if(touchedUnit == GlobalBlackboard.Instance.selectedUnit)
             {
                 //re select unit, pause da game
-                GlobalBlackboard.Instance.selectedUnit.Selected();
+                GlobalBlackboard.Instance.selectedUnit._localBlackboard._commandMessenger.CallSelected();
                 UIManager.Instance.TurnOnBattleUI();
                 PauseManager.Instance.PauseGame();
             }
@@ -139,7 +139,7 @@ public class InputManager : GenericSingletonClass<InputManager>
             //select unit, pause da game
             GlobalBlackboard.Instance.selectedUnit = touchedUnit;
             GlobalBlackboard.Instance.unitSelected = true;
-            GlobalBlackboard.Instance.selectedUnit.Selected();
+            GlobalBlackboard.Instance.selectedUnit._localBlackboard._commandMessenger.CallSelected();
             UIManager.Instance.TurnOnBattleUI();
             PauseManager.Instance.PauseGame();
         }

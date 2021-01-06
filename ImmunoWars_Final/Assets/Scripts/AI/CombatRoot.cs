@@ -10,9 +10,9 @@ public class CombatRoot : MonoBehaviour
 
     public bool attackReady = true;
 
-    public void Setup()
+    public void Setup(LocalBlackboard localBlackboard)
     {
-        _localBlackboard = GetComponent<LocalBlackboard>();
+        _localBlackboard = localBlackboard;
     }
 
 

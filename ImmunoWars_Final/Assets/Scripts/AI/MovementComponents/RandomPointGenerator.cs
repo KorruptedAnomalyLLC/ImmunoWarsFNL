@@ -14,13 +14,9 @@ public class RandomPointGenerator : MonoBehaviour
     private Vector2 rangeX, rangeY, valueToPass;
 
 
-    public void Setup()
+    public void Setup(LocalBlackboard localBlackboard)
     {
-        _localBlackboard = GetComponent<LocalBlackboard>();
-
-        if(_localBlackboard == null)
-            Debug.LogError("No LocalBlackboard script attached, please attach one to ", this.gameObject);
-
+        _localBlackboard = localBlackboard;
     }
 
     /// <summary>

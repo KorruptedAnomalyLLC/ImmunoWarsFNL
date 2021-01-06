@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 public enum BehaviorState
 {
@@ -20,6 +21,18 @@ public enum Attack
 
 public class LocalBlackboard : MonoBehaviour
 {
+    #region Component Roots
+    [HideInInspector]
+    public MovementRoot _moveRoot;
+    [HideInInspector]
+    public UnitRoot _unitRoot;
+    [HideInInspector]
+    public CombatRoot _combatRoot;
+    [HideInInspector]
+    public CommandMessenger _commandMessenger;
+    #endregion
+
+
     public bool heroUnit = false;
     public BehaviorState _behaviorState = BehaviorState.Patrol;
     public Attack _attack = Attack.Slot1;
@@ -34,14 +47,21 @@ public class LocalBlackboard : MonoBehaviour
     public string nameOfChar = "SuperFluper", 
                   charInfo = "A type of Flu";
 
-    //Movement Crap
-    public bool hasTarget = false;
+    #region Movement Variables 
+    [Header("Movement Variables")]
     public float optimumAttackDistance = 0.5f;
-    public float targetMovementOffset = 1f;
+    public float targetMovementOffset = 1f; //how much distance to keep between unit and it's target
     public float movementSlopAllowance = 0.5f;
-    public float personalSpace = 2f;
-    public int originalPriority = 10;
+    public float personalSpace = 2f;   
     public float lookAtThreshold = 2f;
+    [HideInInspector]
+    public int originalPriority = 10;
+    [HideInInspector]
+    public bool hasTarget = false;
+    [HideInInspector]
+    public NavMeshAgent navAI;
+    #endregion
+
 
     [Space(20)]
     //Stats when Player Controlled
@@ -53,22 +73,24 @@ public class LocalBlackboard : MonoBehaviour
     public float sSpeed = 1f;
     public float sAcceleration = 1f;
 
-    [Space(20)]
-    //Attack Crap
+    
+    #region Attack Variables
+    [Header("Attack Variables")]
     public bool inRange = false;
     public int damageAmount = 1;
+    #endregion
 
-    public HealthManager _healthManager;
+    [Space(20)]
+    public StatusManager _healthManager;
     public int energyLevel = 5;
 
 
-
-    private void Awake()
-    {
+   // private void Awake()
+    //{
         //this is done to avoid using square root functions in Movement scripts... will actually get used in optimization pass
         //optimumAttackDistance *= optimumAttackDistance;
         //movementSlopAllowance *= movementSlopAllowance;
-    }
+    //}
 
 
     //Debug

@@ -95,7 +95,7 @@ public class UIManager : GenericSingletonClass<UIManager>
                 break;
             case ButtonType.DropUnit:
                 //drop unit
-                GlobalBlackboard.Instance.selectedUnit.Drop();
+                GlobalBlackboard.Instance.selectedUnit._localBlackboard._commandMessenger.CallDropped();
                 GlobalBlackboard.Instance.unitSelected = false;
                 PauseManager.Instance.UnpauseGame();
                 TurnOffUnitUI();

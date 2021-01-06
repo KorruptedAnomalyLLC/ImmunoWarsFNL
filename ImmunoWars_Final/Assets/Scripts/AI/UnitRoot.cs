@@ -10,48 +10,42 @@ public class UnitRoot : MonoBehaviour
     private float tickTime = 0.5f; //how often to run updates, not done everyframe to save on processing power
     private float currentTick = 0;
 
-
-    [HideInInspector]
-    public MovementRoot moveRoot; //not req
-    [HideInInspector]
-    public CombatRoot combatRoot; //not req
-
     [HideInInspector]
     public LocalBlackboard _localBlackboard; //req
 
-
+    //Initialize Components/Check if they exist
     private void Start()
     {
         _localBlackboard = GetComponent<LocalBlackboard>();
+        _localBlackboard._unitRoot = this;
 
+        _localBlackboard._commandMessenger = GetComponent<CommandMessenger>();
+        _localBlackboard._commandMessenger.Setup(_localBlackboard);
 
         if (TryGetComponent(out MovementRoot temp))
         {
-            moveRoot = temp;
-            moveRoot.Setup();
+            _localBlackboard._moveRoot = temp;
+            _localBlackboard._moveRoot.Setup(_localBlackboard);
         }
 
         if(TryGetComponent(out CombatRoot temp2))
         {
-            combatRoot = temp2;
-            combatRoot.Setup();
+            _localBlackboard._combatRoot = temp2;
+            _localBlackboard._combatRoot.Setup(_localBlackboard);
         }
     }
 
 
     public void Selected()
     {
-        _localBlackboard._behaviorState = BehaviorState.PlayerControlled;
-        _localBlackboard.selectionGlow.SetActive(true);
-        moveRoot.Selected();
-        moveRoot.StopMoving();
+        _localBlackboard._behaviorState = BehaviorState.PlayerControlled; //move to status manager once it is built
+        _localBlackboard.selectionGlow.SetActive(true); //to be replaced with something less hacky  
     }
 
-    public void Drop()
+    public void Dropped()
     {
         _localBlackboard._behaviorState = BehaviorState.Patrol;
         _localBlackboard.selectionGlow.SetActive(false);
-        moveRoot.Dropped();
     }
 
 
@@ -83,8 +77,8 @@ public class UnitRoot : MonoBehaviour
         //Vector3 target = new Vector3(target2D.x, GlobalBlackboard.Instance.playfieldHeight, target2D.y);
         _localBlackboard._behaviorState = BehaviorState.PlayerControlled;
         _localBlackboard.hasTarget = false;
-        moveRoot.TargetDropped();
-        moveRoot.MoveTo(target);
+        _localBlackboard._moveRoot.TargetDropped();
+        _localBlackboard._moveRoot.MoveTo(target);
     }
 
 
@@ -93,19 +87,26 @@ public class UnitRoot : MonoBehaviour
         
     }
 
+    #region Ticks
     private void Update()
     {
+        //General Updates
         currentTick += Time.deltaTime;
 
         if(currentTick > tickTime)
         {
-            if(moveRoot != null)
-                moveRoot._update();
+            if(_localBlackboard._moveRoot != null)
+                _localBlackboard._moveRoot._update();
 
-            if (combatRoot != null && _localBlackboard._behaviorState == BehaviorState.Combat)
-                combatRoot._update();
+            if (_localBlackboard._combatRoot != null && _localBlackboard._behaviorState == BehaviorState.Combat)
+                _localBlackboard._combatRoot._update();
 
             currentTick = 0;
         }
+
+        //Smooth Updates
+        if (_localBlackboard._moveRoot != null)
+            _localBlackboard._moveRoot._smoothUpdate();
     }
+    #endregion
 }

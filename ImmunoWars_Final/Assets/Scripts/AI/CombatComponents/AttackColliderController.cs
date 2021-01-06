@@ -3,7 +3,7 @@
 public class AttackColliderController : MonoBehaviour
 {
     private int damageAmount = 2;
-    private HealthManager healthScript;
+    private StatusManager healthScript;
     private Collider myCollider;
     private LocalBlackboard _localBlackboard;
 
@@ -20,7 +20,7 @@ public class AttackColliderController : MonoBehaviour
             return;
 
 
-        healthScript = collider.gameObject.GetComponent<HealthManager>();
+        healthScript = collider.gameObject.GetComponent<StatusManager>();
 
         if (healthScript != null)
         {
