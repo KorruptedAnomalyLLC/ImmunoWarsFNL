@@ -231,10 +231,13 @@ GameObject:
   - component: {fileID: 1992620782835770540}
   - component: {fileID: 1992620782835770538}
   - component: {fileID: 4564600713386928345}
-  - component: {fileID: 1992620782835770541}
-  - component: {fileID: 4282905178951950301}
-  - component: {fileID: 5287406829497171886}
+  - component: {fileID: 4698672305506386128}
   - component: {fileID: 6800954787576286427}
+  - component: {fileID: 4282905178951950301}
+  - component: {fileID: 1992620782835770541}
+  - component: {fileID: 5645630659961786797}
+  - component: {fileID: 5287406829497171886}
+  - component: {fileID: 4841014002018051305}
   m_Layer: 0
   m_Name: SuperFlooper
   m_TagString: Untagged
@@ -274,8 +277,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tickTime: 0.1
-  moveRoot: {fileID: 0}
-  combatRoot: {fileID: 0}
   _localBlackboard: {fileID: 0}
 --- !u!114 &4564600713386928345
 MonoBehaviour:
@@ -289,6 +290,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed99bfc372436d342b2723bd07885b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveRoot: {fileID: 0}
+  _unitRoot: {fileID: 0}
+  _combatRoot: {fileID: 0}
+  _commandMessenger: {fileID: 0}
   heroUnit: 1
   _behaviorState: 0
   _attack: 0
@@ -311,6 +316,7 @@ MonoBehaviour:
   personalSpace: 4
   originalPriority: 10
   lookAtThreshold: 2
+  navAI: {fileID: 0}
   pSpeed: 5
   pAcceleration: 30
   sSpeed: 3.5
@@ -319,6 +325,47 @@ MonoBehaviour:
   damageAmount: 1
   _healthManager: {fileID: 9068517825591942417}
   energyLevel: 5
+--- !u!114 &4698672305506386128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992620782835770543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179f59b2c097ede4aa4efa2a5126f7bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6800954787576286427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992620782835770543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55886cff17702e42adecc8ca8653b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRechargeTime: 0.5
+  attackReady: 1
+  basicHitbox: {fileID: 8978555302308610830}
+  hitTime: 0.1
+  attackSlopDistance: 3
+--- !u!114 &4282905178951950301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992620782835770543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2235ab552759eb45beb503826139a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &1992620782835770541
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -341,7 +388,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4282905178951950301
+--- !u!114 &5645630659961786797
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -350,10 +397,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1992620782835770543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2235ab552759eb45beb503826139a3f, type: 3}
+  m_Script: {fileID: 11500000, guid: 486bfde74c2445e428521f1908dddd40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priorityRange: {x: 50, y: 70}
   changeDist: 0.5
   randMoveAcceleration: 1
 --- !u!114 &5287406829497171886
@@ -369,7 +415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeBox: {fileID: 0}
---- !u!114 &6800954787576286427
+--- !u!114 &4841014002018051305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -378,14 +424,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1992620782835770543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a55886cff17702e42adecc8ca8653b14, type: 3}
+  m_Script: {fileID: 11500000, guid: e3a3c6856b0ed20488d44d04fc718655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRechargeTime: 0.5
-  attackReady: 1
-  basicHitbox: {fileID: 8978555302308610830}
-  hitTime: 0.1
-  attackSlopDistance: 3
 --- !u!1 &8075093074590749605
 GameObject:
   m_ObjectHideFlags: 0

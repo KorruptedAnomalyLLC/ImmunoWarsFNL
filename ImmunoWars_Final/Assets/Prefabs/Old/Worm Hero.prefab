@@ -246,10 +246,13 @@ GameObject:
   - component: {fileID: 7960119405312992353}
   - component: {fileID: 7960119405312992366}
   - component: {fileID: 7960119405312992365}
+  - component: {fileID: 4379871885568698589}
+  - component: {fileID: 7930368042743238460}
   - component: {fileID: 7960119405312992364}
   - component: {fileID: 7960119405312992355}
+  - component: {fileID: 2573822359195684078}
   - component: {fileID: 7960119405312992354}
-  - component: {fileID: 7930368042743238460}
+  - component: {fileID: 410093874494274370}
   m_Layer: 0
   m_Name: Worm Hero
   m_TagString: Untagged
@@ -289,8 +292,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tickTime: 0.1
-  moveRoot: {fileID: 0}
-  combatRoot: {fileID: 0}
   _localBlackboard: {fileID: 7960119405312992365}
 --- !u!114 &7960119405312992365
 MonoBehaviour:
@@ -304,6 +305,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed99bfc372436d342b2723bd07885b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveRoot: {fileID: 0}
+  _unitRoot: {fileID: 0}
+  _combatRoot: {fileID: 0}
+  _commandMessenger: {fileID: 0}
   heroUnit: 1
   _behaviorState: 0
   _attack: 0
@@ -322,6 +327,7 @@ MonoBehaviour:
   personalSpace: 6.5
   originalPriority: 11
   lookAtThreshold: 2
+  navAI: {fileID: 0}
   pSpeed: 8
   pAcceleration: 30
   sSpeed: 6
@@ -330,6 +336,35 @@ MonoBehaviour:
   damageAmount: 1
   _healthManager: {fileID: 5432944727809955880}
   energyLevel: 5
+--- !u!114 &4379871885568698589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7960119405312992352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179f59b2c097ede4aa4efa2a5126f7bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7930368042743238460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7960119405312992352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55886cff17702e42adecc8ca8653b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRechargeTime: 1
+  attackReady: 1
+  basicHitbox: {fileID: 2705812497356499655}
+  hitTime: 0.6
+  attackSlopDistance: 2
 --- !u!114 &7960119405312992364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,9 +377,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2235ab552759eb45beb503826139a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priorityRange: {x: 20, y: 30}
-  changeDist: 3
-  randMoveAcceleration: 5
 --- !u!195 &7960119405312992355
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -367,6 +399,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2573822359195684078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7960119405312992352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 486bfde74c2445e428521f1908dddd40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeDist: 0.5
+  randMoveAcceleration: 1
 --- !u!114 &7960119405312992354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,7 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeBox: {fileID: 0}
---- !u!114 &7930368042743238460
+--- !u!114 &410093874494274370
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -389,14 +435,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7960119405312992352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a55886cff17702e42adecc8ca8653b14, type: 3}
+  m_Script: {fileID: 11500000, guid: e3a3c6856b0ed20488d44d04fc718655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRechargeTime: 1
-  attackReady: 1
-  basicHitbox: {fileID: 2705812497356499655}
-  hitTime: 0.6
-  attackSlopDistance: 2
 --- !u!1 &7960119405585543775
 GameObject:
   m_ObjectHideFlags: 0
