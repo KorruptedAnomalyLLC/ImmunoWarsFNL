@@ -91,7 +91,12 @@ public class UnitRoot : MonoBehaviour
 
     public void DropTarget()
     {
-        SwapBehaviorState(BehaviorState.Patrol);
+        if (GlobalBlackboard.Instance.selectedUnit == _localBlackboard)
+        {
+            SwapBehaviorState(BehaviorState.PlayerControlled);
+        }
+        else
+            SwapBehaviorState(BehaviorState.Patrol);
     }
 
 

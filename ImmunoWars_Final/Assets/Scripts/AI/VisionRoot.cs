@@ -66,7 +66,7 @@ public class VisionRoot : MonoBehaviour
             {
                 if(objectsHit[i].transform.parent.TryGetComponent<LocalBlackboard>(out tempTargetInfo))
                 {
-                    if (tempTargetInfo.heroUnit != _localBlackboard.heroUnit) //if not on same team as this unit
+                    if (tempTargetInfo.heroUnit != _localBlackboard.heroUnit && !tempTargetInfo.dead) //if not on same team as this unit and that unit isn't dead
                     {
                         if (tempTargetInfo.energyLevel < lowestEnergy) //check to find the enemy with the lowest health, target that one
                         {

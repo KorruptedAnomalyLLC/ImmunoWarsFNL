@@ -86,6 +86,7 @@ public class StatusManager : MonoBehaviour
         _localBlackboard._commandMessenger.CallDead();
         //play death FX
         deathFX.SetActive(true);
+        _localBlackboard.dead = true;
 
         //start destroy countdown
         StartCoroutine(UnitDeathDelay());

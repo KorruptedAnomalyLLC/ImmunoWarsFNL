@@ -12,10 +12,7 @@ public class PushInflictor : MonoBehaviour
 
     public void ApplyPushBack(NavMeshAgent navi, Vector3 forceOriginPoint)
     {
-        if(navi != null)
-        {
             tempForceDirection = (navi.transform.position - forceOriginPoint).normalized;
             navi.velocity = PushBackForce * tempForceDirection;
-        }
     }
 }

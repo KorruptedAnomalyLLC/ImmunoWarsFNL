@@ -52,17 +52,17 @@ public class CommandMessenger : MonoBehaviour
 
     public void CallDropped()
     {
+        if (_localBlackboard._moveRoot != null) //this occurs first to make sure patrol speed is applied after standard speed
+            _localBlackboard._moveRoot.Dropped();
+
         //Send commands to any components that have a dropped function
         _localBlackboard._unitRoot.Dropped();
-
-        if(_localBlackboard._moveRoot != null)
-            _localBlackboard._moveRoot.Dropped();
     }
 
     public void CallDead()
     {
         //Send commands to any components that have a dead function
-        if (GlobalBlackboard.Instance.selectedUnit == _localBlackboard._unitRoot)
+        if (GlobalBlackboard.Instance.selectedUnit == _localBlackboard)
             UIManager.Instance.ButtonClicked(ButtonType.DropUnit);
 
         //tell UnitRoot to hold off on the updates
@@ -79,8 +79,6 @@ public class CommandMessenger : MonoBehaviour
     #region Targeting Commands
     public void AddTarget(LocalBlackboard newTarget, bool enemy)
     {
-        Debug.Log("Target Command Sent");
-
         if (_localBlackboard._visionRoot != null)
             _localBlackboard._visionRoot.AddTarget(newTarget);
 

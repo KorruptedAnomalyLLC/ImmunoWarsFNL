@@ -115,6 +115,9 @@ public class AttackRoot : MonoBehaviour
     float damageToDeal;
     public void DealDamage(StatusManager unitHit)
     {
+        if (unitHit._localBlackboard.dead) //don't want error messages popping up by beating a dead unit
+            return;
+
         damageToDeal = damageAmount;
 
         if (damageToDeal < 0)

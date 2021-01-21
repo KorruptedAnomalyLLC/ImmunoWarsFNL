@@ -43,6 +43,8 @@ public class MovementRoot : MonoBehaviour
             _moveTarget = temp3;
             _moveTarget.Setup(_localBlackboard);
         }
+
+        BehaviorStateChanged();
     }
     #endregion
 
@@ -151,7 +153,8 @@ public class MovementRoot : MonoBehaviour
 
     private void ExitPatrol()
     {
-        //nothing needed here currently
+        _localBlackboard.navAI.speed = _localBlackboard.sSpeed;
+        _localBlackboard.navAI.acceleration = _localBlackboard.sAcceleration;
     }
     #endregion
 

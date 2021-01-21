@@ -8,7 +8,7 @@ public class RandomFloatyMovement : MonoBehaviour
     [SerializeField]
     private float changeDist = 0.5f;
     [SerializeField]
-    private float randMoveAcceleration = 1f;
+    private float randMoveSpeed = 1f;
 
 
 
@@ -25,7 +25,7 @@ public class RandomFloatyMovement : MonoBehaviour
 
     public Vector3 EnterRandomMovement(NavMeshAgent navAI)
     {
-        navAI.speed = randMoveAcceleration;
+        navAI.speed = randMoveSpeed;
         navAI.autoBraking = false;
         return _randMovePoint.GeneratePoint();
     }
