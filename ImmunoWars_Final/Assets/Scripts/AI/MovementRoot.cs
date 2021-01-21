@@ -100,18 +100,21 @@ public class MovementRoot : MonoBehaviour
                 break;
             case BehaviorState.Combat:
                 _moveTarget.UpdateTargetOffset(_localBlackboard.optimumAttackDistance);
-                //
                 break;
             case BehaviorState.FollowFriendlyUnit:
                 _moveTarget.UpdateTargetOffset(_localBlackboard.personalSpace);
-                //
                 break;
             case BehaviorState.PlayerControlled:
-                //
                 break;
             default:
                 break;
         }
+    }
+
+
+    public void AttackStateChanged()
+    {
+        _moveTarget.UpdateTargetOffset(_localBlackboard.optimumAttackDistance);
     }
 
     public void Selected()

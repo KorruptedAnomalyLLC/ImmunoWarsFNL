@@ -18,7 +18,8 @@ public class AttackRoot : MonoBehaviour
     public float energyCost = 0f;
     public bool attackCharged = true;
     public float rechargeTime = 1f;
-    public float optimumAttackDistance = 1.6f;
+    [SerializeField]
+    private float optimumAttackDistance = 1.6f;
     #endregion
 
     #region Effect Variables
@@ -165,4 +166,9 @@ public class AttackRoot : MonoBehaviour
         attackCharged = true;
     }
     #endregion
+
+    public void OnAttackSelected()
+    {
+        _localBlackboard.optimumAttackDistance = optimumAttackDistance;
+    }
 }

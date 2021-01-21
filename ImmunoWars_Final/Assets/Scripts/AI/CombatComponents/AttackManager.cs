@@ -48,10 +48,12 @@ public class AttackManager : MonoBehaviour
     public void AttackSelected(int chosenAttack)
     {
         activeAttack = attackRoots[chosenAttack];
+        activeAttack.OnAttackSelected();
     }
 
 
     float mostDamage = 0;
+    int currentChosenAtck = 0;
     //Chooses the most damaging(or highest healing) attack and filter out those that would deplete this unit's energy completely.
     //default attack if all have too high an energy cost is the first attack
     //if need be, could throw in code to have default be the highest damaging attack but I don't think it'd add much
@@ -64,8 +66,10 @@ public class AttackManager : MonoBehaviour
             if(Mathf.Abs(attackRoots[i].damageAmount) > mostDamage && attackRoots[i].energyCost >= _localBlackboard.energyLevel)
             {
                 mostDamage = attackRoots[i].damageAmount;
-                activeAttack = attackRoots[i];
+                currentChosenAtck = i;
             }
         }
+
+        _localBlackboard._commandMessenger.AttackButtonChosen(currentChosenAtck);
     }
 }

@@ -110,5 +110,7 @@ public class CommandMessenger : MonoBehaviour
     public void AttackButtonChosen(int chosenAttack)
     {
         _localBlackboard._attackManager.AttackSelected(chosenAttack); //should this run through the combatRoot??
+
+        _localBlackboard._moveRoot.AttackStateChanged(); //update targetOffsetMovement distance
     }
 }

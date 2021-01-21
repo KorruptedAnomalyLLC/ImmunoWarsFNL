@@ -5000,7 +5000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a8b3884ab76524c83490a875b86007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PushBackForce: 5
+  PushBackForce: 15
 --- !u!1 &6859477560506431147
 GameObject:
   m_ObjectHideFlags: 0

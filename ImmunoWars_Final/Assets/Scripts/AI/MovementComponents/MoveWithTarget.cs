@@ -42,7 +42,7 @@ public class MoveWithTarget : MonoBehaviour
 
     public Vector3 ProcessTargetOffset(float offset)
     {
-        Vector3 moveTarget = _localBlackboard.currentTarget.transform.position - transform.position; //direction
+        Vector3 moveTarget = _localBlackboard.currentTarget.transform.position - transform.position; //direction and distance
         moveTarget = moveTarget.normalized * (moveTarget.magnitude - offset) + transform.position; //adjusted distance + direction gives us the Vector pointing at our moveTarget, adding it to our position gives us the moveTarget's world position       
 
         //this should probably return a move at all bool, don't wanna calc movement when it's not needed
