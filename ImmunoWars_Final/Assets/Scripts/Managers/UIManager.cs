@@ -56,13 +56,13 @@ public class UIManager : GenericSingletonClass<UIManager>
         AttackUI.SetActive(true);
         UnitSelectedUI.SetActive(true);
 
-        nameOfChar.text = GlobalBlackboard.Instance.selectedUnit._localBlackboard.nameOfChar;
-        charInfo.text = GlobalBlackboard.Instance.selectedUnit._localBlackboard.charInfo;
+        nameOfChar.text = GlobalBlackboard.Instance.selectedUnit.nameOfChar;
+        charInfo.text = GlobalBlackboard.Instance.selectedUnit.charInfo;
 
-        attack1.sprite = GlobalBlackboard.Instance.selectedUnit._localBlackboard.attack1UI;
-        attack2.sprite = GlobalBlackboard.Instance.selectedUnit._localBlackboard.attack2UI;
-        attack3.sprite = GlobalBlackboard.Instance.selectedUnit._localBlackboard.attack3UI;
-        dropUnit.sprite = GlobalBlackboard.Instance.selectedUnit._localBlackboard.dropUnitUI;
+        attack1.sprite = GlobalBlackboard.Instance.selectedUnit.attack1UI;
+        attack2.sprite = GlobalBlackboard.Instance.selectedUnit.attack2UI;
+        attack3.sprite = GlobalBlackboard.Instance.selectedUnit.attack3UI;
+        dropUnit.sprite = GlobalBlackboard.Instance.selectedUnit.dropUnitUI;
     }
 
     public void TurnOffBattleUI()
@@ -82,20 +82,23 @@ public class UIManager : GenericSingletonClass<UIManager>
         {
             case ButtonType.Attack1:
                 //change selected unit's attack mode to 1
+                GlobalBlackboard.Instance.selectedUnit._commandMessenger.AttackButtonChosen(0);
                 PauseManager.Instance.UnpauseGame();
                 TurnOffBattleUI();
                 break;
             case ButtonType.Attack2:
+                GlobalBlackboard.Instance.selectedUnit._commandMessenger.AttackButtonChosen(1);
                 PauseManager.Instance.UnpauseGame();
                 TurnOffBattleUI();
                 break;
             case ButtonType.Attack3:
+                GlobalBlackboard.Instance.selectedUnit._commandMessenger.AttackButtonChosen(2);
                 PauseManager.Instance.UnpauseGame();
                 TurnOffBattleUI();
                 break;
             case ButtonType.DropUnit:
                 //drop unit
-                GlobalBlackboard.Instance.selectedUnit._localBlackboard._commandMessenger.CallDropped();
+                GlobalBlackboard.Instance.selectedUnit._commandMessenger.CallDropped();
                 GlobalBlackboard.Instance.unitSelected = false;
                 PauseManager.Instance.UnpauseGame();
                 TurnOffUnitUI();

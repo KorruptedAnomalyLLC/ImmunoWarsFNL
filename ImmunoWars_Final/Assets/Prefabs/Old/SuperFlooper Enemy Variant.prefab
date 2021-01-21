@@ -107,5 +107,15 @@ PrefabInstance:
       propertyPath: rangeBox
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7013131236400263080, guid: 61922cf71a5509148a5c662c667775c9,
+        type: 3}
+      propertyPath: targetHeroes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7491351521569071512, guid: 61922cf71a5509148a5c662c667775c9,
+        type: 3}
+      propertyPath: targetHeroes
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61922cf71a5509148a5c662c667775c9, type: 3}

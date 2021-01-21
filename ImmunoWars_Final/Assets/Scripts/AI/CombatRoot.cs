@@ -3,88 +3,47 @@ using UnityEngine;
 
 public class CombatRoot : MonoBehaviour
 {
-
+    //AI tree branch references
     private LocalBlackboard _localBlackboard;
+    
+    
+
     public float attackRechargeTime = 10f;
     private float counter = 0f;
 
     public bool attackReady = true;
 
+    #region Setup
     public void Setup(LocalBlackboard localBlackboard)
     {
         _localBlackboard = localBlackboard;
+
+        if(TryGetComponent(out AttackManager temp))
+        {
+            _localBlackboard._attackManager = temp;
+            _localBlackboard._attackManager.Setup(_localBlackboard);
+        }
     }
+    #endregion
 
-
-    private void Update()
-    {
-        Recharge();
-    }
-
+    #region Ticks
     public void _update()
     {
-        CheckRange();
-        CheckTarget();
-        switch (_localBlackboard._attack)
-        {
-            case Attack.Slot1:
-                BasicTestAttack();
-                break;
-            case Attack.Slot2:
-                break;
-            case Attack.Slot3:
-                break;
-            default:
-                break;
-        }
-    }
-
-
-    public GameObject basicHitbox;
-    private Coroutine tempCoroutine;
-    private void BasicTestAttack()
-    {
-        if(_localBlackboard.inRange && attackReady)
-        {
-            attackReady = false;
-            basicHitbox.SetActive(true);
-
-            if(tempCoroutine == null)
-                tempCoroutine = StartCoroutine(ResetAttack());
-        }
-    }
-
-    public float hitTime = 0.6f;
-    private IEnumerator ResetAttack()
-    {
-        yield return new WaitForSeconds(hitTime);
-        basicHitbox.SetActive(false);
-
-    }
-
-    
-
-
-    private void Recharge()
-    {
-        if (attackReady)
+        if (_localBlackboard.isStunned)
             return;
 
-        counter += Time.deltaTime;
-        if (counter >= attackRechargeTime)
-        {
-            attackReady = true;
-            tempCoroutine = null;
-            counter = 0;
-        }
-
+        CheckRange();
+        CheckTarget();
+        _localBlackboard._attackManager._update();
     }
+    #endregion
 
 
+    #region Check if in range to use attack
     public float attackSlopDistance = 2f;
     private void CheckRange()
     {
-        Vector3 TempPos = _localBlackboard.currentTarget.position;
+        Vector3 TempPos = _localBlackboard.currentTarget.transform.position;
 
         if((TempPos - transform.position).magnitude < attackSlopDistance + _localBlackboard.targetMovementOffset)
         {
@@ -95,8 +54,9 @@ public class CombatRoot : MonoBehaviour
             _localBlackboard.inRange = false;
         }
     }
+    #endregion
 
-
+    //will be moved to vision Root
     private float sightRange = 10f;
     private void CheckTarget()
     {

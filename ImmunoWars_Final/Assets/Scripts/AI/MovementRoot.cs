@@ -51,6 +51,8 @@ public class MovementRoot : MonoBehaviour
     #region Ticks
     public void _update()
     {
+        if (_localBlackboard.isStunned)
+            return;
 
         switch (_localBlackboard._behaviorState) 
         {
@@ -68,16 +70,19 @@ public class MovementRoot : MonoBehaviour
     //used for movement stuff/things that have to go every frame to keep game looking smooth
     public void _smoothUpdate()
     {
-        if(rotating)
-            RotateTo(_localBlackboard.currentTarget.position);
+        if (_localBlackboard.isStunned)
+            return;
+
+        if (rotating && _localBlackboard.currentTarget != null)
+            RotateTo(_localBlackboard.currentTarget.transform.position);
     }
     #endregion
 
     #region Actions related to other scripts
     //Update Movement stuff when the unit's behaviour state changes
-    public void BehaviorStateChanged(BehaviorState previousState)
+    public void BehaviorStateChanged()
     {
-        switch (previousState)
+        switch (_localBlackboard._previousState)
         {
             case BehaviorState.Patrol:
                 ExitPatrol();
@@ -90,6 +95,17 @@ public class MovementRoot : MonoBehaviour
         {
             case BehaviorState.Patrol:
                 EnterPatrol();
+                break;
+            case BehaviorState.Combat:
+                _moveTarget.UpdateTargetOffset(_localBlackboard.optimumAttackDistance);
+                //
+                break;
+            case BehaviorState.FollowFriendlyUnit:
+                _moveTarget.UpdateTargetOffset(_localBlackboard.personalSpace);
+                //
+                break;
+            case BehaviorState.PlayerControlled:
+                //
                 break;
             default:
                 break;
@@ -173,6 +189,11 @@ public class MovementRoot : MonoBehaviour
         Vector3 direction = (targetPos - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));    // flattens the vector3
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * (_localBlackboard.navAI.angularSpeed / 200));
+    }
+
+    public void MoveToTouchPos(Vector3 target)
+    {
+            MoveTo(target);
     }
     #endregion
 }

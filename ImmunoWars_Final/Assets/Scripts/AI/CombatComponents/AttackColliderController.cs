@@ -2,15 +2,34 @@
 
 public class AttackColliderController : MonoBehaviour
 {
-    private int damageAmount = 2;
-    private StatusManager healthScript;
+
+    private StatusManager hitUnitsStatus, targetStatus;
+    private LocalBlackboard hitUnitInfo;
     private Collider myCollider;
     private LocalBlackboard _localBlackboard;
+    private AttackRoot _attackRoot;
+    private DamageOverTime _damageOverTime;
 
-    private void Start()
+    bool onlyHitTarget = true;
+    bool targetHeroes = false;
+
+    public void Setup(LocalBlackboard localBlackboard, AttackRoot attackRoot)
     {
-        _localBlackboard = GetComponentInParent<LocalBlackboard>();
-        myCollider = _localBlackboard._healthManager.GetComponent<Collider>();
+        _localBlackboard = localBlackboard;
+        myCollider = _localBlackboard.healthCollider;
+        _attackRoot = attackRoot;
+        if (TryGetComponent(out DamageOverTime temp))
+        {
+            _damageOverTime = temp;
+            _damageOverTime.Setup(_attackRoot);
+        }
+    }
+
+    public void ActivateCollider(StatusManager whoToTarget, bool whoToHit, bool aimAtAllies)
+    {
+        targetStatus = whoToTarget;
+        onlyHitTarget = whoToHit;
+        targetHeroes = aimAtAllies;
     }
 
 
@@ -19,12 +38,31 @@ public class AttackColliderController : MonoBehaviour
         if (collider == myCollider)
             return;
 
-
-        healthScript = collider.gameObject.GetComponent<StatusManager>();
-
-        if (healthScript != null)
+        if(collider.transform.parent.TryGetComponent<LocalBlackboard>(out hitUnitInfo))
         {
-            healthScript.TakeDamage(damageAmount, transform.parent.transform);
+            if(hitUnitInfo.heroUnit == targetHeroes)
+            {
+                if (onlyHitTarget)
+                {
+                    if (hitUnitInfo._statusManager == targetStatus)
+                        _attackRoot.DealDamage(targetStatus);
+                }
+                else
+                {
+                    _attackRoot.DealDamage(hitUnitInfo._statusManager);
+                }
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider collider)
+    {
+        if(collider.transform.parent.TryGetComponent<LocalBlackboard>(out hitUnitInfo))
+        {
+            if(hitUnitInfo.heroUnit == targetHeroes)
+            {
+                //Call damage over time remove.... gotta do some digging here, thought I had finished this one
+            }
         }
     }
 }

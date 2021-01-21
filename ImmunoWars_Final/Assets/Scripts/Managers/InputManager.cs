@@ -19,7 +19,7 @@ public class InputManager : GenericSingletonClass<InputManager>
 
     //private bool unitSelected = false;
     //private UnitRoot selectedUnit;
-    private UnitRoot touchedUnit;
+    private LocalBlackboard touchedUnit;
     private Vector3 touchedPos;
 
     void Update()
@@ -50,7 +50,7 @@ public class InputManager : GenericSingletonClass<InputManager>
                     {
                         GameObject hitObj = hit.transform.gameObject;
                         touchedPos = hit.point;
-                        touchedUnit = hitObj.GetComponentInParent<UnitRoot>(); //if you've touched a unit, assign it
+                        touchedUnit = hitObj.GetComponentInParent<LocalBlackboard>(); //if you've touched a unit, assign it
 
                         //choose your path
                         if (GlobalBlackboard.Instance.unitSelected)
@@ -78,7 +78,7 @@ public class InputManager : GenericSingletonClass<InputManager>
                     GameObject hitObj = hit.transform.gameObject;
                     touchedPos = hit.point;
                     //Debug.LogError(touchedPos);
-                    touchedUnit = hitObj.GetComponentInParent<UnitRoot>();
+                    touchedUnit = hitObj.GetComponentInParent<LocalBlackboard>();
 
                     if (GlobalBlackboard.Instance.unitSelected)
                         UnitSelectedBranch();
@@ -98,29 +98,30 @@ public class InputManager : GenericSingletonClass<InputManager>
         {
             //if unit's ui is touched, look for UI input
             //else, move to touch spot
-            GlobalBlackboard.Instance.selectedUnit.MoveToTouchPos(touchedPos);
+            GlobalBlackboard.Instance.selectedUnit._commandMessenger.MoveToTouchPos(touchedPos);
+
             return;
         }
 
-        if (touchedUnit._localBlackboard.heroUnit) //if you touched a hero unit
+        if (touchedUnit.heroUnit) //if you touched a hero unit
         {
             if(touchedUnit == GlobalBlackboard.Instance.selectedUnit)
             {
                 //re select unit, pause da game
-                GlobalBlackboard.Instance.selectedUnit._localBlackboard._commandMessenger.CallSelected();
+                GlobalBlackboard.Instance.selectedUnit._commandMessenger.CallSelected();
                 UIManager.Instance.TurnOnBattleUI();
                 PauseManager.Instance.PauseGame();
             }
             else
             {
                 //move to touched unit's position
-                GlobalBlackboard.Instance.selectedUnit.UpdateTarget(touchedUnit.transform, false);
+                GlobalBlackboard.Instance.selectedUnit._commandMessenger.AddTarget(touchedUnit, false);
             }
         }
         else //if you touched an enemy unit
         {
             //target enemy, change to combat mode, use attack on enemy
-            GlobalBlackboard.Instance.selectedUnit.UpdateTarget(touchedUnit.transform, true);
+            GlobalBlackboard.Instance.selectedUnit._commandMessenger.AddTarget(touchedUnit, true);
             //GlobalBlackboard.Instance.selectedUnit.EnterCombat();
         }
     }
@@ -134,12 +135,12 @@ public class InputManager : GenericSingletonClass<InputManager>
             return;
         }
 
-        if (touchedUnit._localBlackboard.heroUnit)
+        if (touchedUnit.heroUnit)
         {
             //select unit, pause da game
             GlobalBlackboard.Instance.selectedUnit = touchedUnit;
             GlobalBlackboard.Instance.unitSelected = true;
-            GlobalBlackboard.Instance.selectedUnit._localBlackboard._commandMessenger.CallSelected();
+            GlobalBlackboard.Instance.selectedUnit._commandMessenger.CallSelected();
             UIManager.Instance.TurnOnBattleUI();
             PauseManager.Instance.PauseGame();
         }

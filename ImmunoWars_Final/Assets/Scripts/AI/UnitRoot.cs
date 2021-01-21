@@ -13,92 +13,106 @@ public class UnitRoot : MonoBehaviour
     [HideInInspector]
     public LocalBlackboard _localBlackboard; //req
 
+    #region Setup
     //Initialize Components/Check if they exist
     private void Start()
     {
-        _localBlackboard = GetComponent<LocalBlackboard>();
-        _localBlackboard._unitRoot = this;
-
-        _localBlackboard._commandMessenger = GetComponent<CommandMessenger>();
-        _localBlackboard._commandMessenger.Setup(_localBlackboard);
-
-        if (TryGetComponent(out MovementRoot temp))
+        if (TryGetComponent(out LocalBlackboard temp))
         {
-            _localBlackboard._moveRoot = temp;
-            _localBlackboard._moveRoot.Setup(_localBlackboard);
+            _localBlackboard = temp;
+            _localBlackboard._unitRoot = this;
+        }
+        else
+        {
+            Debug.LogError(gameObject.name + "  is missing a LocalBlackboard Component. Please add it or the AI won't do anything.");
         }
 
-        if(TryGetComponent(out CombatRoot temp2))
+        if (TryGetComponent(out CommandMessenger temp2))
         {
-            _localBlackboard._combatRoot = temp2;
-            _localBlackboard._combatRoot.Setup(_localBlackboard);
+            _localBlackboard._commandMessenger = temp2;
+            _localBlackboard._commandMessenger.Setup(_localBlackboard);
+        }
+        else
+        {
+            Debug.LogError(gameObject.name + "  is missing a CommandMessenger Component. Please add it or the AI won't do anything.");
         }
     }
+    #endregion
 
-
+    #region Player Selection Commands
     public void Selected()
     {
-        _localBlackboard._behaviorState = BehaviorState.PlayerControlled; //move to status manager once it is built
-        _localBlackboard.selectionGlow.SetActive(true); //to be replaced with something less hacky  
+        SwapBehaviorState(BehaviorState.PlayerControlled);
+        ToggleSelectionGlow(true); 
     }
 
     public void Dropped()
     {
-        _localBlackboard._behaviorState = BehaviorState.Patrol;
-        _localBlackboard.selectionGlow.SetActive(false);
+        SwapBehaviorState(BehaviorState.Patrol);
+        ToggleSelectionGlow(false);
     }
 
-
-    public void UpdateTarget(Transform newTarget, bool enemy)
+    public void PlayerControlledMovement()
     {
-        _localBlackboard.currentTarget = newTarget;
-        _localBlackboard.hasTarget = true;
+        SwapBehaviorState(BehaviorState.PlayerControlled);
+    }
+    #endregion
 
-        if (enemy) //if enemy is target, follow at optimumm attack distance(this will be changing so it needs to update somehow...???)
+
+    #region UI Manager
+    private void ToggleSelectionGlow(bool onOff)
+    {
+        _localBlackboard.selectionGlow.SetActive(onOff);
+    }
+    #endregion
+
+    #region Behavior State Changes
+    private void SwapBehaviorState(BehaviorState newState)
+    {
+        _localBlackboard._previousState = _localBlackboard._behaviorState;
+        _localBlackboard._behaviorState = newState;
+        _localBlackboard._commandMessenger.BehaviorStateChanged();
+    }
+    #endregion
+
+
+    //need to sync this up with vissionRoot's update target functions
+    public void AddTarget(bool enemy)
+    {
+        if (enemy)
         {
-            _localBlackboard.targetMovementOffset = _localBlackboard.optimumAttackDistance;
-            EnterCombat();
+            SwapBehaviorState(BehaviorState.Combat);
         }
-        else //if friendly unit is the target, follow at personal space distance
+        else
         {
-            _localBlackboard.targetMovementOffset = _localBlackboard.personalSpace;
-            _localBlackboard._behaviorState = BehaviorState.FollowFriendlyUnit;
+            SwapBehaviorState(BehaviorState.FollowFriendlyUnit);
         }
-        //use an attack
     }
 
-    public void EnterCombat()
+    public void DropTarget()
     {
-        _localBlackboard._behaviorState = BehaviorState.Combat;
+        SwapBehaviorState(BehaviorState.Patrol);
     }
 
-    public void MoveToTouchPos(Vector3 target)
-    {
-        //Vector3 target = new Vector3(target2D.x, GlobalBlackboard.Instance.playfieldHeight, target2D.y);
-        _localBlackboard._behaviorState = BehaviorState.PlayerControlled;
-        _localBlackboard.hasTarget = false;
-        _localBlackboard._moveRoot.TargetDropped();
-        _localBlackboard._moveRoot.MoveTo(target);
-    }
-
-
-    public void TakeDamage()
-    {
-        
-    }
 
     #region Ticks
     private void Update()
     {
+        if (_localBlackboard.dead)
+            return;
+
         //General Updates
         currentTick += Time.deltaTime;
 
         if(currentTick > tickTime)
         {
+            if (_localBlackboard._visionRoot != null)
+                _localBlackboard._visionRoot._update();
+
             if(_localBlackboard._moveRoot != null)
                 _localBlackboard._moveRoot._update();
 
-            if (_localBlackboard._combatRoot != null && _localBlackboard._behaviorState == BehaviorState.Combat)
+            if (_localBlackboard._combatRoot != null && _localBlackboard._behaviorState == BehaviorState.Combat) //should the behavior check be done in combat root??
                 _localBlackboard._combatRoot._update();
 
             currentTick = 0;

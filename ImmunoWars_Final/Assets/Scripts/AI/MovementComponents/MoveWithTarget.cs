@@ -15,8 +15,6 @@ public class MoveWithTarget : MonoBehaviour
 
 
     //maintain optimum attack distance based on the current attack
-    //ToDo
-    //Distance should be calculated outside of the movement branch, best to make a sight branch for choosing targets, etc
     public Vector3 GrabTargetMovePos()
     {
         //move to optimum distance, if already there don't move
@@ -41,10 +39,10 @@ public class MoveWithTarget : MonoBehaviour
     }
 
 
-    //Move this shit out of the movement branch you lazy fucker!!!
+
     public Vector3 ProcessTargetOffset(float offset)
     {
-        Vector3 moveTarget = _localBlackboard.currentTarget.position - transform.position; //direction
+        Vector3 moveTarget = _localBlackboard.currentTarget.transform.position - transform.position; //direction
         moveTarget = moveTarget.normalized * (moveTarget.magnitude - offset) + transform.position; //adjusted distance + direction gives us the Vector pointing at our moveTarget, adding it to our position gives us the moveTarget's world position       
 
         //this should probably return a move at all bool, don't wanna calc movement when it's not needed
@@ -52,5 +50,11 @@ public class MoveWithTarget : MonoBehaviour
             return moveTarget;
         else
             return transform.position;
+    }
+
+
+    public void UpdateTargetOffset(float newOffset)
+    {
+        _localBlackboard.targetMovementOffset = newOffset;
     }
 }

@@ -23,6 +23,8 @@ public class LocalBlackboard : MonoBehaviour
 {
     #region Component Roots
     [HideInInspector]
+    public VisionRoot _visionRoot;
+    [HideInInspector]
     public MovementRoot _moveRoot;
     [HideInInspector]
     public UnitRoot _unitRoot;
@@ -30,14 +32,19 @@ public class LocalBlackboard : MonoBehaviour
     public CombatRoot _combatRoot;
     [HideInInspector]
     public CommandMessenger _commandMessenger;
+    [HideInInspector]
+    public AttackManager _attackManager;
+    [HideInInspector]
+    public StatusManager _statusManager;
     #endregion
 
 
     public bool heroUnit = false;
     public BehaviorState _behaviorState = BehaviorState.Patrol;
+    public BehaviorState _previousState = BehaviorState.Patrol;
     public Attack _attack = Attack.Slot1;
 
-    public Transform currentTarget;
+    public LocalBlackboard currentTarget;
 
 
 
@@ -81,8 +88,12 @@ public class LocalBlackboard : MonoBehaviour
     #endregion
 
     [Space(20)]
-    public StatusManager _healthManager;
-    public int energyLevel = 5;
+    [Header("Status Variables")]
+    public Collider healthCollider;
+    public float energyLevel = 5;
+    
+    public bool isStunned = false;
+    public bool dead = false;
 
 
    // private void Awake()
