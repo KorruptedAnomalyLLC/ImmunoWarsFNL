@@ -93,6 +93,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 3.02
       objectReference: {fileID: 0}
+    - target: {fileID: 1231109246429643080, guid: 360af6a7a27280e4f94cd7750327a664,
+        type: 3}
+      propertyPath: targetHeroes
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1699984136835366802, guid: 360af6a7a27280e4f94cd7750327a664,
         type: 3}
       propertyPath: visionDistance
@@ -223,10 +228,20 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 3.63
       objectReference: {fileID: 0}
+    - target: {fileID: 6269043650692044236, guid: 360af6a7a27280e4f94cd7750327a664,
+        type: 3}
+      propertyPath: targetHeroes
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6572666692587712879, guid: 360af6a7a27280e4f94cd7750327a664,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053247693464644844, guid: 360af6a7a27280e4f94cd7750327a664,
+        type: 3}
+      propertyPath: targetHeroes
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7705432409544274093, guid: 360af6a7a27280e4f94cd7750327a664,
         type: 3}

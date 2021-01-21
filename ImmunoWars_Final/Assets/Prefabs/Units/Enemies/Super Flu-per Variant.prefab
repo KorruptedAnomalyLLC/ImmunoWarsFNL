@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1231109246429643080, guid: 360af6a7a27280e4f94cd7750327a664,
+        type: 3}
+      propertyPath: targetHeroes
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1960244537779787385, guid: 360af6a7a27280e4f94cd7750327a664,
         type: 3}
       propertyPath: m_LocalScale.z
@@ -65,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 3053236771843330936, guid: 360af6a7a27280e4f94cd7750327a664,
         type: 3}
       propertyPath: m_Name
-      value: Super Flu-per
+      value: Super Flu-per Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3053236771843330937, guid: 360af6a7a27280e4f94cd7750327a664,
         type: 3}
@@ -147,10 +152,20 @@ PrefabInstance:
       propertyPath: avoidancePriority
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 6269043650692044236, guid: 360af6a7a27280e4f94cd7750327a664,
+        type: 3}
+      propertyPath: targetHeroes
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6572666692587712879, guid: 360af6a7a27280e4f94cd7750327a664,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053247693464644844, guid: 360af6a7a27280e4f94cd7750327a664,
+        type: 3}
+      propertyPath: targetHeroes
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7705432409544274093, guid: 360af6a7a27280e4f94cd7750327a664,
         type: 3}

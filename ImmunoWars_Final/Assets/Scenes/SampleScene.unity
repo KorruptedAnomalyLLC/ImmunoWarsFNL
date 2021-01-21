@@ -2551,6 +2551,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nitro-Phil
       objectReference: {fileID: 0}
+    - target: {fileID: 8426066356655129912, guid: 1dbe5ede83a10ea47b4687904ab95647,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8426066356655129913, guid: 1dbe5ede83a10ea47b4687904ab95647,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2606,6 +2611,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8426066356655129914, guid: 1dbe5ede83a10ea47b4687904ab95647,
+        type: 3}
+      propertyPath: rangeBox
+      value: 
+      objectReference: {fileID: 537275752}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dbe5ede83a10ea47b4687904ab95647, type: 3}
 --- !u!4 &403186547675101881 stripped
@@ -2681,6 +2691,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Poly Morpha
       objectReference: {fileID: 0}
+    - target: {fileID: 6158852731382318225, guid: 461e44a75b5f98549b3581af511b9181,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158852731382318227, guid: 461e44a75b5f98549b3581af511b9181,
+        type: 3}
+      propertyPath: rangeBox
+      value: 
+      objectReference: {fileID: 537275752}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 461e44a75b5f98549b3581af511b9181, type: 3}
 --- !u!4 &1080315439767918631 stripped
@@ -2696,6 +2716,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1958106310}
     m_Modifications:
+    - target: {fileID: 6096533632712388345, guid: e42ddef899f6b534b937548594c64695,
+        type: 3}
+      propertyPath: rangeBox
+      value: 
+      objectReference: {fileID: 537275752}
     - target: {fileID: 6096533632712388346, guid: e42ddef899f6b534b937548594c64695,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2756,6 +2781,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mr. T
       objectReference: {fileID: 0}
+    - target: {fileID: 6096533632712388347, guid: e42ddef899f6b534b937548594c64695,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e42ddef899f6b534b937548594c64695, type: 3}
 --- !u!4 &1175625192956288408 stripped
@@ -2775,6 +2805,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mona
+      objectReference: {fileID: 0}
+    - target: {fileID: 153680719620401828, guid: 0e5f2466a9ae3aa4fb768b06e8ac0b39,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 153680719620401829, guid: 0e5f2466a9ae3aa4fb768b06e8ac0b39,
         type: 3}
@@ -2831,6 +2866,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 153680719620401830, guid: 0e5f2466a9ae3aa4fb768b06e8ac0b39,
+        type: 3}
+      propertyPath: rangeBox
+      value: 
+      objectReference: {fileID: 537275752}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e5f2466a9ae3aa4fb768b06e8ac0b39, type: 3}
 --- !u!4 &1433519422868437408 stripped
@@ -2906,6 +2946,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bomber
       objectReference: {fileID: 0}
+    - target: {fileID: 3827207649922902971, guid: 8289f0ebdd15d544fb122d21cceb15ac,
+        type: 3}
+      propertyPath: rangeBox
+      value: 
+      objectReference: {fileID: 537275752}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8289f0ebdd15d544fb122d21cceb15ac, type: 3}
 --- !u!4 &2165901851401527899 stripped
@@ -2981,6 +3026,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bea
       objectReference: {fileID: 0}
+    - target: {fileID: 1854203132282749415, guid: 197c9b4bb2b4fa149b3369413a87e0bf,
+        type: 3}
+      propertyPath: rangeBox
+      value: 
+      objectReference: {fileID: 537275752}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 197c9b4bb2b4fa149b3369413a87e0bf, type: 3}
 --- !u!4 &2670149776812721979 stripped
@@ -2996,6 +3046,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1958106310}
     m_Modifications:
+    - target: {fileID: 1678816595059542805, guid: 51732571b4f1816479e3210303f0f421,
+        type: 3}
+      propertyPath: rangeBox
+      value: 
+      objectReference: {fileID: 537275752}
     - target: {fileID: 1678816595059542806, guid: 51732571b4f1816479e3210303f0f421,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3056,6 +3111,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Toxxy
       objectReference: {fileID: 0}
+    - target: {fileID: 1678816595059542807, guid: 51732571b4f1816479e3210303f0f421,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51732571b4f1816479e3210303f0f421, type: 3}
 --- !u!4 &5953498554501069380 stripped
@@ -3071,10 +3131,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1958106310}
     m_Modifications:
+    - target: {fileID: 3686638306040508620, guid: 1987752965872dd4f955ae2fb1b140e5,
+        type: 3}
+      propertyPath: rangeBox
+      value: 
+      objectReference: {fileID: 537275752}
     - target: {fileID: 3686638306040508622, guid: 1987752965872dd4f955ae2fb1b140e5,
         type: 3}
       propertyPath: m_Name
       value: Max Phage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3686638306040508622, guid: 1987752965872dd4f955ae2fb1b140e5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3686638306040508623, guid: 1987752965872dd4f955ae2fb1b140e5,
         type: 3}
