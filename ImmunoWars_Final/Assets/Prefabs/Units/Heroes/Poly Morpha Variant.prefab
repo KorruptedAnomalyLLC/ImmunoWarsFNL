@@ -86,6 +86,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1259449275674982156, guid: 360af6a7a27280e4f94cd7750327a664,
+        type: 3}
+      propertyPath: randMoveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1259449275674982156, guid: 360af6a7a27280e4f94cd7750327a664,
+        type: 3}
+      propertyPath: changeDist
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3053236771843330933, guid: 360af6a7a27280e4f94cd7750327a664,
         type: 3}
       propertyPath: charInfo
@@ -96,10 +106,30 @@ PrefabInstance:
       propertyPath: nameOfChar
       value: Poly Morpha
       objectReference: {fileID: 0}
+    - target: {fileID: 3053236771843330933, guid: 360af6a7a27280e4f94cd7750327a664,
+        type: 3}
+      propertyPath: pSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3053236771843330933, guid: 360af6a7a27280e4f94cd7750327a664,
+        type: 3}
+      propertyPath: pAcceleration
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3053236771843330933, guid: 360af6a7a27280e4f94cd7750327a664,
+        type: 3}
+      propertyPath: sSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3053236771843330933, guid: 360af6a7a27280e4f94cd7750327a664,
+        type: 3}
+      propertyPath: energyLevel
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3053236771843330936, guid: 360af6a7a27280e4f94cd7750327a664,
         type: 3}
       propertyPath: m_Name
-      value: Poly Morpha
+      value: Poly Morpha Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3053236771843330937, guid: 360af6a7a27280e4f94cd7750327a664,
         type: 3}
@@ -155,6 +185,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705432409544274093, guid: 360af6a7a27280e4f94cd7750327a664,
+        type: 3}
+      propertyPath: priorityRange.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705432409544274093, guid: 360af6a7a27280e4f94cd7750327a664,
+        type: 3}
+      propertyPath: priorityRange.y
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 360af6a7a27280e4f94cd7750327a664, type: 3}

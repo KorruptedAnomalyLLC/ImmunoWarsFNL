@@ -251,12 +251,12 @@ PrefabInstance:
     - target: {fileID: 7705432409544274093, guid: 360af6a7a27280e4f94cd7750327a664,
         type: 3}
       propertyPath: priorityRange.x
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7705432409544274093, guid: 360af6a7a27280e4f94cd7750327a664,
         type: 3}
       propertyPath: priorityRange.y
-      value: 80
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 360af6a7a27280e4f94cd7750327a664, type: 3}
