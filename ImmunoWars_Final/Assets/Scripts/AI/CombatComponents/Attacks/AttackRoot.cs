@@ -23,7 +23,7 @@ public class AttackRoot : MonoBehaviour
     #endregion
 
     #region Effect Variables
-    public Type colorType = Type.None;
+    public Type attackType = Type.None;
     [SerializeField]
     private int numberToSpawn = 1;
     #endregion
@@ -88,7 +88,7 @@ public class AttackRoot : MonoBehaviour
     //used by collection attack... seems kinda weird to have the function here tho
     public void UpdateAttackType(Type newType)
     {
-        colorType = newType;
+        attackType = newType;
     }
 
     private StatusManager targetStatus;

@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/// <summary>
+/// Pauses and unpauses the game
+/// </summary>
+
 using UnityEngine;
 
 public class PauseManager : GenericSingletonClass<PauseManager>
 {
-    /// <summary>
-    /// Pauses and unpauses the game
-    /// </summary>
-
     public static bool isPaused = false;
 
     public void PauseGame()

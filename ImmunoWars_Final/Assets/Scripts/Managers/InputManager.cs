@@ -1,26 +1,24 @@
-﻿using UnityEngine;
+﻿/// <summary>
+/// Handles all game Input, calls needed functions based on input
+/// Supports Mobile via touch and PC controls via mouse
+/// All is disabled during pause
+/// Priority is given to menu clicks, input is ignored if clicking on menu ui
+/// ***Default touch phase mode should be set to Canceled in the inspector. Check there if Input seems messed up.***
+/// </summary>
+
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class InputManager : GenericSingletonClass<InputManager>
 {
-    /// <summary>
-    /// Handles all game Input, calls needed functions based on input
-    /// Supports Mobile via touch and PC controls via mouse
-    /// All is disabled during pause
-    /// Priority is given to menu clicks, input is ignored if clicking on menu ui
-    /// </summary>
-    
-    
     [SerializeField]
     private TouchPhase _touchPhase = TouchPhase.Began;
     [SerializeField]
     private LayerMask rayCastMask;
 
-
-    //private bool unitSelected = false;
-    //private UnitRoot selectedUnit;
     private LocalBlackboard touchedUnit;
     private Vector3 touchedPos;
+
 
     void Update()
     {
@@ -77,7 +75,7 @@ public class InputManager : GenericSingletonClass<InputManager>
                 {
                     GameObject hitObj = hit.transform.gameObject;
                     touchedPos = hit.point;
-                    //Debug.LogError(touchedPos);
+
                     touchedUnit = hitObj.GetComponentInParent<LocalBlackboard>();
 
                     if (GlobalBlackboard.Instance.unitSelected)
@@ -122,7 +120,6 @@ public class InputManager : GenericSingletonClass<InputManager>
         {
             //target enemy, change to combat mode, use attack on enemy
             GlobalBlackboard.Instance.selectedUnit._commandMessenger.AddTarget(touchedUnit, true);
-            //GlobalBlackboard.Instance.selectedUnit.EnterCombat();
         }
     }
 

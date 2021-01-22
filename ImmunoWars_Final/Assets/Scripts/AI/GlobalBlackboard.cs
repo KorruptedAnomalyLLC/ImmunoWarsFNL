@@ -1,15 +1,19 @@
-﻿using System.Dynamic;
+﻿/// <summary>
+/// ...essentially just global variables, will likely change the name soon
+/// </summary>
+
 using UnityEngine;
 
 public class GlobalBlackboard : GenericSingletonClass<GlobalBlackboard>
 {
-    /// <summary>
-    /// ...essentially just global variables, will likely change the name soon
-    /// </summary>
+    [HideInInspector]
     public  LocalBlackboard selectedUnit;
+    [HideInInspector]
     public  bool unitSelected = false;
 
+    [HideInInspector]
     public float playfieldHeight = 0f;
+    [HideInInspector]
     public Transform playField;
 
     public float typeDamageMultiplier = 4f;

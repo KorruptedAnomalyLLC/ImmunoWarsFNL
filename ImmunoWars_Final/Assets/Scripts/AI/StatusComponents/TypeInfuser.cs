@@ -5,9 +5,9 @@ using UnityEngine;
 
 public enum Type
 {
-    Color1,
-    Color2,
-    Color3,
+    Stapha,
+    Shiggy,
+    SuperFluper,
     None
 }
 

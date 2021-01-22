@@ -1,8 +1,10 @@
-﻿using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
+﻿/// <summary>
+/// This script manages UI input...I should type more here but meh
+/// ToDo:
+///interact with pause feature
+/// </summary>
+
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
@@ -14,20 +16,19 @@ public enum ButtonType
     DropUnit,
     Info,
     ExitInfo,
-    Quit
+    Play,
+    Pause
 }
 
 public class UIManager : GenericSingletonClass<UIManager>
 {
-    /// <summary>
-    /// This script manages UI input,
-    /// ToDo:
-    ///Swap UI images based on selected unit
-    ///call ui when new unit is selected
-    ///drop ui when unit is dropped
-    ///swap unit's attacks based on attack chosen
-    ///interact with pause feature
-    /// </summary>
+    [SerializeField]
+    private GameObject PauseUI;
+    [SerializeField]
+    private GameObject pauseButton;
+    [SerializeField]
+    private GameObject playButton;
+
     [SerializeField]
     private GameObject AttackUI;
 
@@ -53,6 +54,7 @@ public class UIManager : GenericSingletonClass<UIManager>
 
     public void TurnOnBattleUI()
     {
+        DisablePause();
         AttackUI.SetActive(true);
         UnitSelectedUI.SetActive(true);
 
@@ -68,12 +70,29 @@ public class UIManager : GenericSingletonClass<UIManager>
     public void TurnOffBattleUI()
     {
         AttackUI.SetActive(false);
+        EnablePause();
     }
 
     private void TurnOffUnitUI()
     {
-        AttackUI.SetActive(false);
+        TurnOffBattleUI();
         UnitSelectedUI.SetActive(false);
+    }
+
+    private void TogglePauseButton(bool pauseActive)
+    {
+        pauseButton.SetActive(pauseActive);
+        playButton.SetActive(!pauseActive);
+    }
+
+    private void DisablePause()
+    {
+        PauseUI.SetActive(false);
+    }
+
+    private void EnablePause()
+    {
+        PauseUI.SetActive(true);
     }
 
     public void ButtonClicked(ButtonType _buttonType)
@@ -109,8 +128,13 @@ public class UIManager : GenericSingletonClass<UIManager>
             case ButtonType.ExitInfo:
                 UnitInfoUI.SetActive(false);
                 break;
-            case ButtonType.Quit:
-                //pause game, bring up return to menu ui
+            case ButtonType.Pause:
+                TogglePauseButton(false);
+                PauseManager.Instance.PauseGame();
+                break;
+            case ButtonType.Play:
+                TogglePauseButton(true);
+                PauseManager.Instance.UnpauseGame();
                 break;
             default:
                 break;
