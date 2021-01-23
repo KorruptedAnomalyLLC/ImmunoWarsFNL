@@ -23,33 +23,33 @@ public enum ButtonType
 public class UIManager : GenericSingletonClass<UIManager>
 {
     [SerializeField]
-    private GameObject PauseUI;
+    private GameObject PauseUI = default;
     [SerializeField]
-    private GameObject pauseButton;
+    private GameObject pauseButton = default;
     [SerializeField]
-    private GameObject playButton;
+    private GameObject playButton = default;
 
     [SerializeField]
-    private GameObject AttackUI;
+    private GameObject AttackUI = default;
 
     [SerializeField]
-    private GameObject UnitSelectedUI;
+    private GameObject UnitSelectedUI = default;
 
     [SerializeField]
-    private GameObject UnitInfoUI;
+    private GameObject UnitInfoUI = default;
 
     [SerializeField]
-    private Text nameOfChar;
+    private Text nameOfChar = default;
     [SerializeField]
-    private Text charInfo;
+    private Text charInfo = default;
 
     [SerializeField]
-    private ButtonHandler[] attackButtons;
+    private ButtonHandler[] attackButtons = default;
     [SerializeField]
-    private Image dropUnit;
+    private Image dropUnit = default;
 
     [SerializeField]
-    private Sprite disabledButtonImage;
+    private Sprite disabledButtonImage = default;
 
     public void TurnOnBattleUI()
     {
