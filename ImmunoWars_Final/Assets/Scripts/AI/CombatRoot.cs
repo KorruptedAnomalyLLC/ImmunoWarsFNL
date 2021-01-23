@@ -33,7 +33,6 @@ public class CombatRoot : MonoBehaviour
             return;
 
         CheckRange();
-        CheckTarget();
         _localBlackboard._attackManager._update();
     }
     #endregion
@@ -55,15 +54,4 @@ public class CombatRoot : MonoBehaviour
         }
     }
     #endregion
-
-    //will be moved to vision Root
-    private float sightRange = 10f;
-    private void CheckTarget()
-    {
-        if (!_localBlackboard.hasTarget)
-        {
-            //find a target
-            //Physics.SphereCast(transform.position, sightRange)
-        }
-    }
 }

@@ -2380,6 +2380,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Corona Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4169527166114959440, guid: 809f7c88b75c782439e1d9eaa9f23c21,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4169527166114959441, guid: 809f7c88b75c782439e1d9eaa9f23c21,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2654,7 +2659,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2141604093
 Transform:
   m_ObjectHideFlags: 0
@@ -3163,7 +3168,7 @@ PrefabInstance:
     - target: {fileID: 1854203132282749413, guid: 197c9b4bb2b4fa149b3369413a87e0bf,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1854203132282749415, guid: 197c9b4bb2b4fa149b3369413a87e0bf,
         type: 3}
@@ -3420,6 +3425,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stapha
       objectReference: {fileID: 0}
+    - target: {fileID: 4039266726602365851, guid: 7c62c1ff805867e4ca8069a56a7f3c54,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c62c1ff805867e4ca8069a56a7f3c54, type: 3}
 --- !u!1001 &9056801975320748898
@@ -3438,6 +3448,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shiggy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374877621144220018, guid: 05740bc3aad68e54c94201d51ff4c49a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1374877621144220019, guid: 05740bc3aad68e54c94201d51ff4c49a,
         type: 3}

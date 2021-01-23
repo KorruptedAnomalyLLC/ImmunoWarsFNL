@@ -32,7 +32,8 @@ public class VisionRoot : MonoBehaviour
 
     public void DropTarget()
     {
-        _localBlackboard.hasTarget = false;   
+        _localBlackboard.hasTarget = false;
+        _localBlackboard.currentTarget = null;
     }
     #endregion
 
