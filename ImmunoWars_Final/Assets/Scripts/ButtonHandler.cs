@@ -11,6 +11,9 @@ public class ButtonHandler : MonoBehaviour, IPointerDownHandler
 {
     public bool buttonActive = true;
 
+    //Marked the Image as a read only variable. This is becuase there is never a need for any outside script to change this value
+    //but there is still a need to read it. This doesn't help with any function but it lets other coders know for sure that
+    //this value is only ever changed inside of this script
     public Image ButtonImage { get { return buttonImage; } }
     private Image buttonImage;
 
@@ -18,7 +21,7 @@ public class ButtonHandler : MonoBehaviour, IPointerDownHandler
     [SerializeField]
     private ButtonType _buttonType;
 
-
+    //Grab the Image component
     private void Awake()
     {
         if(TryGetComponent(out Image temp))
@@ -32,7 +35,7 @@ public class ButtonHandler : MonoBehaviour, IPointerDownHandler
     }
 
     #region IPointerDown Implementation
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData) //reads click/touch events from Unity
     {
         if(buttonActive)
             UIManager.Instance.ButtonClicked(_buttonType);

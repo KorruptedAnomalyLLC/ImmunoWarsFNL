@@ -63,12 +63,14 @@ public class UIManager : GenericSingletonClass<UIManager>
         dropUnit.sprite = GlobalBlackboard.Instance.selectedUnit.dropUnitUI;
 
         #region Attack Buttons
+        //disable all buttons initially
         foreach(ButtonHandler button in attackButtons)
         {
             button.ButtonImage.sprite = disabledButtonImage;
             button.buttonActive = false;
         }
 
+        //Go through each attackUI on the selected unit and enable/update the coresponding button
         for (int i = 0; i < GlobalBlackboard.Instance.selectedUnit.attackUI.Length; i++)
         {
             if (GlobalBlackboard.Instance.selectedUnit.attackUI[i] != null)
