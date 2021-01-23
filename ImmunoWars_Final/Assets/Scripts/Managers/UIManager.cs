@@ -44,13 +44,12 @@ public class UIManager : GenericSingletonClass<UIManager>
     private Text charInfo;
 
     [SerializeField]
-    private Image attack1;
-    [SerializeField]
-    private Image attack2;
-    [SerializeField]
-    private Image attack3;
+    private ButtonHandler[] attackButtons;
     [SerializeField]
     private Image dropUnit;
+
+    [SerializeField]
+    private Sprite disabledButtonImage;
 
     public void TurnOnBattleUI()
     {
@@ -61,10 +60,28 @@ public class UIManager : GenericSingletonClass<UIManager>
         nameOfChar.text = GlobalBlackboard.Instance.selectedUnit.nameOfChar;
         charInfo.text = GlobalBlackboard.Instance.selectedUnit.charInfo;
 
-        attack1.sprite = GlobalBlackboard.Instance.selectedUnit.attack1UI;
-        attack2.sprite = GlobalBlackboard.Instance.selectedUnit.attack2UI;
-        attack3.sprite = GlobalBlackboard.Instance.selectedUnit.attack3UI;
         dropUnit.sprite = GlobalBlackboard.Instance.selectedUnit.dropUnitUI;
+
+        #region Attack Buttons
+        foreach(ButtonHandler button in attackButtons)
+        {
+            button.ButtonImage.sprite = disabledButtonImage;
+            button.buttonActive = false;
+        }
+
+        for (int i = 0; i < GlobalBlackboard.Instance.selectedUnit.attackUI.Length; i++)
+        {
+            if (GlobalBlackboard.Instance.selectedUnit.attackUI[i] != null)
+            {
+                attackButtons[i].ButtonImage.sprite = GlobalBlackboard.Instance.selectedUnit.attackUI[i];
+                attackButtons[i].buttonActive = true;
+            }
+            else
+            {
+                Debug.LogError(gameObject.name + " is missing the button sprite for it's attack number " + i + "Fix This SHIT!!!\n-the sprite slot can be found on the Unit's LocalBlackboard component");
+            }
+        }
+        #endregion
     }
 
     public void TurnOffBattleUI()

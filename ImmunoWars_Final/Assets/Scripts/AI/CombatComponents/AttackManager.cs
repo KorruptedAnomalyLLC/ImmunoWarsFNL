@@ -33,6 +33,8 @@ public class AttackManager : MonoBehaviour
             atkRt.Setup(_localBlackboard);
         }
 
+        _localBlackboard.attackCount = attackRoots.Count;
+
         SelectAttack();
     }
 

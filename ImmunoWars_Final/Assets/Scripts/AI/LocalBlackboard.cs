@@ -49,7 +49,8 @@ public class LocalBlackboard : MonoBehaviour
 
 
     public GameObject selectionGlow;
-    public Sprite attack1UI, attack2UI, attack3UI, dropUnitUI;
+    public Sprite [] attackUI;
+    public Sprite dropUnitUI;
 
     public string nameOfChar = "SuperFluper", 
                   charInfo = "A type of Flu";
@@ -85,6 +86,7 @@ public class LocalBlackboard : MonoBehaviour
     [Header("Attack Variables")]
     public bool inRange = false;
     public int damageAmount = 1;
+    public int attackCount = 0;
     #endregion
 
     [Space(20)]

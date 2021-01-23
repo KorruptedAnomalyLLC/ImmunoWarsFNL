@@ -323,6 +323,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3053236771843330933, guid: 360af6a7a27280e4f94cd7750327a664,
         type: 3}
+      propertyPath: attackUI.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3053236771843330933, guid: 360af6a7a27280e4f94cd7750327a664,
+        type: 3}
       propertyPath: charInfo
       value: Polymorphonuclear leukocyte/neutrophil
       objectReference: {fileID: 0}
@@ -351,6 +356,24 @@ PrefabInstance:
       propertyPath: energyLevel
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3053236771843330933, guid: 360af6a7a27280e4f94cd7750327a664,
+        type: 3}
+      propertyPath: attackUI.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 5344e9ed3cb83264f90f43826b8b155d,
+        type: 3}
+    - target: {fileID: 3053236771843330933, guid: 360af6a7a27280e4f94cd7750327a664,
+        type: 3}
+      propertyPath: attackUI.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 128d57aa0bca98940a965481139ca8a1,
+        type: 3}
+    - target: {fileID: 3053236771843330933, guid: 360af6a7a27280e4f94cd7750327a664,
+        type: 3}
+      propertyPath: attackUI.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: d7453a24cc51d584895e4c8ec86b8d55,
+        type: 3}
     - target: {fileID: 3053236771843330936, guid: 360af6a7a27280e4f94cd7750327a664,
         type: 3}
       propertyPath: m_Name

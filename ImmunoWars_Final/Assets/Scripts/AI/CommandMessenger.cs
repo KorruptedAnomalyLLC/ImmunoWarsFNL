@@ -109,8 +109,11 @@ public class CommandMessenger : MonoBehaviour
 
     public void AttackButtonChosen(int chosenAttack)
     {
-        _localBlackboard._attackManager.AttackSelected(chosenAttack); //should this run through the combatRoot??
+        if(chosenAttack < _localBlackboard.attackCount) //Assures that 'index out of range' error never rears its ugly head
+        {
+            _localBlackboard._attackManager.AttackSelected(chosenAttack); //should this run through the combatRoot??
 
-        _localBlackboard._moveRoot.AttackStateChanged(); //update targetOffsetMovement distance
+            _localBlackboard._moveRoot.AttackStateChanged(); //update targetOffsetMovement distance
+        }
     }
 }

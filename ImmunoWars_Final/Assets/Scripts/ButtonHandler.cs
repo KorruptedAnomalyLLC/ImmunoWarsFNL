@@ -5,18 +5,37 @@
 
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ButtonHandler : MonoBehaviour, IPointerDownHandler
 {
+    public bool buttonActive = true;
+
+    public Image ButtonImage { get { return buttonImage; } }
+    private Image buttonImage;
+
+
     [SerializeField]
     private ButtonType _buttonType;
 
 
+    private void Awake()
+    {
+        if(TryGetComponent(out Image temp))
+        {
+            buttonImage = temp;
+        }
+        else
+        {
+            Debug.LogError(gameObject.name + " is Missing the Image component Add one or Suffer the consequences.");
+        }
+    }
+
     #region IPointerDown Implementation
     public void OnPointerDown(PointerEventData eventData)
     {
-        UIManager.Instance.ButtonClicked(_buttonType);
+        if(buttonActive)
+            UIManager.Instance.ButtonClicked(_buttonType);
     }
     #endregion
-
 }
