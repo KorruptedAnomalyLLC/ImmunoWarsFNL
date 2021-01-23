@@ -48,6 +48,9 @@ public class CommandMessenger : MonoBehaviour
 
         if (_localBlackboard._moveRoot != null)
             _localBlackboard._moveRoot.Selected();
+
+        if (_localBlackboard._visionRoot != null)
+            _localBlackboard._visionRoot.Selected();
     }
 
     public void CallDropped()
@@ -57,6 +60,9 @@ public class CommandMessenger : MonoBehaviour
 
         //Send commands to any components that have a dropped function
         _localBlackboard._unitRoot.Dropped();
+
+        if(_localBlackboard._visionRoot != null)
+            _localBlackboard._visionRoot.Dropped();
     }
 
     public void CallDead()

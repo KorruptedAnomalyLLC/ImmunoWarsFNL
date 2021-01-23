@@ -1,5 +1,6 @@
 ﻿///
-///This script looks for stuff
+///This script looks for stuff,
+///it is disabled when the player is in control of this unit
 ///
 using UnityEngine;
 
@@ -14,6 +15,7 @@ public class VisionRoot : MonoBehaviour
     private LocalBlackboard targetInfo, tempTargetInfo;
     private float lowestEnergy;
 
+    private bool visionEnabled = true;
 
     #region Setup
     public void Setup(LocalBlackboard localBlackboard)
@@ -22,6 +24,19 @@ public class VisionRoot : MonoBehaviour
         objectsHit = new Collider[GlobalBlackboard.Instance.maxUnitsInField];
     }
     #endregion
+
+    #region Selected/Dropped
+    public void Selected()
+    {
+        visionEnabled = false;
+    }
+
+    public void Dropped()
+    {
+        visionEnabled = true;
+    }
+    #endregion
+
 
     #region Update Target Functions
     public void AddTarget(LocalBlackboard newTarget) //possibly move this to status manager
@@ -40,6 +55,9 @@ public class VisionRoot : MonoBehaviour
     #region Update Ticks
     public void _update()
     {
+        if (!visionEnabled)
+            return;
+
         if (!_localBlackboard.hasTarget)
             SearchForTarget();
         else
