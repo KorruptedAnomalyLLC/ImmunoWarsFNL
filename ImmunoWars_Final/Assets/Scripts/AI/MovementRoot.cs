@@ -142,6 +142,10 @@ public class MovementRoot : MonoBehaviour
     {
         if (_randMove != null)
             MoveTo(_randMove.EnterRandomMovement(_localBlackboard.navAI));
+
+        //Assures that unit will return to rotating based on it's path
+        rotating = false;
+        _localBlackboard.navAI.updateRotation = true;
     }
 
     private void PatrolBranch()
