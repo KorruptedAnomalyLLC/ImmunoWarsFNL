@@ -31,7 +31,7 @@ public class AttackPlayer : MonoBehaviour
 
     private void PlayAttack(AttackRoot activeAttack)
     {
-        activeAttack.RunAttack(_localBlackboard.currentTarget);
+        activeAttack.RunAttack();
 
         StartCoroutine(EndAttack(activeAttack));
     }

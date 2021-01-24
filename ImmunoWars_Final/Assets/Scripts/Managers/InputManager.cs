@@ -14,7 +14,7 @@ public class InputManager : GenericSingletonClass<InputManager>
     [SerializeField]
     private TouchPhase _touchPhase = TouchPhase.Began;
     [SerializeField]
-    private LayerMask rayCastMask;
+    private LayerMask rayCastMask = default;
 
     private LocalBlackboard touchedUnit;
     private Vector3 touchedPos;

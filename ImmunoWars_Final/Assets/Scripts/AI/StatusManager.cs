@@ -11,7 +11,7 @@ public class StatusManager : MonoBehaviour
     private TypeInfuser _typeInfuser;
     public bool hasType = false; //should be in local blackboard, attacks shouldn't be accessing vars from root scripts
     [SerializeField]
-    private GameObject deathFX;
+    private GameObject deathFX = default;
 
     public void Setup(LocalBlackboard localBlackboard)
     {
@@ -24,9 +24,14 @@ public class StatusManager : MonoBehaviour
         }
     }
 
-    public void AdjustEnergy(float energyChange)
+    public void FullRecovery()
     {
-        _localBlackboard.energyLevel += energyChange;
+        _localBlackboard.energyLevel = _localBlackboard.fullEnergyLevel;
+    }
+
+    public void AdjustEnergy(float adjustAmount)
+    {
+        _localBlackboard.energyLevel += adjustAmount;
         CheckEnergy();
     }
 
@@ -84,9 +89,13 @@ public class StatusManager : MonoBehaviour
     public void Die()
     {
         _localBlackboard._commandMessenger.CallDead();
-        //play death FX
-        deathFX.SetActive(true);
         _localBlackboard.dead = true;
+
+
+        if (deathFX != null)
+        {
+            deathFX.SetActive(true);
+        }
 
         //start destroy countdown
         StartCoroutine(UnitDeathDelay());

@@ -3,7 +3,6 @@
 ///Attacks should be made into prefabs
 ///...this script got waaay too big, need to chop it up some
 ///
-using System.Collections;
 using UnityEngine;
 
 
@@ -11,21 +10,23 @@ using UnityEngine;
 public class AttackRoot : MonoBehaviour
 {
     #region Standard Attack Variables
-    public GameObject hitBox;
-    public GameObject attackFX;
-    public float damageAmount = 1;
+    //the following variables should be read only... if I get time I will fix this
+    [Tooltip("This is the overall combat value of the attack. Higher rating = more powerful attack.\n\nThe AI uses this value to pick the best attack when in combat.\n\nThis should be based on things such as damage amount, heal amount, special effects, etc. \n\nExclude cost from value as AI looks at that seperately.")]
+    public float attackValue = 0f;
+    [Tooltip("This is how long(in seconds) an attack is active for before being shut off by the AttackPlayer.\n\nIf this attack is played by IndieAttackPlayer instead of the standard, this value is ignored.")]
     public float hitTime = 0.6f;
+    [Tooltip("This is how much energy the attack costs to use.\n\nIf an attack costs more energy than the unit has left it will die.\nThe AI will not use an attack that will kill it if there is another option.")]
     public float energyCost = 0f;
-    public bool attackCharged = true;
-    public float rechargeTime = 1f;
-    [SerializeField]
+
+    [SerializeField, Tooltip("This is the distance the AI will try to be from it's target before it can attack.\n\nIt will maintain this distance while this attack is active.")]
     private float optimumAttackDistance = 1.6f;
     #endregion
 
     #region Effect Variables
-    public Type attackType = Type.None;
-    [SerializeField]
-    private int numberToSpawn = 1;
+    [HideInInspector]
+    public Type attackType = Type.None; //this should stay in the typeInfuser script or the collector script
+    [HideInInspector]
+    public bool attackCharged = true;
     #endregion
 
     #region Target Variables
@@ -36,15 +37,20 @@ public class AttackRoot : MonoBehaviour
     #endregion
 
     #region Components
-    [SerializeField]
     private AttackColliderController _attackCollider;
-    [SerializeField]
     private TypeInflictor _typeInflictor;
     private LocalBlackboard _localBlackboard;
+    private DoDamage _doDamage;
+    private Heal _heal;
     private Spawn _spawn;
     private PushInflictor _pushInflictor;
     private Collection _collection;
     private StunInflictor _stunInflictor;
+    private DestroyAfterTime _destroyAfterTime;
+    private Recharge _recharge;
+    private IndieAttackPlayer _indieAttackPlayer;
+    private AttackFXPlayer _attackFXPlayer;
+    private DestroyOnHit _destroyOnHit;
     #endregion
 
     #region Setup
@@ -74,66 +80,111 @@ public class AttackRoot : MonoBehaviour
         {
             _stunInflictor = temp5;
         }
-        if (hitBox.gameObject.TryGetComponent(out AttackColliderController temp6))
+        if (TryGetComponent(out AttackColliderController temp6))
         {
             _attackCollider = temp6;
             _attackCollider.Setup(_localBlackboard, this);
         }
-        else
-            Debug.LogError(gameObject.name + " is Missing AttackColliderController script, please attatch reference to AttackRoot in inspector.");
+        if (TryGetComponent(out DestroyAfterTime temp7))
+        {
+            _destroyAfterTime = temp7;
+        }
+        if (TryGetComponent(out DoDamage temp8))
+        {
+            _doDamage = temp8;
+        }
+        if (TryGetComponent(out Heal temp9))
+        {
+            _heal = temp9;
+        }
+        if (TryGetComponent(out Recharge temp10))
+        {
+            _recharge = temp10;
+            _recharge.Setup(this);
+        }
+        if (TryGetComponent(out IndieAttackPlayer temp11))
+        {
+            _indieAttackPlayer = temp11;
+            _indieAttackPlayer.Setup(this);
+        }
+        if(TryGetComponent(out AttackFXPlayer temp12))
+        {
+            _attackFXPlayer = temp12;
+        }
+        if(TryGetComponent(out DestroyOnHit temp13))
+        {
+            _destroyOnHit = temp13;
+        }
     }
     #endregion
 
 
-    //used by collection attack... seems kinda weird to have the function here tho
-    public void UpdateAttackType(Type newType)
+    #region Run/End Attack
+    public void RunAttack()
     {
-        attackType = newType;
-    }
-
-    private StatusManager targetStatus;
-    //private List<UnitRoot> unitsHit = new List<UnitRoot>();
-    public void RunAttack(LocalBlackboard currentTarget)
-    {
-        if(_spawn != null) //for spawn attacks
+        if(_spawn != null)
         {
-            _spawn.SpawnSomething(numberToSpawn);
+            _spawn.SpawnSomething();
         }
-        else //for standard attacks
+
+        if(_attackCollider != null)
         {
-            hitBox.SetActive(true);
-            targetStatus = currentTarget._statusManager;
             _attackCollider.ActivateCollider(_localBlackboard.currentTarget._statusManager, onlyHitTarget, targetHeroes);
         }
 
+        if(_recharge != null)
+        {
+            attackCharged = false;
+            _recharge.RechargeAttack();
+        }
+        if(_attackFXPlayer != null)
+        {
+            _attackFXPlayer.PlayAttackFX();
+        }
 
-        attackFX.SetActive(true);
-        attackCharged = false;
         _localBlackboard._statusManager.AdjustEnergy(-energyCost);
-        StartCoroutine(Recharge());
     }
 
-    float damageToDeal;
-    public void DealDamage(StatusManager unitHit)
+    public void EndAttack()
     {
-        if (unitHit._localBlackboard.dead) //don't want error messages popping up by beating a dead unit
+        if(_attackFXPlayer != null)
+        {
+            _attackFXPlayer.StopAttackFX();
+        }
+
+        if (_attackCollider != null)
+        {
+            _attackCollider.DeactivateCollider();
+        }
+
+        //choose next attack
+        //only do this if unit isn't selected
+        if (GlobalBlackboard.Instance.selectedUnit != _localBlackboard)
+            _localBlackboard._attackManager.SelectAttack();
+    }
+    #endregion
+
+
+    #region Hit Unit
+    //apply all effects to the unit that was hit... unless its dead
+    public void HitUnit(StatusManager unitHit)
+    {
+        if (unitHit._localBlackboard.dead) //don't want error messages popping up from beating a dead unit
             return;
 
-        damageToDeal = damageAmount;
 
-        if (damageToDeal < 0)
-        {
-            unitHit.AdjustEnergy(damageToDeal); //heal units instead of damaging them
-            //heal yourself too? _localBlackboard._healthManager.AdjustEnergy(damageToDeal);
-        }
-        else
+        if (_doDamage != null)
         {
             //if this attack has a type, check if it matches the hit unit's type. If so multiply damage by the typeDamageMultiplier
             if (_typeInflictor != null && _typeInflictor.CompareTypes(_localBlackboard._statusManager.FindType(), unitHit.FindType()))
-                damageToDeal *= GlobalBlackboard.Instance.typeDamageMultiplier;
-
-
-            unitHit.TakeDamage(damageToDeal, _localBlackboard);
+                _doDamage.DealDamage(unitHit, _localBlackboard, GlobalBlackboard.Instance.typeDamageMultiplier);
+            else
+                _doDamage.DealDamage(unitHit, _localBlackboard);
+        }
+        
+        if (_heal != null)
+        {
+            _heal.HealUnit(unitHit, _localBlackboard);
         }
 
         //Apply Push back effect if one is added
@@ -146,26 +197,28 @@ public class AttackRoot : MonoBehaviour
         {
             _stunInflictor.InflictStun(unitHit);
         }
-    }
 
-    public void EndAttack()
-    {
-        attackFX.SetActive(false);
-        hitBox.SetActive(false);
-
-        //choose next attack
-        //only do this if unit isn't selected
-        if (GlobalBlackboard.Instance.selectedUnit != _localBlackboard)
-            _localBlackboard._attackManager.SelectAttack();
-    }
-
-    #region Attack Recharge
-    private IEnumerator Recharge()
-    {
-        yield return new WaitForSeconds(rechargeTime);
-        attackCharged = true;
+        //just used for projectiles. Starts a countdown to kill this attack object
+        if(_destroyAfterTime != null)
+        {
+            _destroyAfterTime.StartDestroyCountdown(this.gameObject);
+        }
+        if(_destroyOnHit != null)
+        {
+            _destroyOnHit.DestroyAttack(this.gameObject);
+        }
     }
     #endregion
+
+
+
+    //used by collection attack... seems kinda weird to have the function here tho
+    //also collection should be an ability, not an attack
+    public void UpdateAttackType(Type newType)
+    {
+        attackType = newType;
+    }
+
 
     public void OnAttackSelected()
     {

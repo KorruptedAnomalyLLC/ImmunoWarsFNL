@@ -93,16 +93,24 @@ public class LocalBlackboard : MonoBehaviour
     [Header("Status Variables")]
     public Collider healthCollider;
     public float energyLevel = 5;
-    
+    [HideInInspector]
+    public float fullEnergyLevel;
+    [HideInInspector]
     public bool isStunned = false;
+    [HideInInspector]
     public bool dead = false;
 
 
-   // private void Awake()
+    private void Awake()
+    {
+        fullEnergyLevel = energyLevel;
+    }
+
+    // private void Awake()
     //{
-        //this is done to avoid using square root functions in Movement scripts... will actually get used in optimization pass
-        //optimumAttackDistance *= optimumAttackDistance;
-        //movementSlopAllowance *= movementSlopAllowance;
+    //this is done to avoid using square root functions in Movement scripts... will actually get used in optimization pass
+    //optimumAttackDistance *= optimumAttackDistance;
+    //movementSlopAllowance *= movementSlopAllowance;
     //}
 
 

@@ -5,13 +5,10 @@ public class CombatRoot : MonoBehaviour
 {
     //AI tree branch references
     private LocalBlackboard _localBlackboard;
-    
-    
 
     public float attackRechargeTime = 10f;
-    private float counter = 0f;
-
     public bool attackReady = true;
+
 
     #region Setup
     public void Setup(LocalBlackboard localBlackboard)

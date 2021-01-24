@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class CollectibleType : MonoBehaviour
 {
-    private Type objectType;
+    [SerializeField]
+    private Type objectType = default;
 
     public Type RetrieveType()
     {

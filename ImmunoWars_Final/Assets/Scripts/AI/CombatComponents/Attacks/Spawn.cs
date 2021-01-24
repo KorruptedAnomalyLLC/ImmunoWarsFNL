@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
-    private LocalBlackboard _localBlackboard;
-
     [SerializeField]
-    private GameObject prefabToSpawn;
-
-    [SerializeField, Tooltip("Must have at least four points")]
-    private Vector2[] spawnPoints;
+    private int numberToSpawn = 1;
+    [SerializeField]
+    private GameObject prefabToSpawn = default;
+    [SerializeField]
+    private Vector2[] spawnPoints = default;
 
     private Vector3 tempSpawnPoint;
+    private LocalBlackboard _localBlackboard;
 
 
 
@@ -22,11 +22,13 @@ public class Spawn : MonoBehaviour
         _localBlackboard = localBlackboard;
     }
 
-    public void SpawnSomething(int numberToSpawn = 1)
+    public void SpawnSomething()
     {
         for(int i = 0; i < numberToSpawn; i++)
         {
             tempSpawnPoint = new Vector3(spawnPoints[i].x, GlobalBlackboard.Instance.playfieldHeight, spawnPoints[i].y);
+            tempSpawnPoint = _localBlackboard.transform.TransformPoint(tempSpawnPoint);
+
             Instantiate(prefabToSpawn, tempSpawnPoint, _localBlackboard.transform.rotation);
         }
     }

@@ -47,19 +47,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1323135531058687039}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0059ba250a40b744ad7056ca8c743cc, type: 3}
+  m_Script: {fileID: 11500000, guid: a7c1b7b998945d6468e746df2f8a348a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorType: 3
-  damageAmount: 0
+  hitBox: {fileID: 1323135531058687039}
+  attackFX: {fileID: 6163648860033075615}
+  damageAmount: 1
   hitTime: 0.6
+  energyCost: 0
+  attackCharged: 1
+  rechargeTime: 1
+  optimumAttackDistance: 1.6
+  attackType: 3
   numberToSpawn: 1
-  _projectileColliderController: {fileID: 9128295353011531104}
+  onlyHitTarget: 1
+  targetHeroes: 0
+  _attackCollider: {fileID: 9128295353011531104}
   _typeInflictor: {fileID: 0}
-  myCollider: {fileID: 348049989720629126}
-  projectileFX: {fileID: 3512700092851359752}
-  explosionFX: {fileID: 6163648860033075615}
-  lifeTimeAfterHit: 3
 --- !u!54 &1113113757655832280
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -85,7 +89,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1323135531058687039}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f44931b8961ac440811192f3409d208, type: 3}
+  m_Script: {fileID: 11500000, guid: 635b90b3ac0c73440934538da61c420d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &348049989720629126
@@ -129,7 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157500546d4a5d8459463065dc5ae87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 1113113757655832280}
   speed: 10
 --- !u!1 &3299420715783990961
 GameObject:

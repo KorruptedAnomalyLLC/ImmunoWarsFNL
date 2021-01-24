@@ -1,13 +1,13 @@
-﻿using UnityEngine;
+﻿/// <summary>
+/// This script generates a random point based on the range box provided
+/// </summary>
+
+using UnityEngine;
 
 public class RandomPointGenerator : MonoBehaviour
-{
-    /// <summary>
-    /// This script generates a random point based on the range box provided
-    /// </summary>
-    
+{    
     [SerializeField]
-    private Transform rangeBox;
+    private Transform rangeBox = default; //default is here to avoid unity warning bug in 2019.3
 
     private LocalBlackboard _localBlackboard;
 
