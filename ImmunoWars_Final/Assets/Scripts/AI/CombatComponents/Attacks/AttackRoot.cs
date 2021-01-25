@@ -88,6 +88,7 @@ public class AttackRoot : MonoBehaviour
         if (TryGetComponent(out DestroyAfterTime temp7))
         {
             _destroyAfterTime = temp7;
+            _destroyAfterTime.Setup(_spawn);
         }
         if (TryGetComponent(out DoDamage temp8))
         {

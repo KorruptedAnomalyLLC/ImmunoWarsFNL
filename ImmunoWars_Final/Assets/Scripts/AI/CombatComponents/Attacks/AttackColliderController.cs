@@ -89,11 +89,13 @@ public class AttackColliderController : MonoBehaviour
 
     public void CheckCollisionExit(Collider collider)
     {
+        if (collider == myCollider)
+            return;
+
         if (collider.transform.parent.TryGetComponent<LocalBlackboard>(out hitUnitInfo))
         {
             if (hitUnitInfo.heroUnit == targetHeroes)
             {
-                _attackRoot.HitUnit(hitUnitInfo._statusManager);
                 DealWithDamageOverTime(hitUnitInfo._statusManager, false);
             }
         }
