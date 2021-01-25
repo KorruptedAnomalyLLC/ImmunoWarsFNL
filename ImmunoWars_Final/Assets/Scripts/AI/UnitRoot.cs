@@ -125,6 +125,9 @@ public class UnitRoot : MonoBehaviour
             currentTick = 0;
         }
 
+        if (_localBlackboard._visionRoot != null)
+            _localBlackboard._visionRoot._smoothUpdate();
+
         //Smooth Updates
         if (_localBlackboard._moveRoot != null)
             _localBlackboard._moveRoot._smoothUpdate();

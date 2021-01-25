@@ -17,11 +17,17 @@ public class TriggerSensor : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        _atkController.CheckCollision(collider);
+        if (_atkController != null)
+            _atkController.CheckCollision(collider);
+        else
+            Debug.LogError(gameObject.name + " Is missing the reference to it's attackColliderController...");
     }
 
     private void OnTriggerExit(Collider collider)
     {
-        _atkController.CheckCollisionExit(collider);
+        if (_atkController != null)
+            _atkController.CheckCollisionExit(collider);
+        else
+            Debug.LogError(gameObject.name + " Is missing the reference to it's attackColliderController...");
     }
 }

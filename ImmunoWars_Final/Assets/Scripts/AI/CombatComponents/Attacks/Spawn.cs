@@ -1,10 +1,14 @@
 ﻿///
 ///This script spawns prefabs, it is used as a component of some attacks
+///If the object it spawns is an attack, this script will initialize it.
 ///
 using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
+    public bool spawnOnPlayAttack = true; //should be read only
+    public bool spawnOnLandAttack = false;
+
     [SerializeField]
     private int numberToSpawn = 1;
     [SerializeField]
@@ -14,7 +18,7 @@ public class Spawn : MonoBehaviour
 
     private Vector3 tempSpawnPoint;
     private LocalBlackboard _localBlackboard;
-
+    private GameObject spawnedObject;
 
 
     public void Setup(LocalBlackboard localBlackboard)
@@ -22,14 +26,21 @@ public class Spawn : MonoBehaviour
         _localBlackboard = localBlackboard;
     }
 
+
     public void SpawnSomething()
     {
         for(int i = 0; i < numberToSpawn; i++)
         {
-            tempSpawnPoint = new Vector3(spawnPoints[i].x, GlobalBlackboard.Instance.playfieldHeight, spawnPoints[i].y);
-            tempSpawnPoint = _localBlackboard.transform.TransformPoint(tempSpawnPoint);
+            tempSpawnPoint = transform.TransformPoint(spawnPoints[i]);
+            tempSpawnPoint = new Vector3(tempSpawnPoint.x, GlobalBlackboard.Instance.playfieldHeight, tempSpawnPoint.z);
+            //tempSpawnPoint = _localBlackboard.transform.TransformPoint(tempSpawnPoint);
 
-            Instantiate(prefabToSpawn, tempSpawnPoint, _localBlackboard.transform.rotation);
+            spawnedObject = Instantiate(prefabToSpawn, tempSpawnPoint, transform.rotation);
+
+            if(spawnedObject.TryGetComponent(out AttackRoot temp))
+            {
+                temp.Setup(_localBlackboard);
+            }
         }
     }
 }

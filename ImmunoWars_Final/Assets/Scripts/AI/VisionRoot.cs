@@ -60,7 +60,11 @@ public class VisionRoot : MonoBehaviour
 
         if (!_localBlackboard.hasTarget)
             SearchForTarget();
-        else
+    }
+
+    public void _smoothUpdate()
+    {
+        if (_localBlackboard.hasTarget)
             CheckIfTargetExists();
     }
     #endregion

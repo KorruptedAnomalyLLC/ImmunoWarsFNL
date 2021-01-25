@@ -124,7 +124,8 @@ public class AttackRoot : MonoBehaviour
     {
         if(_spawn != null)
         {
-            _spawn.SpawnSomething();
+            if(_spawn.spawnOnPlayAttack)
+                _spawn.SpawnSomething();
         }
 
         if(_attackCollider != null)
@@ -172,6 +173,11 @@ public class AttackRoot : MonoBehaviour
         if (unitHit._localBlackboard.dead) //don't want error messages popping up from beating a dead unit
             return;
 
+        if (_spawn != null)
+        {
+            if (_spawn.spawnOnLandAttack)
+                _spawn.SpawnSomething();
+        }
 
         if (_doDamage != null)
         {
