@@ -78,7 +78,7 @@ public class UnitRoot : MonoBehaviour
     #endregion
 
 
-    //need to sync this up with vissionRoot's update target functions
+    
     public void AddTarget(bool enemy)
     {
         if (enemy)

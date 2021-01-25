@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635b90b3ac0c73440934538da61c420d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitBox: {fileID: 0}
 --- !u!54 &6596752486833550530
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5044,9 +5045,9 @@ GameObject:
   - component: {fileID: 3397034100506803691}
   - component: {fileID: 7170712888947765900}
   - component: {fileID: 1509372998129730606}
-  - component: {fileID: 2628784613976507421}
-  - component: {fileID: 717913618686425892}
   - component: {fileID: 6780260091800332904}
+  - component: {fileID: 3077814804330555511}
+  - component: {fileID: 6520363686810308470}
   m_Layer: 0
   m_Name: Acid
   m_TagString: Untagged
@@ -5082,20 +5083,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c1b7b998945d6468e746df2f8a348a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 3951748337384419692}
-  attackFX: {fileID: 2199853153130256999}
-  damageAmount: 0
+  attackValue: 0
   hitTime: 0.6
   energyCost: 0
-  attackCharged: 1
-  rechargeTime: 1.5
   optimumAttackDistance: 4
   attackType: 3
-  numberToSpawn: 1
+  attackCharged: 1
   onlyHitTarget: 0
   targetHeroes: 1
-  _attackCollider: {fileID: 0}
-  _typeInflictor: {fileID: 2628784613976507421}
 --- !u!114 &1509372998129730606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5109,30 +5104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PushBackForce: 5
---- !u!114 &2628784613976507421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5804418473810625063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61a4680a5ac63104898f9926a90785c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &717913618686425892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5804418473810625063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9405a3f58b0be3b4faa21ecc570808cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6780260091800332904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5145,6 +5116,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55808a7b4a4247f4aa76ce8714064642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 0}
+  spawnOnPlayAttack: 1
+  spawnOnLandAttack: 0
+  numberToSpawn: 1
+  prefabToSpawn: {fileID: 8830951424848589348, guid: 1caf00c2bb29e374eaba60ab1bb44237,
+    type: 3}
   spawnPoints:
-  - {x: 0, y: 1}
+  - {x: 0, y: 2}
+--- !u!114 &3077814804330555511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5804418473810625063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b791bfc03327ccf48a15af1616492e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackFX: {fileID: 2199853153130256999}
+--- !u!114 &6520363686810308470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5804418473810625063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62b70d5a5a6d9a4a8c05622dbbc97ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rechargeTime: 3

@@ -7,8 +7,10 @@ using UnityEngine;
 
 public class StatusManager : MonoBehaviour
 {
+    [HideInInspector]
     public LocalBlackboard _localBlackboard; //this should be private
     private TypeInfuser _typeInfuser;
+    [HideInInspector]
     public bool hasType = false; //should be in local blackboard, attacks shouldn't be accessing vars from root scripts
     [SerializeField]
     private GameObject deathFX = default;

@@ -7,8 +7,9 @@ public class AttackManager : MonoBehaviour
 {
     //Available Attacks
     public GameObject[] attackPrefabs;
+    [HideInInspector]
     public List<AttackRoot> attackRoots = new List<AttackRoot>();
-    [SerializeField]
+
     private AttackRoot activeAttack;
     private AttackPlayer _attackPlayer;
     private LocalBlackboard _localBlackboard;
