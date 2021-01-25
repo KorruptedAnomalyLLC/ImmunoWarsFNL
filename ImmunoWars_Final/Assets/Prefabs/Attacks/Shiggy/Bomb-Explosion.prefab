@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8867252840570566776}
   - component: {fileID: 5240145162620181037}
+  - component: {fileID: 8004090549147098118}
   m_Layer: 10
   m_Name: HitBox
   m_TagString: Untagged
@@ -75,6 +76,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8004090549147098118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5398667939786823281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f0e6362d2b29d4bb637c1eca84c569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8038778808641200290
 GameObject:
   m_ObjectHideFlags: 0
@@ -5016,7 +5029,6 @@ GameObject:
   - component: {fileID: 7439961020682106538}
   - component: {fileID: 7453574355599230919}
   - component: {fileID: 4048659450908712995}
-  - component: {fileID: 8008267217817569526}
   - component: {fileID: 8525597549722623798}
   - component: {fileID: 7784990511581561670}
   - component: {fileID: 6551578514184329435}
@@ -5105,18 +5117,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitBox: {fileID: 5398667939786823281}
---- !u!114 &8008267217817569526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8817557358795980064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48f0e6362d2b29d4bb637c1eca84c569, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8525597549722623798
 MonoBehaviour:
   m_ObjectHideFlags: 0

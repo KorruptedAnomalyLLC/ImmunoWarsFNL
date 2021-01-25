@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5501185917507813613}
   - component: {fileID: 4977401829622616304}
   - component: {fileID: 1895057377259697940}
-  - component: {fileID: 5566508993742970817}
   - component: {fileID: 6066950371485763585}
   - component: {fileID: 5650598521022583921}
   - component: {fileID: 8685406317884788716}
@@ -115,18 +114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitBox: {fileID: 7532491474180866374}
---- !u!114 &5566508993742970817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6358347402404391447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48f0e6362d2b29d4bb637c1eca84c569, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6066950371485763585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6444067841425878863}
   - component: {fileID: 7699922492542422298}
+  - component: {fileID: 2341002128754750316}
   m_Layer: 10
   m_Name: HitBox
   m_TagString: Untagged
@@ -209,6 +197,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2341002128754750316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7532491474180866374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f0e6362d2b29d4bb637c1eca84c569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8853590438813570592
 GameObject:
   m_ObjectHideFlags: 0
