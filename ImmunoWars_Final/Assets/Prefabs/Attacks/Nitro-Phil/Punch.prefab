@@ -41,10 +41,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1294337381446770786}
   - component: {fileID: 6839182955946336245}
-  - component: {fileID: 7561948929576247849}
   - component: {fileID: 4652603740661683137}
+  - component: {fileID: 9201713818675964261}
   m_Layer: 10
-  m_Name: AttackCollider
+  m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,18 +77,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7561948929576247849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3299571932736886383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 635b90b3ac0c73440934538da61c420d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &4652603740661683137
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -105,6 +93,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &9201713818675964261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299571932736886383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f0e6362d2b29d4bb637c1eca84c569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5444973743373477156
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +117,10 @@ GameObject:
   - component: {fileID: 8691521209166435727}
   - component: {fileID: 1148241582499996461}
   - component: {fileID: 249150868888607041}
+  - component: {fileID: 1103019276676686390}
+  - component: {fileID: 37465498035078215}
+  - component: {fileID: 2412745649579020143}
+  - component: {fileID: 3190013492840561128}
   m_Layer: 0
   m_Name: Punch
   m_TagString: Untagged
@@ -152,20 +156,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c1b7b998945d6468e746df2f8a348a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 3299571932736886383}
-  attackFX: {fileID: 403762477490404708}
-  damageAmount: 1
+  attackValue: 0
   hitTime: 0.6
   energyCost: 0
-  attackCharged: 1
-  rechargeTime: 0.8
   optimumAttackDistance: 4
-  colorType: 3
-  numberToSpawn: 1
+  attackType: 3
+  attackCharged: 1
   onlyHitTarget: 1
   targetHeroes: 0
-  _attackCollider: {fileID: 0}
-  _typeInflictor: {fileID: 0}
 --- !u!114 &1148241582499996461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +190,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunTime: 0.5
+--- !u!114 &1103019276676686390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5444973743373477156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 635b90b3ac0c73440934538da61c420d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitBox: {fileID: 3299571932736886383}
+--- !u!114 &37465498035078215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5444973743373477156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b791bfc03327ccf48a15af1616492e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackFX: {fileID: 403762477490404708}
+--- !u!114 &2412745649579020143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5444973743373477156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c7fa193f1ee85a4a86528ec1bd2c0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 0.5
+--- !u!114 &3190013492840561128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5444973743373477156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62b70d5a5a6d9a4a8c05622dbbc97ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rechargeTime: 0.6
 --- !u!1 &6280530733860004785
 GameObject:
   m_ObjectHideFlags: 0

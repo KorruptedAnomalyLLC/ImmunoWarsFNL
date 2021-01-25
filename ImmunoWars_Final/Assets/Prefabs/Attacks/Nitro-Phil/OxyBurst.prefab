@@ -4940,6 +4940,10 @@ GameObject:
   - component: {fileID: 2465102696385764928}
   - component: {fileID: 6144297512853530850}
   - component: {fileID: 3802623181105440751}
+  - component: {fileID: 5574891323564813743}
+  - component: {fileID: 8782310966639886810}
+  - component: {fileID: 259290067485702840}
+  - component: {fileID: 4548434868988712706}
   m_Layer: 0
   m_Name: OxyBurst
   m_TagString: Untagged
@@ -4975,20 +4979,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c1b7b998945d6468e746df2f8a348a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 8602401520277544352}
-  attackFX: {fileID: 6859477560506431147}
-  damageAmount: 2
+  attackValue: 0
   hitTime: 0.6
   energyCost: 1
-  attackCharged: 1
-  rechargeTime: 2
   optimumAttackDistance: 4
-  colorType: 3
-  numberToSpawn: 1
+  attackType: 3
+  attackCharged: 1
   onlyHitTarget: 1
   targetHeroes: 0
-  _attackCollider: {fileID: 1759617476445187289}
-  _typeInflictor: {fileID: 0}
 --- !u!114 &6144297512853530850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5014,7 +5012,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a19ba349614b34f8f45c41db67792e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunTime: 0.5
+  stunTime: 1
+--- !u!114 &5574891323564813743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241831791578787563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62b70d5a5a6d9a4a8c05622dbbc97ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rechargeTime: 3
+--- !u!114 &8782310966639886810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241831791578787563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c7fa193f1ee85a4a86528ec1bd2c0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 2
+--- !u!114 &259290067485702840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241831791578787563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 635b90b3ac0c73440934538da61c420d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitBox: {fileID: 8602401520277544352}
+--- !u!114 &4548434868988712706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241831791578787563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b791bfc03327ccf48a15af1616492e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackFX: {fileID: 6859477560506431147}
 --- !u!1 &6859477560506431147
 GameObject:
   m_ObjectHideFlags: 0
@@ -5056,10 +5106,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5430735696290196397}
   - component: {fileID: 306835228475495482}
-  - component: {fileID: 1759617476445187289}
   - component: {fileID: 6399825099322452026}
+  - component: {fileID: 6968997265776393411}
   m_Layer: 10
-  m_Name: AttackCollider
+  m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5092,18 +5142,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1759617476445187289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8602401520277544352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 635b90b3ac0c73440934538da61c420d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &6399825099322452026
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5120,3 +5158,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6968997265776393411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8602401520277544352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f0e6362d2b29d4bb637c1eca84c569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -29,7 +29,7 @@ public class AttackColliderController : MonoBehaviour
         myCollider = _localBlackboard.healthCollider;
         _attackRoot = attackRoot;
 
-        if(TryGetComponent(out TriggerSensor temp))
+        if(hitBox.TryGetComponent(out TriggerSensor temp))
         {
             _triggerSensor = temp;
             _triggerSensor.Setup(this);
