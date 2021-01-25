@@ -168,7 +168,7 @@ MonoBehaviour:
   unitSelected: 0
   playfieldHeight: 0
   playField: {fileID: 0}
-  typeDamageMultiplier: 4
+  typeDamageMultiplier: 3000
   maxUnitsInField: 50
   unitPhysicsLayer:
     serializedVersion: 2
@@ -2275,7 +2275,7 @@ PrefabInstance:
     - target: {fileID: 1865734437751195461, guid: c64f219a5c74bfc41a7540ebb6002ba2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1865734437751195463, guid: c64f219a5c74bfc41a7540ebb6002ba2,
         type: 3}
@@ -2721,7 +2721,7 @@ PrefabInstance:
     - target: {fileID: 8426066356655129912, guid: 1dbe5ede83a10ea47b4687904ab95647,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8426066356655129913, guid: 1dbe5ede83a10ea47b4687904ab95647,
         type: 3}
@@ -2951,7 +2951,7 @@ PrefabInstance:
     - target: {fileID: 6096533632712388347, guid: e42ddef899f6b534b937548594c64695,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e42ddef899f6b534b937548594c64695, type: 3}

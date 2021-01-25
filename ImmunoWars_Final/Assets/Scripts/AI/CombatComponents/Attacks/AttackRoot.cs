@@ -182,7 +182,7 @@ public class AttackRoot : MonoBehaviour
         if (_doDamage != null)
         {
             //if this attack has a type, check if it matches the hit unit's type. If so multiply damage by the typeDamageMultiplier
-            if (_typeInflictor != null && _typeInflictor.CompareTypes(_localBlackboard._statusManager.FindType(), unitHit.FindType()))
+            if (_typeInflictor != null && _typeInflictor.CompareTypes(attackType, unitHit.FindType()))
                 _doDamage.DealDamage(unitHit, _localBlackboard, GlobalBlackboard.Instance.typeDamageMultiplier);
             else
                 _doDamage.DealDamage(unitHit, _localBlackboard);

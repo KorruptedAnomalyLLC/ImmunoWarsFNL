@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2609122548689137768}
   - component: {fileID: 7722186230420557823}
-  - component: {fileID: 6715552741571080739}
   - component: {fileID: 8453891659002545099}
+  - component: {fileID: 6844164777458266659}
   m_Layer: 10
-  m_Name: AttackCollider
+  m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,18 +46,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6715552741571080739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1732039704088839781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 635b90b3ac0c73440934538da61c420d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &8453891659002545099
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -74,6 +62,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6844164777458266659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732039704088839781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f0e6362d2b29d4bb637c1eca84c569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3483934578140605806
 GameObject:
   m_ObjectHideFlags: 0
@@ -5047,6 +5047,10 @@ GameObject:
   - component: {fileID: 3942398700212635979}
   - component: {fileID: 767106647071552276}
   - component: {fileID: 2821668316209695789}
+  - component: {fileID: 1254229156723445603}
+  - component: {fileID: 8526002176815015498}
+  - component: {fileID: 3592683541517540522}
+  - component: {fileID: 1095021448612433390}
   m_Layer: 0
   m_Name: Stab
   m_TagString: Untagged
@@ -5082,20 +5086,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c1b7b998945d6468e746df2f8a348a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 1732039704088839781}
-  attackFX: {fileID: 3483934578140605806}
-  damageAmount: 0.5
+  attackValue: 0
   hitTime: 0.6
   energyCost: 0
-  attackCharged: 1
-  rechargeTime: 1.5
   optimumAttackDistance: 4
-  colorType: 3
-  numberToSpawn: 1
+  attackType: 3
+  attackCharged: 1
   onlyHitTarget: 1
   targetHeroes: 0
-  _attackCollider: {fileID: 0}
-  _typeInflictor: {fileID: 767106647071552276}
 --- !u!114 &4191796260862800679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5146,3 +5144,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9405a3f58b0be3b4faa21ecc570808cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1254229156723445603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9102743630940861742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 635b90b3ac0c73440934538da61c420d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitBox: {fileID: 1732039704088839781}
+--- !u!114 &8526002176815015498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9102743630940861742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b791bfc03327ccf48a15af1616492e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackFX: {fileID: 3483934578140605806}
+--- !u!114 &3592683541517540522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9102743630940861742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c7fa193f1ee85a4a86528ec1bd2c0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 0.5
+--- !u!114 &1095021448612433390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9102743630940861742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62b70d5a5a6d9a4a8c05622dbbc97ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rechargeTime: 1.5
