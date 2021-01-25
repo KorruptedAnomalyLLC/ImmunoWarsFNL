@@ -21,6 +21,10 @@ public class AttackPlayer : MonoBehaviour
     #region Attack Functions
     public void EvaluateAttacking(AttackRoot activeAttack)
     {
+        //I still hate this confusing 'targetHeroes' logic but it'll do for now
+        if (_localBlackboard.currentTarget.heroUnit != activeAttack.targetHeroes)
+            return;
+
         if (_localBlackboard.inRange && attackReady && activeAttack.attackCharged)
         {
             attackReady = false;

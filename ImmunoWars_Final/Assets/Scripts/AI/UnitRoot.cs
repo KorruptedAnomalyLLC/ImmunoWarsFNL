@@ -119,7 +119,7 @@ public class UnitRoot : MonoBehaviour
             if(_localBlackboard._moveRoot != null)
                 _localBlackboard._moveRoot._update();
 
-            if (_localBlackboard._combatRoot != null && _localBlackboard._behaviorState == BehaviorState.Combat) //should the behavior check be done in combat root??
+            if (_localBlackboard._combatRoot != null && _localBlackboard.hasTarget) //should the behavior check be done in combat root??
                 _localBlackboard._combatRoot._update();
 
             currentTick = 0;

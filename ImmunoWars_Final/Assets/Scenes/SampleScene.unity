@@ -2272,6 +2272,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Super Flu-per Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1865734437751195461, guid: c64f219a5c74bfc41a7540ebb6002ba2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1865734437751195463, guid: c64f219a5c74bfc41a7540ebb6002ba2,
         type: 3}
       propertyPath: rangeBox
@@ -2716,7 +2721,7 @@ PrefabInstance:
     - target: {fileID: 8426066356655129912, guid: 1dbe5ede83a10ea47b4687904ab95647,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8426066356655129913, guid: 1dbe5ede83a10ea47b4687904ab95647,
         type: 3}
@@ -3108,6 +3113,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bomber
       objectReference: {fileID: 0}
+    - target: {fileID: 3827207649922902969, guid: 8289f0ebdd15d544fb122d21cceb15ac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3827207649922902971, guid: 8289f0ebdd15d544fb122d21cceb15ac,
         type: 3}
       propertyPath: rangeBox
@@ -3451,7 +3461,7 @@ PrefabInstance:
     - target: {fileID: 4039266726602365851, guid: 7c62c1ff805867e4ca8069a56a7f3c54,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c62c1ff805867e4ca8069a56a7f3c54, type: 3}

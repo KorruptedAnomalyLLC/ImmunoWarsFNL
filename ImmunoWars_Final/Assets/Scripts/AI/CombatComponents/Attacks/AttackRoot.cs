@@ -32,8 +32,7 @@ public class AttackRoot : MonoBehaviour
     #region Target Variables
     [SerializeField]
     private bool onlyHitTarget = true;
-    [SerializeField]
-    private bool targetHeroes = false;
+    public bool targetHeroes = false;
     #endregion
 
     #region Components
