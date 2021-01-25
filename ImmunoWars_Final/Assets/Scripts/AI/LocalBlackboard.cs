@@ -95,7 +95,7 @@ public class LocalBlackboard : MonoBehaviour
     public float energyLevel = 5;
     [HideInInspector]
     public float fullEnergyLevel;
-    [HideInInspector]
+    //[HideInInspector]
     public bool isStunned = false;
     [HideInInspector]
     public bool dead = false;

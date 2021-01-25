@@ -82,6 +82,17 @@ public class CommandMessenger : MonoBehaviour
             _localBlackboard._moveRoot.BehaviorStateChanged();
     }
 
+
+    public void ApplyStunEffect()
+    {
+        _localBlackboard._moveRoot.ApplyStunToMove();
+    }
+
+    public void EndStunEffect()
+    {
+        _localBlackboard._moveRoot.RecoverFromStun();
+    }
+
     #region Targeting Commands
     public void AddTarget(LocalBlackboard newTarget, bool enemy)
     {

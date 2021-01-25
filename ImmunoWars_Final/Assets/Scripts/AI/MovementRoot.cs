@@ -135,6 +135,16 @@ public class MovementRoot : MonoBehaviour
         _localBlackboard.navAI.updateRotation = true;
         rotating = false;
     }
+
+    public void ApplyStunToMove()
+    {
+        _localBlackboard.navAI.isStopped = true;
+    }
+
+    public void RecoverFromStun()
+    {
+        _localBlackboard.navAI.isStopped = false;
+    }
     #endregion
 
     #region Patrol Branch

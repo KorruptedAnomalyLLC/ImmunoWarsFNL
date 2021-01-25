@@ -46,15 +46,18 @@ public class StatusManager : MonoBehaviour
         if(tempCoroutine != null)
         {
             StopCoroutine(tempCoroutine);
-            tempCoroutine = null;
-            tempCoroutine = StartCoroutine(StunTimer(stunTime));
         }
+
+        _localBlackboard._commandMessenger.ApplyStunEffect();
+
+        tempCoroutine = StartCoroutine(StunTimer(stunTime));
     }
 
     private IEnumerator StunTimer(float stunTime)
     {
         yield return new WaitForSeconds(stunTime);
         _localBlackboard.isStunned = false;
+        _localBlackboard._commandMessenger.EndStunEffect();
     }
     #endregion
 
