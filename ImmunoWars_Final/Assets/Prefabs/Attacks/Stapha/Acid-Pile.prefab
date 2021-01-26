@@ -253,7 +253,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 0.3529412}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4969,6 +4969,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8925388173580056444}
   - component: {fileID: 5218311288426009897}
+  - component: {fileID: 3340647245277509172}
   m_Layer: 10
   m_Name: HitBox
   m_TagString: Untagged
@@ -5003,6 +5004,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3340647245277509172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5348162925581736309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f0e6362d2b29d4bb637c1eca84c569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6005116213507039684
 GameObject:
   m_ObjectHideFlags: 0
@@ -6511,9 +6524,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.801217, g: 1, b: 0.4852941, a: 0}
-        key1: {r: 0.0141652385, g: 0.9632353, b: 0.21706982, a: 1}
-        key2: {r: 0.047383975, g: 0.33088237, b: 0.009731844, a: 0}
+        key0: {r: 1, g: 0.6933872, b: 0.48627448, a: 0}
+        key1: {r: 0.9647059, g: 0.38193002, b: 0.015686259, a: 1}
+        key2: {r: 0.32941177, g: 0.2714486, b: 0.0078431275, a: 0}
         key3: {r: 0.68311507, g: 0.6911765, b: 0.1067258, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -9975,10 +9988,10 @@ GameObject:
   - component: {fileID: 7468090069028047043}
   - component: {fileID: 4106205798270447399}
   - component: {fileID: 287080762707136573}
-  - component: {fileID: 8066090564901275634}
   - component: {fileID: 7843653876768377922}
   - component: {fileID: 6501077769285785567}
   - component: {fileID: 85469541801503214}
+  - component: {fileID: 7825860630745927553}
   m_Layer: 10
   m_Name: Acid-Pile
   m_TagString: Untagged
@@ -10065,18 +10078,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackFX: {fileID: 6005116213507039684}
---- !u!114 &8066090564901275634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8830951424848589348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48f0e6362d2b29d4bb637c1eca84c569, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7843653876768377922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10115,3 +10116,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenDamage: 2
+--- !u!114 &7825860630745927553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8830951424848589348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c7fa193f1ee85a4a86528ec1bd2c0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 1
