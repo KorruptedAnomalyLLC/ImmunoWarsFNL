@@ -17,6 +17,10 @@ public class UnitRoot : MonoBehaviour
     //Initialize Components/Check if they exist
     private void Start()
     {
+        //Adds one to the current count of units on screen
+        GlobalBlackboard.Instance.unitsInFieldCount++;
+
+
         if (TryGetComponent(out LocalBlackboard temp))
         {
             _localBlackboard = temp;

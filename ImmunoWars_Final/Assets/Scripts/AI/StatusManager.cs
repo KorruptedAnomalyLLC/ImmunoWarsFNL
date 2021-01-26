@@ -96,7 +96,6 @@ public class StatusManager : MonoBehaviour
         _localBlackboard._commandMessenger.CallDead();
         _localBlackboard.dead = true;
 
-
         if (deathFX != null)
         {
             deathFX.SetActive(true);
@@ -110,6 +109,8 @@ public class StatusManager : MonoBehaviour
     private IEnumerator UnitDeathDelay()
     {
         yield return new WaitForSeconds(deathDelay);
+
+        GlobalBlackboard.Instance.unitsInFieldCount--;
         Destroy(this.transform.gameObject);
     }
 }

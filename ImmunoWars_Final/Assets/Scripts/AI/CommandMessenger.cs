@@ -37,6 +37,12 @@ public class CommandMessenger : MonoBehaviour
             _localBlackboard._statusManager = temp4;
             _localBlackboard._statusManager.Setup(_localBlackboard);
         }
+
+        if(TryGetComponent(out AbilityRoot temp5))
+        {
+            _localBlackboard._abilityRoot = temp5;
+            _localBlackboard._abilityRoot.Setup(_localBlackboard);
+        }
     }
     #endregion
 

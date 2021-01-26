@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 3880339188221070335}
   - component: {fileID: 7705432409544274093}
   - component: {fileID: 1259449275674982156}
+  - component: {fileID: 2146414656510094870}
   m_Layer: 0
   m_Name: BaseUnit
   m_TagString: Untagged
@@ -81,15 +82,14 @@ MonoBehaviour:
   _commandMessenger: {fileID: 0}
   _attackManager: {fileID: 0}
   _statusManager: {fileID: 0}
+  _abilityRoot: {fileID: 0}
   heroUnit: 1
   _behaviorState: 0
   _previousState: 0
   _attack: 0
   currentTarget: {fileID: 0}
   selectionGlow: {fileID: 6572666692587712879}
-  attack1UI: {fileID: 21300000, guid: 5344e9ed3cb83264f90f43826b8b155d, type: 3}
-  attack2UI: {fileID: 21300000, guid: 128d57aa0bca98940a965481139ca8a1, type: 3}
-  attack3UI: {fileID: 21300000, guid: d7453a24cc51d584895e4c8ec86b8d55, type: 3}
+  attackUI: []
   dropUnitUI: {fileID: 21300000, guid: 45a8bcbfa635fb7458d3af1e64fe7aa2, type: 3}
   nameOfChar: Base Unit
   charInfo: Update This Text
@@ -107,8 +107,10 @@ MonoBehaviour:
   sAcceleration: 30
   inRange: 0
   damageAmount: 1
+  attackCount: 0
   healthCollider: {fileID: 5262188047902794353}
   energyLevel: 5
+  fullEnergyLevel: 0
   isStunned: 0
   dead: 0
 --- !u!114 &7502210134673794612
@@ -183,7 +185,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   attackRoots: []
-  activeAttack: {fileID: 0}
 --- !u!114 &5165258949429538799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +284,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeDist: 0.5
   randMoveSpeed: 1
+--- !u!114 &2146414656510094870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3053236771843330936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5877eae937079645b4453ef23d34808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4767774951133820238
 GameObject:
   m_ObjectHideFlags: 0

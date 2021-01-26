@@ -21,6 +21,7 @@ public class DestroyOnPhysicsPush : MonoBehaviour
     private IEnumerator KillTimer()
     {
         yield return new WaitForSeconds(killTime);
+        GlobalBlackboard.Instance.unitsInFieldCount--;
         Destroy(this.gameObject);
     }
 }

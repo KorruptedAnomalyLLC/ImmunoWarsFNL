@@ -36,6 +36,8 @@ public class LocalBlackboard : MonoBehaviour
     public AttackManager _attackManager;
     [HideInInspector]
     public StatusManager _statusManager;
+    [HideInInspector]
+    public AbilityRoot _abilityRoot;
     #endregion
 
 
