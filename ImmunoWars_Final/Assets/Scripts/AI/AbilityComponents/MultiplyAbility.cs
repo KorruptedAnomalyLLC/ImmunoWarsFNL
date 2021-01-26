@@ -39,7 +39,7 @@ public class MultiplyAbility : MonoBehaviour
 
             if (spawnUnit)
             {
-                if(GlobalBlackboard.Instance.unitsInFieldCount >= GlobalBlackboard.Instance.maxUnitsInField)
+                if(GlobalBlackboard.Instance.unitsInFieldCount < GlobalBlackboard.Instance.maxUnitsInField)
                 {
                     GlobalBlackboard.Instance._unitSpawner.SpawnAUnit(unitToSpawn, tempSpawnPoint, transform.rotation);
                 }
