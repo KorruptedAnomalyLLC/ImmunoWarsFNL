@@ -15,4 +15,9 @@ public class PushInflictor : MonoBehaviour
             tempForceDirection = (navi.transform.position - forceOriginPoint).normalized;
             navi.velocity = PushBackForce * tempForceDirection;
     }
+
+    public float ReadPushForce()
+    {
+        return PushBackForce;
+    }
 }

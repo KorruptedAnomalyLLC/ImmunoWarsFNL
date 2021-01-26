@@ -18,12 +18,18 @@ public class Spawn : MonoBehaviour
 
     private Vector3 tempSpawnPoint;
     private LocalBlackboard _localBlackboard;
+    private ParentSpawnToTarget _parentToTarget;
     private GameObject spawnedObject;
 
 
     public void Setup(LocalBlackboard localBlackboard)
     {
         _localBlackboard = localBlackboard;
+
+        if(TryGetComponent(out ParentSpawnToTarget temp))
+        {
+            _parentToTarget = temp;
+        }
     }
 
 
@@ -33,13 +39,17 @@ public class Spawn : MonoBehaviour
         {
             tempSpawnPoint = transform.TransformPoint(spawnPoints[i]);
             tempSpawnPoint = new Vector3(tempSpawnPoint.x, GlobalBlackboard.Instance.playfieldHeight, tempSpawnPoint.z);
-            //tempSpawnPoint = _localBlackboard.transform.TransformPoint(tempSpawnPoint);
 
             spawnedObject = Instantiate(prefabToSpawn, tempSpawnPoint, transform.rotation);
 
             if(spawnedObject.TryGetComponent(out AttackRoot temp))
             {
                 temp.Setup(_localBlackboard);
+            }
+
+            if(_parentToTarget != null)
+            {
+                _parentToTarget.ParentObjectToTarget(spawnedObject.transform, _localBlackboard.currentTarget.transform);
             }
         }
     }

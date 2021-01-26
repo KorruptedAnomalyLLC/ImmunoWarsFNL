@@ -71,8 +71,7 @@ PrefabInstance:
         type: 3}
       propertyPath: prefabToSpawn
       value: 
-      objectReference: {fileID: 1865734437751195461, guid: c64f219a5c74bfc41a7540ebb6002ba2,
-        type: 3}
+      objectReference: {fileID: 1865734437751195461}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 209d2f9c35c517b4d9a8aba978d0e7e7, type: 3}
 --- !u!1 &5353942122965956312 stripped
@@ -297,6 +296,12 @@ PrefabInstance:
       objectReference: {fileID: 5353942122965956312}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 360af6a7a27280e4f94cd7750327a664, type: 3}
+--- !u!1 &1865734437751195461 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3053236771843330936, guid: 360af6a7a27280e4f94cd7750327a664,
+    type: 3}
+  m_PrefabInstance: {fileID: 3727622855920079933}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1865734437751195460 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3053236771843330937, guid: 360af6a7a27280e4f94cd7750327a664,

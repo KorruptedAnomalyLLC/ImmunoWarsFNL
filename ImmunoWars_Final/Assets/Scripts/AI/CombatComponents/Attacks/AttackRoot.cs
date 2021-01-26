@@ -211,7 +211,10 @@ public class AttackRoot : MonoBehaviour
         }
         if(_destroyOnHit != null)
         {
-            _destroyOnHit.DestroyAttack(this.gameObject);
+            if (_destroyOnHit.killUnit)
+                _destroyOnHit.DestroyAttack(_localBlackboard.gameObject);
+            else
+                _destroyOnHit.DestroyAttack(this.gameObject);
         }
     }
     #endregion
