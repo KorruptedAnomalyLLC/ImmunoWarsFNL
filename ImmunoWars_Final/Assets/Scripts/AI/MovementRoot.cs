@@ -179,7 +179,7 @@ public class MovementRoot : MonoBehaviour
     Vector3 tempMoveTarget;
     private void TargetObtainedBranch()
     {
-        if (_moveTarget == null || !_localBlackboard.hasTarget)
+        if (_moveTarget == null || _localBlackboard.currentTarget == null)
             return;
 
         tempMoveTarget = _moveTarget.GrabTargetMovePos();

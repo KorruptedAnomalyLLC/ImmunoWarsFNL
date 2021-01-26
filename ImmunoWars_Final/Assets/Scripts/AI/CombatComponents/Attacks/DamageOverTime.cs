@@ -38,7 +38,8 @@ public class DamageOverTime : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenDamage);
         foreach(StatusManager unit in infectedUnits)
         {
-            _attackRoot.HitUnit(unit);
+            if(unit != null)
+                _attackRoot.HitUnit(unit);
         }
         StartCoroutine(DealDamageOverTime());
     }
