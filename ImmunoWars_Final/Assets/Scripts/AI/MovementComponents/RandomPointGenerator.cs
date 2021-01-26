@@ -17,6 +17,9 @@ public class RandomPointGenerator : MonoBehaviour
     public void Setup(LocalBlackboard localBlackboard)
     {
         _localBlackboard = localBlackboard;
+
+        if (rangeBox == null || rangeBox == default)
+            rangeBox = GlobalBlackboard.Instance.movementRangeBox;
     }
 
     /// <summary>
