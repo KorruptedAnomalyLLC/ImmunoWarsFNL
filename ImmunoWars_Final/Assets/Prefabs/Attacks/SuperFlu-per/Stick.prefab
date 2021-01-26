@@ -159,7 +159,7 @@ MonoBehaviour:
   attackValue: 0
   hitTime: 0.6
   energyCost: 0
-  optimumAttackDistance: 2
+  optimumAttackDistance: 0.5
   attackType: 3
   attackCharged: 1
   onlyHitTarget: 1

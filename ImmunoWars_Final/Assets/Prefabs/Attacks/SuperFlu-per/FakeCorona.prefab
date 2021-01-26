@@ -5027,6 +5027,7 @@ GameObject:
   - component: {fileID: 7253801141439364404}
   - component: {fileID: 1203212300063885000}
   - component: {fileID: 3561490655438667499}
+  - component: {fileID: 3757004165096894647}
   m_Layer: 10
   m_Name: FakeCorona
   m_TagString: Untagged
@@ -5164,6 +5165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd490e145cec7bd4cb65a26564e77bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 7253801141439364404}
 --- !u!114 &3561490655438667499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5178,6 +5180,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathFX: {fileID: 9070934865203674701}
   killTime: 1
+--- !u!65 &3757004165096894647
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3889110221813315880}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6026630840211901027
 GameObject:
   m_ObjectHideFlags: 0

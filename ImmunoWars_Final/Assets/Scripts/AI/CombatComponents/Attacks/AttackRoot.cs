@@ -115,6 +115,10 @@ public class AttackRoot : MonoBehaviour
         {
             _destroyOnHit = temp13;
         }
+        if(TryGetComponent(out RecievePhysicsPush temp14))
+        {
+            temp14.Setup(_localBlackboard.currentTarget.transform);
+        }
     }
     #endregion
 

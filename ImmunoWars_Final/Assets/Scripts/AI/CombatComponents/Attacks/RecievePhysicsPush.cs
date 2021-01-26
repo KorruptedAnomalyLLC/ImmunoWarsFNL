@@ -7,14 +7,17 @@ using UnityEngine;
 
 public class RecievePhysicsPush : MonoBehaviour
 {
+    [SerializeField]
     private Rigidbody rb;
     private Vector3 tempDirection;
     private Transform targetTransform;
 
     private DestroyOnPhysicsPush _destroyOnPush;
 
-    public void Setup()
+    public void Setup(Transform targetTrans)
     {
+        targetTransform = targetTrans;
+
         if(TryGetComponent(out DestroyOnPhysicsPush temp))
         {
             _destroyOnPush = temp;
@@ -30,8 +33,10 @@ public class RecievePhysicsPush : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out PushInflictor temp))
+        Debug.LogError(gameObject.name + " read trigger enter.");
+        if (other.transform.parent.TryGetComponent(out PushInflictor temp))
         {
+            Debug.LogError(gameObject.name + " Soudl be dien now");
             tempDirection = (transform.position - targetTransform.position).normalized;
 
             RecievePush(temp.ReadPushForce() * tempDirection);

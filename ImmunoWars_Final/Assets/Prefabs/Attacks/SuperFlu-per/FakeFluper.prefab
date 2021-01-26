@@ -4946,6 +4946,7 @@ GameObject:
   - component: {fileID: 5729783213143923652}
   - component: {fileID: 4295380692894752824}
   - component: {fileID: 1892107970425853979}
+  - component: {fileID: 8002159079624214294}
   m_Layer: 10
   m_Name: FakeFluper
   m_TagString: Untagged
@@ -5083,6 +5084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd490e145cec7bd4cb65a26564e77bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 5729783213143923652}
 --- !u!114 &1892107970425853979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5097,6 +5099,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathFX: {fileID: 6254521308555237565}
   killTime: 1
+--- !u!65 &8002159079624214294
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2221980960061497304}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5826552881843341208
 GameObject:
   m_ObjectHideFlags: 0
