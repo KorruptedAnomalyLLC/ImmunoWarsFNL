@@ -8,7 +8,6 @@ public class AbilityRoot : MonoBehaviour
 {
     private LocalBlackboard _localBlackboard;
 
-
     public void Setup(LocalBlackboard localBlackboard)
     {
         _localBlackboard = localBlackboard;
@@ -17,6 +16,10 @@ public class AbilityRoot : MonoBehaviour
         if(TryGetComponent(out MultiplyAbility temp))
         {
             temp.Setup(_localBlackboard);
+        }
+        if(TryGetComponent(out Collection temp2))
+        {
+            temp2.Setup(_localBlackboard);
         }
     }
 

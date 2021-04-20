@@ -25,10 +25,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64808c472a55e0b44a768487040b432d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPrefabs: 1
   spawnUnit: 1
   numberToSpawn: 1
   unitToSpawn: 2
-  prefabToSpawn: {fileID: 1374877621144220018}
+  prefabToSpawn: {fileID: 3205109583993076159, guid: fa5e9fc42e6309b449b30fd32e94ef79,
+    type: 3}
   spawnPoints:
   - {x: 6, y: 0}
   repeatTime: 12

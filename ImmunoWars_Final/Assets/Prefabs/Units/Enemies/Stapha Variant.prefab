@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64808c472a55e0b44a768487040b432d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPrefabs: 1
   spawnUnit: 1
   numberToSpawn: 1
   unitToSpawn: 3
-  prefabToSpawn: {fileID: 4039266726602365851}
+  prefabToSpawn: {fileID: 8494819362324439949, guid: d6a2ef85b0607f547a224b9ac4143d32,
+    type: 3}
   spawnPoints:
   - {x: 0, y: -3}
   repeatTime: 8

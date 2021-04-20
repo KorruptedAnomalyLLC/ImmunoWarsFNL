@@ -66,9 +66,12 @@ public class AttackColliderController : MonoBehaviour
         if (collider == myCollider)
             return;
 
+        Debug.LogError(gameObject.name + " collided with " + collider.transform.parent + "  " + collider.gameObject);
+
+
         if (collider.transform.parent.TryGetComponent<LocalBlackboard>(out hitUnitInfo))
         {
-            if (hitUnitInfo.heroUnit == targetHeroes) //gotta change this to be attack friendly units
+            if (hitUnitInfo.heroUnit == targetHeroes) //gotta change this to attack friendly units
             {
                 if (onlyHitTarget)
                 {

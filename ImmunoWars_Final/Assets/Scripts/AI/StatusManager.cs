@@ -9,7 +9,8 @@ public class StatusManager : MonoBehaviour
 {
     [HideInInspector]
     public LocalBlackboard _localBlackboard; //this should be private
-    private TypeInfuser _typeInfuser;
+    [HideInInspector]
+    public TypeInfuser _typeInfuser;
     [HideInInspector]
     public bool hasType = false; //should be in local blackboard, attacks shouldn't be accessing vars from root scripts
     [SerializeField]
@@ -76,6 +77,12 @@ public class StatusManager : MonoBehaviour
             return _typeInfuser.myType;
         else
             return Type.None;
+    }
+
+    public void UpdateAttackType(Type newType)
+    {
+        if (_typeInfuser != null)
+            _typeInfuser.attackType = newType;
     }
 
     //how's this handle healing? Doesn't seem like it currently does

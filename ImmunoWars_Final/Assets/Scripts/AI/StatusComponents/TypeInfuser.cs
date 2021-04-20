@@ -14,4 +14,5 @@ public enum Type
 public class TypeInfuser : MonoBehaviour
 {
     public Type myType = Type.None;
+    public Type attackType = Type.None;
 }

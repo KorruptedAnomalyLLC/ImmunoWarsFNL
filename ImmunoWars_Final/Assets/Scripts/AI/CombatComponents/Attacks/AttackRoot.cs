@@ -24,8 +24,6 @@ public class AttackRoot : MonoBehaviour
 
     #region Effect Variables
     [HideInInspector]
-    public Type attackType = Type.None; //this should stay in the typeInfuser script or the collector script
-    [HideInInspector]
     public bool attackCharged = true;
     #endregion
 
@@ -73,7 +71,7 @@ public class AttackRoot : MonoBehaviour
         if (TryGetComponent(out Collection temp4))
         {
             _collection = temp4;
-            _collection.Setup(this);
+            _collection.Setup(_localBlackboard);
         }
         if (TryGetComponent(out StunInflictor temp5))
         {
@@ -186,7 +184,7 @@ public class AttackRoot : MonoBehaviour
         if (_doDamage != null)
         {
             //if this attack has a type, check if it matches the hit unit's type. If so multiply damage by the typeDamageMultiplier
-            if (_typeInflictor != null && _typeInflictor.CompareTypes(attackType, unitHit.FindType()))
+            if (_typeInflictor != null && _typeInflictor.CompareTypes(_localBlackboard._statusManager._typeInfuser.attackType, unitHit.FindType()))
                 _doDamage.DealDamage(unitHit, _localBlackboard, GlobalBlackboard.Instance.typeDamageMultiplier);
             else
                 _doDamage.DealDamage(unitHit, _localBlackboard);
@@ -222,15 +220,6 @@ public class AttackRoot : MonoBehaviour
         }
     }
     #endregion
-
-
-
-    //used by collection attack... seems kinda weird to have the function here tho
-    //also collection should be an ability, not an attack
-    public void UpdateAttackType(Type newType)
-    {
-        attackType = newType;
-    }
 
 
     public void OnAttackSelected()

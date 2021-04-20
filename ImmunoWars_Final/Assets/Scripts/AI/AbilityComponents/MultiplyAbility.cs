@@ -1,6 +1,7 @@
 ﻿///
 ///This ability allows units to spawn something every x seconds
 ///This script is pretty damn messy.Should be cleaned up at some pont
+///While this handles the multiply ability, it is also used to spawn unit color droplets. The name should be changed to show that.
 ///
 
 using System.Collections;
@@ -17,6 +18,8 @@ public class MultiplyAbility : MonoBehaviour
 
 
     #region Spawn
+    [SerializeField]
+    private bool spawnPrefabs = false;
     [SerializeField]
     private bool spawnUnit = true;
     [SerializeField]
@@ -44,7 +47,8 @@ public class MultiplyAbility : MonoBehaviour
                     GlobalBlackboard.Instance._unitSpawner.SpawnAUnit(unitToSpawn, tempSpawnPoint, transform.rotation);
                 }
             }
-            else
+
+            if(spawnPrefabs)
             {
                 Instantiate(prefabToSpawn, tempSpawnPoint, Quaternion.identity);
             }

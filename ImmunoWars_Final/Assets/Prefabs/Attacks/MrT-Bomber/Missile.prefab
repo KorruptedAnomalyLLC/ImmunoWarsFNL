@@ -41,10 +41,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2108898057841144140}
   - component: {fileID: 5900703394929229355}
-  - component: {fileID: 4293748736376534915}
   - component: {fileID: 7816188164577257167}
   - component: {fileID: 8484017958157148346}
   - component: {fileID: 4949925701951866318}
+  - component: {fileID: 8991574247012961660}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Untagged
@@ -83,22 +83,9 @@ MonoBehaviour:
   hitTime: 0.6
   energyCost: 0
   optimumAttackDistance: 10
-  attackType: 3
   attackCharged: 1
   onlyHitTarget: 0
   targetHeroes: 0
---- !u!114 &4293748736376534915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7128512945353117312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9405a3f58b0be3b4faa21ecc570808cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7816188164577257167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55808a7b4a4247f4aa76ce8714064642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnOnPlayAttack: 1
+  spawnOnLandAttack: 0
   numberToSpawn: 1
   prefabToSpawn: {fileID: 6828717866989611320, guid: 59d8c15ae44fded42b19065f5cef5f27,
     type: 3}
@@ -142,6 +131,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rechargeTime: 2
+--- !u!114 &8991574247012961660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7128512945353117312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a4680a5ac63104898f9926a90785c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9103203564653053973
 GameObject:
   m_ObjectHideFlags: 0
