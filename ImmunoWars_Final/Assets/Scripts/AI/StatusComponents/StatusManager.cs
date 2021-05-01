@@ -90,7 +90,7 @@ public class StatusManager : MonoBehaviour
     {
         _localBlackboard.energyLevel -= damageTaken;
 
-        if (!_localBlackboard.hasTarget)
+        if (!_localBlackboard.hasTarget && !_localBlackboard.playerMoveInProgress)
         {
             _localBlackboard._commandMessenger.AddTarget(attacker, true);
         }

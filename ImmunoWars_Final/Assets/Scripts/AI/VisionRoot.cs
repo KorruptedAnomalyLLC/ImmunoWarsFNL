@@ -101,7 +101,7 @@ public class VisionRoot : MonoBehaviour
             }
         }
 
-        if (targetInfo != null)
+        if (targetInfo != null && !_localBlackboard.playerMoveInProgress)
             _localBlackboard._commandMessenger.AddTarget(targetInfo, true);
     }
     #endregion

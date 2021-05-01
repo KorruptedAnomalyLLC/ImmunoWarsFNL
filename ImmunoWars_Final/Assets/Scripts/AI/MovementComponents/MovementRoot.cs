@@ -67,6 +67,9 @@ public class MovementRoot : MonoBehaviour
                     TargetObtainedBranch();
                 break;
         }
+
+        if (_localBlackboard.playerMoveInProgress) //gives control back to the AI system when it finishes a move directed by the player
+            CheckIfArrived();
     }
 
     //used for movement stuff/things that have to go every frame to keep game looking smooth
@@ -79,6 +82,7 @@ public class MovementRoot : MonoBehaviour
             RotateTo(_localBlackboard.currentTarget.transform.position);
     }
     #endregion
+
 
     #region Actions related to other scripts
     //Update Movement stuff when the unit's behaviour state changes
@@ -145,6 +149,14 @@ public class MovementRoot : MonoBehaviour
     {
         _localBlackboard.navAI.isStopped = false;
     }
+
+    private void CheckIfArrived()
+    {
+        if (_localBlackboard.navAI.remainingDistance < _localBlackboard.movementSlopAllowance)
+        {
+            _localBlackboard.playerMoveInProgress = false;
+        }
+    }
     #endregion
 
     #region Patrol Branch
@@ -190,18 +202,22 @@ public class MovementRoot : MonoBehaviour
 
 
     #region Move Commands
+
     public void MoveTo(Vector3 targetPos)
     {
-
         targetPos = new Vector3(targetPos.x, GlobalBlackboard.Instance.playfieldHeight, targetPos.z);
         _localBlackboard.navAI.SetDestination(targetPos);
     }
+
 
     public void StopMoving()
     {
         _localBlackboard.navAI.autoBraking = true;
         _localBlackboard.navAI.SetDestination(transform.position);
+
+        _localBlackboard.playerMoveInProgress = false;
     }
+
 
     //rotates towards the passed in position
     private void RotateTo(Vector3 targetPos)
@@ -211,9 +227,11 @@ public class MovementRoot : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * (_localBlackboard.navAI.angularSpeed / 200));
     }
 
+
     public void MoveToTouchPos(Vector3 target)
     {
-            MoveTo(target);
+        MoveTo(target);
+        _localBlackboard.playerMoveInProgress = true;
     }
     #endregion
 }

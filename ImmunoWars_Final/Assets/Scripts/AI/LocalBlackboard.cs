@@ -66,6 +66,8 @@ public class LocalBlackboard : MonoBehaviour
     public float lookAtThreshold = 2f;
     public bool useStrafing = false;
     [HideInInspector]
+    public bool playerMoveInProgress = false;
+    [HideInInspector]
     public int originalPriority = 10;
     [HideInInspector]
     public bool hasTarget = false;
