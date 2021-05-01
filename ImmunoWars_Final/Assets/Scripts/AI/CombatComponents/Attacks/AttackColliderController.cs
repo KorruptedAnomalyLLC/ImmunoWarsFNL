@@ -1,8 +1,8 @@
 ﻿///
-///Handles all things related to an attacks collider such as calling to deal damage, etc
+///Handles all things related to an attack's collider such as calling to deal damage, etc
 ///
-
 using UnityEngine;
+
 
 public class AttackColliderController : MonoBehaviour
 {
@@ -47,6 +47,7 @@ public class AttackColliderController : MonoBehaviour
     }
     #endregion
 
+
     public void ActivateCollider(StatusManager whoToTarget, bool whoToHit, bool aimAtAllies)
     {
         targetStatus = whoToTarget;
@@ -60,13 +61,15 @@ public class AttackColliderController : MonoBehaviour
         hitBox.SetActive(false);
     }
 
+
     #region Collision Checks
+
     public void CheckCollision(Collider collider)
     {
         if (collider == myCollider)
             return;
-
-        Debug.LogError(gameObject.name + " collided with " + collider.transform.parent + "  " + collider.gameObject);
+        if (collider.transform.parent == null)
+            return;
 
 
         if (collider.transform.parent.TryGetComponent<LocalBlackboard>(out hitUnitInfo))
@@ -94,6 +97,9 @@ public class AttackColliderController : MonoBehaviour
     {
         if (collider == myCollider)
             return;
+        if (collider.transform.parent == null)
+            return;
+
 
         if (collider.transform.parent.TryGetComponent<LocalBlackboard>(out hitUnitInfo))
         {

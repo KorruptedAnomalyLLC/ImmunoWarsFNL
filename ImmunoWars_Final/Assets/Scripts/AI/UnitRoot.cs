@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿/// <summary>
+/// Base of the AI, all roads start from here
+/// This script calls the Setup, Update, and SmoothUpdate for all AI components
+/// It also handles the tick system and 
+/// </summary>
+using UnityEngine;
+
 
 public class UnitRoot : MonoBehaviour
 {
-    /// <summary>
-    /// Base of the AI, all roads start from here
-    /// </summary>
-
     [SerializeField]
     private float tickTime = 0.5f; //how often to run updates, not done everyframe to save on processing power
     private float currentTick = 0;
@@ -43,6 +45,7 @@ public class UnitRoot : MonoBehaviour
     }
     #endregion
 
+
     #region Player Selection Commands
     public void Selected()
     {
@@ -72,6 +75,7 @@ public class UnitRoot : MonoBehaviour
     }
     #endregion
 
+
     #region Behavior State Changes
     private void SwapBehaviorState(BehaviorState newState)
     {
@@ -80,7 +84,6 @@ public class UnitRoot : MonoBehaviour
         _localBlackboard._commandMessenger.BehaviorStateChanged();
     }
     #endregion
-
 
     
     public void AddTarget(bool enemy)

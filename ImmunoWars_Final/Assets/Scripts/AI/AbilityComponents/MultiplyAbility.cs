@@ -56,6 +56,7 @@ public class MultiplyAbility : MonoBehaviour
     }
     #endregion
 
+    
     #region Repeater
     [SerializeField]
     private float repeatTime = 2f;

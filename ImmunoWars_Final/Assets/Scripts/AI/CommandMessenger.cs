@@ -1,10 +1,10 @@
-﻿using UnityEngine;
-
-
-/// <summary>
+﻿/// <summary>
 /// Relays Commands between components attatched to a unit
 /// </summary>
 /// TODO: Need to place in Null Checks!!!
+using UnityEngine;
+
+
 public class CommandMessenger : MonoBehaviour
 {
     private LocalBlackboard _localBlackboard; //req
@@ -99,6 +99,7 @@ public class CommandMessenger : MonoBehaviour
         _localBlackboard._moveRoot.RecoverFromStun();
     }
 
+
     #region Targeting Commands
     public void AddTarget(LocalBlackboard newTarget, bool enemy)
     {
@@ -129,6 +130,8 @@ public class CommandMessenger : MonoBehaviour
         
     }
     #endregion
+
+
 
     public void AttackButtonChosen(int chosenAttack)
     {

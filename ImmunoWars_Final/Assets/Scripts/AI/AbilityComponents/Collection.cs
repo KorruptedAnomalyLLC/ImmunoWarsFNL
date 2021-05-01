@@ -17,7 +17,7 @@ public class Collection : MonoBehaviour
         {
             _localBlackboard._statusManager.UpdateAttackType(grabbedObject.RetrieveType());
             Destroy(other.gameObject);
-            Debug.LogError("Grabbed a droplet");
+            //Debug.LogError("Grabbed a droplet");
         }
     }
 }
