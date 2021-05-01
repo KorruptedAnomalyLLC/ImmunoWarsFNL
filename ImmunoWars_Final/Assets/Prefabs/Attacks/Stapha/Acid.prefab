@@ -5087,7 +5087,7 @@ MonoBehaviour:
   hitTime: 0.6
   energyCost: 0
   optimumAttackDistance: 4
-  attackType: 3
+  rotateTowardsTarget: 1
   attackCharged: 1
   onlyHitTarget: 0
   targetHeroes: 1

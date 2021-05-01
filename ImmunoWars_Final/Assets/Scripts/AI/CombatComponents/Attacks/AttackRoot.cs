@@ -20,6 +20,9 @@ public class AttackRoot : MonoBehaviour
 
     [SerializeField, Tooltip("This is the distance the AI will try to be from it's target before it can attack.\n\nIt will maintain this distance while this attack is active.")]
     private float optimumAttackDistance = 1.6f;
+
+    [SerializeField, Tooltip("Should the attack rotate itself to face the target.\nUse this for non-area attacks used by units that don't rotate")]
+    private bool rotateTowardsTarget = false;
     #endregion
 
     #region Effect Variables
@@ -122,7 +125,7 @@ public class AttackRoot : MonoBehaviour
 
 
     #region Run/End Attack
-    public void RunAttack()
+    public void RunAttack(Transform target = null)
     {
         if(_spawn != null)
         {
@@ -144,6 +147,9 @@ public class AttackRoot : MonoBehaviour
         {
             _attackFXPlayer.PlayAttackFX();
         }
+
+        if (rotateTowardsTarget && target != null)
+            transform.LookAt(target.position, Vector3.up);
 
         _localBlackboard._statusManager.AdjustEnergy(-energyCost);
     }
