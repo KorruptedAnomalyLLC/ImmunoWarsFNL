@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 7653916880040540687}
   - component: {fileID: 2435145236750342252}
   - component: {fileID: 760040360946582167}
+  - component: {fileID: 7511181968432348464}
+  - component: {fileID: 229753187018914535}
   m_Layer: 10
   m_Name: StaphaTypeDroplet
   m_TagString: Untagged
@@ -124,3 +126,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myType: 0
+  attackType: 3
+--- !u!114 &7511181968432348464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8494819362324439949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6a88e46ec96a7468df50a28f73966f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyCountdown: 3
+  _spawn: {fileID: 229753187018914535}
+  independent: 1
+--- !u!114 &229753187018914535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8494819362324439949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55808a7b4a4247f4aa76ce8714064642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnOnPlayAttack: 0
+  spawnOnLandAttack: 0
+  numberToSpawn: 1
+  prefabToSpawn: {fileID: 6542625254676854361, guid: 4e84a50b21622c740b7e348081e4bb27,
+    type: 3}
+  spawnPoints:
+  - {x: 0, y: 0}

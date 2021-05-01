@@ -174,7 +174,7 @@ public class AttackRoot : MonoBehaviour
     #endregion
 
 
-    #region Hit Unit
+    #region Hit Stuff
     //apply all effects to the unit that was hit... unless its dead
     public void HitUnit(StatusManager unitHit)
     {
@@ -224,6 +224,12 @@ public class AttackRoot : MonoBehaviour
             else
                 _destroyOnHit.DestroyAttack(this.gameObject);
         }
+    }
+
+    public void HitObstacle()
+    {
+        if (_destroyOnHit != null)
+            _destroyOnHit.DestroyAttack(this.gameObject);
     }
     #endregion
 

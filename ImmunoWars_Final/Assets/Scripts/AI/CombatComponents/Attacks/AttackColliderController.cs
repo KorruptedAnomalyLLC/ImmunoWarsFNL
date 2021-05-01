@@ -71,8 +71,9 @@ public class AttackColliderController : MonoBehaviour
         if (collider.transform.parent == null)
             return;
 
-
-        if (collider.transform.parent.TryGetComponent<LocalBlackboard>(out hitUnitInfo))
+        if (collider.CompareTag("ObstaclesLayer"))
+            _attackRoot.HitObstacle();
+        else if (collider.transform.parent.TryGetComponent<LocalBlackboard>(out hitUnitInfo))
         {
             if (hitUnitInfo.heroUnit == targetHeroes) //gotta change this to attack friendly units
             {

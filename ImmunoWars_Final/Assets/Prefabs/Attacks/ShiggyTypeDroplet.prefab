@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3720346873047851069}
   - component: {fileID: 8670028157536109150}
   - component: {fileID: 5986774510878087333}
+  - component: {fileID: -4356375664321669159}
+  - component: {fileID: -9166351347560793205}
   m_Layer: 10
   m_Name: ShiggyTypeDroplet
   m_TagString: Untagged
@@ -124,3 +126,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myType: 1
+  attackType: 3
+--- !u!114 &-4356375664321669159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3205109583993076159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6a88e46ec96a7468df50a28f73966f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyCountdown: 3
+  _spawn: {fileID: -9166351347560793205}
+  independent: 1
+--- !u!114 &-9166351347560793205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3205109583993076159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55808a7b4a4247f4aa76ce8714064642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnOnPlayAttack: 0
+  spawnOnLandAttack: 0
+  numberToSpawn: 1
+  prefabToSpawn: {fileID: 3044611593600010065, guid: e0bf57fc31f011a4db1e4254be5c8447,
+    type: 3}
+  spawnPoints:
+  - {x: 0, y: 0}
