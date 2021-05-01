@@ -33,10 +33,8 @@ public class RecievePhysicsPush : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.LogError(gameObject.name + " read trigger enter.");
         if (other.transform.parent.TryGetComponent(out PushInflictor temp))
         {
-            Debug.LogError(gameObject.name + " Soudl be dien now");
             tempDirection = (transform.position - targetTransform.position).normalized;
 
             RecievePush(temp.ReadPushForce() * tempDirection);

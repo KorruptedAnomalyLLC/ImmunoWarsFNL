@@ -71,7 +71,7 @@ public class AttackColliderController : MonoBehaviour
         if (collider.transform.parent == null)
             return;
 
-        if (collider.CompareTag("ObstaclesLayer"))
+        if (collider.CompareTag("Obstacle"))
             _attackRoot.HitObstacle();
         else if (collider.transform.parent.TryGetComponent<LocalBlackboard>(out hitUnitInfo))
         {

@@ -189,6 +189,12 @@ public class AttackRoot : MonoBehaviour
 
         if (_doDamage != null)
         {
+            if (_typeInflictor != null && _localBlackboard._statusManager._typeInfuser == null) 
+            {
+                Debug.LogError(gameObject.name + " has a type inflicting attack but is missing the type infuser component.\nAdd one or this unit's attacks won't work");
+                return;
+            }
+
             //if this attack has a type, check if it matches the hit unit's type. If so multiply damage by the typeDamageMultiplier
             if (_typeInflictor != null && _typeInflictor.CompareTypes(_localBlackboard._statusManager._typeInfuser.attackType, unitHit.FindType()))
                 _doDamage.DealDamage(unitHit, _localBlackboard, GlobalBlackboard.Instance.typeDamageMultiplier);

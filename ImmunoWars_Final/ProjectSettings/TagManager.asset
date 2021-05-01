@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayField
   - GenericMovementTerritory
+  - Obstacle
   layers:
   - Default
   - TransparentFX
