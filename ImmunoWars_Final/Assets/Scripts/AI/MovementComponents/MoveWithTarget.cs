@@ -1,8 +1,8 @@
 ﻿///
+///This script allows unit's to follow a targeted unit
 ///
-///
-
 using UnityEngine;
+
 
 public class MoveWithTarget : MonoBehaviour
 {
@@ -26,7 +26,12 @@ public class MoveWithTarget : MonoBehaviour
     //Disable NavAI rotation and tell the MovementRoot to rotate the player manually
     public bool RotationBasedOnTarget(Vector3 moveTarget)
     {
-        if ((transform.position - moveTarget).magnitude < _localBlackboard.lookAtThreshold) //magnitude is too expensive to be calculating very often... should use squared numbers if we need more performance
+        if (_localBlackboard.useStrafing)
+        {
+            _localBlackboard.navAI.updateRotation = false;
+            return true;
+        } 
+        else if ((transform.position - moveTarget).magnitude < _localBlackboard.lookAtThreshold) //magnitude is too expensive to be calculating very often... should use squared numbers if we need more performance
         {
             _localBlackboard.navAI.updateRotation = false;
             return true;

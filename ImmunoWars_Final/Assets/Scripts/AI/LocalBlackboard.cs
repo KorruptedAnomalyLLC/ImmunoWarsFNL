@@ -64,6 +64,7 @@ public class LocalBlackboard : MonoBehaviour
     public float movementSlopAllowance = 0.5f;
     public float personalSpace = 2f;   
     public float lookAtThreshold = 2f;
+    public bool useStrafing = false;
     [HideInInspector]
     public int originalPriority = 10;
     [HideInInspector]
