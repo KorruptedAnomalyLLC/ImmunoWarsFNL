@@ -8,8 +8,9 @@ using UnityEngine;
 
 public class UnitRoot : MonoBehaviour
 {
-    [SerializeField]
-    private float tickTime = 0.5f; //how often to run updates, not done everyframe to save on processing power
+    [SerializeField, Tooltip("range that the tick time will be set to, x = min value, y = max value")]
+    private Vector2 tickTimeRange = new Vector2(0.08f, 0.18f); 
+    private float tickTime = 0.1f; //how often to run updates, not done everyframe to save on processing power
     private float currentTick = 0;
 
     [HideInInspector]
@@ -22,6 +23,9 @@ public class UnitRoot : MonoBehaviour
         //Adds one to the current count of units on screen
         GlobalBlackboard.Instance.unitsInFieldCount++;
 
+
+        //Initialize Tick Time
+        tickTime = Random.Range(tickTimeRange.x, tickTimeRange.y);
 
         if (TryGetComponent(out LocalBlackboard temp))
         {

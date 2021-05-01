@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d47f9c7a84e2e6c4ebd73ccf8ed7bfd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tickTime: 0.1
+  tickTimeRange: {x: 0.08, y: 0.18}
   _localBlackboard: {fileID: 3053236771843330933}
 --- !u!114 &3053236771843330933
 MonoBehaviour:
@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _localBlackboard: {fileID: 0}
+  _typeInfuser: {fileID: 0}
   hasType: 0
   deathFX: {fileID: 9001893594479029658}
 --- !u!114 &1699984136835366802
