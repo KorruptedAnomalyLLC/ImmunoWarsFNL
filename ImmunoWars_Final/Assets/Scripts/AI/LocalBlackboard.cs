@@ -49,7 +49,7 @@ public class LocalBlackboard : MonoBehaviour
     public LocalBlackboard currentTarget;
 
 
-
+    public bool unitIsSelected = false;
     public GameObject selectionGlow;
     public Sprite [] attackUI;
     public Sprite dropUnitUI;

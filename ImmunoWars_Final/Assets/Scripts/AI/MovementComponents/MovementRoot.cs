@@ -155,6 +155,8 @@ public class MovementRoot : MonoBehaviour
         if (_localBlackboard.navAI.remainingDistance < _localBlackboard.movementSlopAllowance)
         {
             _localBlackboard.playerMoveInProgress = false;
+            if (!_localBlackboard.unitIsSelected)
+                _localBlackboard._unitRoot.EnterPatrolState();
         }
     }
     #endregion

@@ -54,20 +54,27 @@ public class UnitRoot : MonoBehaviour
     public void Selected()
     {
         SwapBehaviorState(BehaviorState.PlayerControlled);
-        ToggleSelectionGlow(true); 
+        ToggleSelectionGlow(true);
+        _localBlackboard.unitIsSelected = true;
     }
 
     public void Dropped()
     {
         ToggleSelectionGlow(false);
+        _localBlackboard.unitIsSelected = false;
 
-        if (!_localBlackboard.hasTarget)
+        if (!_localBlackboard.hasTarget && !_localBlackboard.playerMoveInProgress)
             SwapBehaviorState(BehaviorState.Patrol);
     }
 
     public void PlayerControlledMovement()
     {
         SwapBehaviorState(BehaviorState.PlayerControlled);
+    }
+
+    public void EnterPatrolState()
+    {
+        SwapBehaviorState(BehaviorState.Patrol);
     }
     #endregion
 
