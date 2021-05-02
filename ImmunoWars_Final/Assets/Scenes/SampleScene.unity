@@ -2168,11 +2168,6 @@ PrefabInstance:
       propertyPath: energyLevel
       value: 60
       objectReference: {fileID: 0}
-    - target: {fileID: 3445658826565154799, guid: c64f219a5c74bfc41a7540ebb6002ba2,
-        type: 3}
-      propertyPath: repeatTime
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c64f219a5c74bfc41a7540ebb6002ba2, type: 3}
 --- !u!4 &1533774586 stripped
