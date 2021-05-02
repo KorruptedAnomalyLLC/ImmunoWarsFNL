@@ -33,6 +33,9 @@ public class RecievePhysicsPush : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.transform.parent == null)
+            return;
+
         if (other.transform.parent.TryGetComponent(out PushInflictor temp))
         {
             tempDirection = (transform.position - targetTransform.position).normalized;

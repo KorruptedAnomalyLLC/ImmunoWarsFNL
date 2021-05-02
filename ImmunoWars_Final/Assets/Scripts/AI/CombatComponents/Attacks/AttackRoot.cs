@@ -135,7 +135,8 @@ public class AttackRoot : MonoBehaviour
 
         if(_attackCollider != null)
         {
-            _attackCollider.ActivateCollider(_localBlackboard.currentTarget._statusManager, onlyHitTarget, targetHeroes);
+            if(_localBlackboard.currentTarget != null)
+               _attackCollider.ActivateCollider(_localBlackboard.currentTarget._statusManager, onlyHitTarget, targetHeroes);
         }
 
         if(_recharge != null)
